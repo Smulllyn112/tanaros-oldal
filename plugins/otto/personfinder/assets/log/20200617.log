@@ -1,0 +1,814 @@
+N/A|N/A|start|2020-06-17 13:14:52|runMode|START
+N/A|N/A|start|2020-06-17 13:14:52|PHP|7.3
+N/A|N/A|start|2020-06-17 13:14:52|callState1|PREPARE
+N/A|N/A|start|2020-06-17 13:14:52|salt|VKMVRwF4P2cJfjtMUzHbjJ2fawbl4MO6
+N/A|N/A|start|2020-06-17 13:14:52|merchant|
+N/A|N/A|start|2020-06-17 13:14:52|orderRef|115923924928677
+N/A|N/A|start|2020-06-17 13:14:52|currency|HUF
+N/A|N/A|start|2020-06-17 13:14:52|customerEmail|sdk_test@otpmobil.com
+N/A|N/A|start|2020-06-17 13:14:52|language|HU
+N/A|N/A|start|2020-06-17 13:14:52|sdkVersion|SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477
+N/A|N/A|start|2020-06-17 13:14:52|methods_0|CARD
+N/A|N/A|start|2020-06-17 13:14:52|total|0
+N/A|N/A|start|2020-06-17 13:14:52|timeout|2020-06-17T13:24:52+02:00
+N/A|N/A|start|2020-06-17 13:14:52|url|http://localhost/back.php
+N/A|N/A|start|2020-06-17 13:14:52|invoice_name|SimplePay V2 Tester
+N/A|N/A|start|2020-06-17 13:14:52|invoice_country|hu
+N/A|N/A|start|2020-06-17 13:14:52|invoice_state|Budapest
+N/A|N/A|start|2020-06-17 13:14:52|invoice_city|Budapest
+N/A|N/A|start|2020-06-17 13:14:52|invoice_zip|1111
+N/A|N/A|start|2020-06-17 13:14:52|invoice_address|Address 1
+N/A|N/A|start|2020-06-17 13:14:52|signatureGeneration|Empty key or data for signature
+N/A|N/A|start|2020-06-17 13:14:52|callState2|REQUEST
+N/A|N/A|start|2020-06-17 13:14:52|sendApiUrl|https://sandbox.simplepay.hu/payment/v2/start
+N/A|N/A|start|2020-06-17 13:14:52|sendContent|{"salt":"9950ab148ccaf4cec41c248b243bf81f","merchant":"","orderRef":"115923924928677","currency":"HUF","customerEmail":"sdk_test@otpmobil.com","language":"HU","sdkVersion":"SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477","methods":["CARD"],"total":25,"timeout":"2020-06-17T13:24:52+02:00","url":"http:\/\/localhost\/back.php","invoice":{"name":"SimplePay V2 Tester","country":"hu","state":"Budapest","city":"Budapest","zip":"1111","address":"Address 1"}}
+N/A|N/A|start|2020-06-17 13:14:52|sendSignature|fpZadSYhWZ6ZILhCeiCFg8Df7ClZriDuSD+4fxh4rcASCAvlxuW1LhyGyOnC+mti
+N/A|N/A|start|2020-06-17 13:14:52|callState3|RESULT
+N/A|N/A|start|2020-06-17 13:14:52|signatureToCheck|MISSING_HEADER_SIGNATURE
+N/A|N/A|start|2020-06-17 13:14:52|computedSignature|8dv7csx/GA3KGYwZqxWwebSbkFblT9YpsnAbY6dlOyurmdnO79Jx2eULKsA74E97
+N/A|N/A|start|2020-06-17 13:14:52|hashCheckResult|fail
+N/A|N/A|start|2020-06-17 13:14:52|responseBody|{"errorCodes":[5201],"salt":"VKMVRwF4P2cJfjtMUzHbjJ2fawbl4MO6","total":0.0}
+N/A|N/A|start|2020-06-17 13:14:52|responseSignature|MISSING_HEADER_SIGNATURE
+N/A|N/A|start|2020-06-17 13:14:52|responseSignatureValid|
+N/A|N/A|start|2020-06-17 13:14:52|errorCodes_0|5201
+N/A|N/A|start|2020-06-17 13:15:44|runMode|START
+N/A|N/A|start|2020-06-17 13:15:44|PHP|7.3
+N/A|N/A|start|2020-06-17 13:15:44|callState1|PREPARE
+N/A|N/A|start|2020-06-17 13:15:44|salt|L5LhtqeaDkRIYv4fj6C9VRVVzRfkz5Az
+N/A|N/A|start|2020-06-17 13:15:44|merchant|
+N/A|N/A|start|2020-06-17 13:15:44|orderRef|115923925447547
+N/A|N/A|start|2020-06-17 13:15:44|currency|HUF
+N/A|N/A|start|2020-06-17 13:15:44|customerEmail|sdk_test@otpmobil.com
+N/A|N/A|start|2020-06-17 13:15:44|language|HU
+N/A|N/A|start|2020-06-17 13:15:44|sdkVersion|SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477
+N/A|N/A|start|2020-06-17 13:15:44|methods_0|CARD
+N/A|N/A|start|2020-06-17 13:15:44|total|0
+N/A|N/A|start|2020-06-17 13:15:44|timeout|2020-06-17T13:25:44+02:00
+N/A|N/A|start|2020-06-17 13:15:44|url|http://localhost/back.php
+N/A|N/A|start|2020-06-17 13:15:44|invoice_name|SimplePay V2 Tester
+N/A|N/A|start|2020-06-17 13:15:44|invoice_country|hu
+N/A|N/A|start|2020-06-17 13:15:44|invoice_state|Budapest
+N/A|N/A|start|2020-06-17 13:15:44|invoice_city|Budapest
+N/A|N/A|start|2020-06-17 13:15:44|invoice_zip|1111
+N/A|N/A|start|2020-06-17 13:15:44|invoice_address|Address 1
+N/A|N/A|start|2020-06-17 13:15:44|signatureGeneration|Empty key or data for signature
+N/A|N/A|start|2020-06-17 13:15:44|callState2|REQUEST
+N/A|N/A|start|2020-06-17 13:15:44|sendApiUrl|https://sandbox.simplepay.hu/payment/v2/start
+N/A|N/A|start|2020-06-17 13:15:44|sendContent|{"salt":"151eabe267270446d59cfa4fae17ea31","merchant":"","orderRef":"115923925447547","currency":"HUF","customerEmail":"sdk_test@otpmobil.com","language":"HU","sdkVersion":"SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477","methods":["CARD"],"total":25,"timeout":"2020-06-17T13:25:44+02:00","url":"http:\/\/localhost\/back.php","invoice":{"name":"SimplePay V2 Tester","country":"hu","state":"Budapest","city":"Budapest","zip":"1111","address":"Address 1"}}
+N/A|N/A|start|2020-06-17 13:15:44|sendSignature|T2Vtk9ld7tSrQ5lQ6IhKGLAjSaPr+LQvxCJRhxPaJY6Kiy4Xb0SuGhP2ja4gq7RN
+N/A|N/A|start|2020-06-17 13:15:44|callState3|RESULT
+N/A|N/A|start|2020-06-17 13:15:44|signatureToCheck|MISSING_HEADER_SIGNATURE
+N/A|N/A|start|2020-06-17 13:15:44|computedSignature|nlXnvFRAQyFxhNYmZGqdzcRWLUVHJw63SyYCxjrsLYKj3nkczuziaDqcIk3Nb0Na
+N/A|N/A|start|2020-06-17 13:15:44|hashCheckResult|fail
+N/A|N/A|start|2020-06-17 13:15:44|responseBody|{"errorCodes":[5201],"salt":"L5LhtqeaDkRIYv4fj6C9VRVVzRfkz5Az","total":0.0}
+N/A|N/A|start|2020-06-17 13:15:44|responseSignature|MISSING_HEADER_SIGNATURE
+N/A|N/A|start|2020-06-17 13:15:44|responseSignatureValid|
+N/A|N/A|start|2020-06-17 13:15:44|errorCodes_0|5201
+N/A|N/A|start|2020-06-17 13:22:07|runMode|START
+N/A|N/A|start|2020-06-17 13:22:07|PHP|7.3
+N/A|N/A|start|2020-06-17 13:22:07|callState1|PREPARE
+N/A|N/A|start|2020-06-17 13:22:07|salt|isfYYz8yqxQyhWKiY7uj57xlkZ0h7duB
+N/A|N/A|start|2020-06-17 13:22:07|merchant|
+N/A|N/A|start|2020-06-17 13:22:07|orderRef|115923929263184
+N/A|N/A|start|2020-06-17 13:22:07|currency|HUF
+N/A|N/A|start|2020-06-17 13:22:07|customerEmail|viharos.otto@gmail.com
+N/A|N/A|start|2020-06-17 13:22:07|language|HU
+N/A|N/A|start|2020-06-17 13:22:07|sdkVersion|SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477
+N/A|N/A|start|2020-06-17 13:22:07|methods_0|CARD
+N/A|N/A|start|2020-06-17 13:22:07|total|0
+N/A|N/A|start|2020-06-17 13:22:07|customer|Viharos Ottó
+N/A|N/A|start|2020-06-17 13:22:07|timeout|2020-06-17T13:32:06+02:00
+N/A|N/A|start|2020-06-17 13:22:07|url|http://localhost/back.php
+N/A|N/A|start|2020-06-17 13:22:07|invoice_name|Viharos Ottó
+N/A|N/A|start|2020-06-17 13:22:07|invoice_country|hu
+N/A|N/A|start|2020-06-17 13:22:07|invoice_state|Budapest
+N/A|N/A|start|2020-06-17 13:22:07|invoice_city|Budapest
+N/A|N/A|start|2020-06-17 13:22:07|invoice_zip|1111
+N/A|N/A|start|2020-06-17 13:22:07|invoice_address|Address 1
+N/A|N/A|start|2020-06-17 13:22:07|signatureGeneration|Empty key or data for signature
+N/A|N/A|start|2020-06-17 13:22:07|callState2|REQUEST
+N/A|N/A|start|2020-06-17 13:22:07|sendApiUrl|https://sandbox.simplepay.hu/payment/v2/start
+N/A|N/A|start|2020-06-17 13:22:07|sendContent|{"salt":"f8d79e6b2e89e210f532d9244e1935f0","merchant":"","orderRef":"115923929263184","currency":"HUF","customerEmail":"viharos.otto@gmail.com","language":"HU","sdkVersion":"SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477","methods":["CARD"],"total":25,"customer":"Viharos Ott\u00f3","timeout":"2020-06-17T13:32:06+02:00","url":"http:\/\/localhost\/back.php","invoice":{"name":"Viharos Ott\u00f3","country":"hu","state":"Budapest","city":"Budapest","zip":"1111","address":"Address 1"}}
+N/A|N/A|start|2020-06-17 13:22:07|sendSignature|k8Mizrhex1zjgTF2PiJJdYee9yEeP9mKqz7pYuXgQzDdhWLRoNXz4ZqMzTXyILuE
+N/A|N/A|start|2020-06-17 13:22:07|callState3|RESULT
+N/A|N/A|start|2020-06-17 13:22:07|signatureToCheck|MISSING_HEADER_SIGNATURE
+N/A|N/A|start|2020-06-17 13:22:07|computedSignature|xe/GEJ+DX7cZf/Y1OKllSBroRQ86gE6Agk2id+rvYI6+YGM/kCnG1SE7g12hcaTp
+N/A|N/A|start|2020-06-17 13:22:07|hashCheckResult|fail
+N/A|N/A|start|2020-06-17 13:22:07|responseBody|{"errorCodes":[5201],"salt":"isfYYz8yqxQyhWKiY7uj57xlkZ0h7duB","total":0.0}
+N/A|N/A|start|2020-06-17 13:22:07|responseSignature|MISSING_HEADER_SIGNATURE
+N/A|N/A|start|2020-06-17 13:22:07|responseSignatureValid|
+N/A|N/A|start|2020-06-17 13:22:07|errorCodes_0|5201
+N/A|N/A|start|2020-06-17 13:46:34|runMode|START
+N/A|N/A|start|2020-06-17 13:46:34|PHP|7.3
+N/A|N/A|start|2020-06-17 13:46:34|callState1|PREPARE
+N/A|N/A|start|2020-06-17 13:46:34|salt|jjJWENqMGVbClfTaeMt4LJ2IPihxVuHZ
+N/A|N/A|start|2020-06-17 13:46:34|merchant|
+N/A|N/A|start|2020-06-17 13:46:34|orderRef|115923943943360
+N/A|N/A|start|2020-06-17 13:46:34|currency|HUF
+N/A|N/A|start|2020-06-17 13:46:34|customerEmail|viharos.otto@gmail.com
+N/A|N/A|start|2020-06-17 13:46:34|language|HU
+N/A|N/A|start|2020-06-17 13:46:34|sdkVersion|SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477
+N/A|N/A|start|2020-06-17 13:46:34|methods_0|WIRE
+N/A|N/A|start|2020-06-17 13:46:34|total|0
+N/A|N/A|start|2020-06-17 13:46:34|customer|Viharos Ottó
+N/A|N/A|start|2020-06-17 13:46:34|timeout|2020-06-17T13:56:34+02:00
+N/A|N/A|start|2020-06-17 13:46:34|url|http://localhost/webrolling/szabadkikotopalyak/simple_pay/minta_kod/start.php
+N/A|N/A|start|2020-06-17 13:46:34|invoice_name|Viharos Ottó
+N/A|N/A|start|2020-06-17 13:46:34|invoice_country|hu
+N/A|N/A|start|2020-06-17 13:46:34|invoice_state|Budapest
+N/A|N/A|start|2020-06-17 13:46:34|invoice_city|Budapest
+N/A|N/A|start|2020-06-17 13:46:34|invoice_zip|1111
+N/A|N/A|start|2020-06-17 13:46:34|invoice_address|Address 1
+N/A|N/A|start|2020-06-17 13:46:34|signatureGeneration|Empty key or data for signature
+N/A|N/A|start|2020-06-17 13:46:34|callState2|REQUEST
+N/A|N/A|start|2020-06-17 13:46:34|sendApiUrl|https://sandbox.simplepay.hu/payment/v2/start
+N/A|N/A|start|2020-06-17 13:46:34|sendContent|{"salt":"98afb8f4bd9917974b579d852f8074ea","merchant":"","orderRef":"115923943943360","currency":"HUF","customerEmail":"viharos.otto@gmail.com","language":"HU","sdkVersion":"SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477","methods":["WIRE"],"total":25,"customer":"Viharos Ott\u00f3","timeout":"2020-06-17T13:56:34+02:00","url":"http:\/\/localhost\/webrolling\/szabadkikotopalyak\/simple_pay\/minta_kod\/start.php","invoice":{"name":"Viharos Ott\u00f3","country":"hu","state":"Budapest","city":"Budapest","zip":"1111","address":"Address 1"}}
+N/A|N/A|start|2020-06-17 13:46:34|sendSignature|J0A/qkfQTSCX6AEi7kOVR30v0I/sncsQkKRyut+GSMBfFwAK12KUYwJFQzOVetuu
+N/A|N/A|start|2020-06-17 13:46:34|callState3|RESULT
+N/A|N/A|start|2020-06-17 13:46:34|signatureToCheck|MISSING_HEADER_SIGNATURE
+N/A|N/A|start|2020-06-17 13:46:34|computedSignature|QeM3YE7faqKN9lv5iZquQ0HBk0ihIhDvQ6EoLGw6eNHYKCef1CU5lciaykYX0dzT
+N/A|N/A|start|2020-06-17 13:46:34|hashCheckResult|fail
+N/A|N/A|start|2020-06-17 13:46:34|responseBody|{"errorCodes":[5201],"salt":"jjJWENqMGVbClfTaeMt4LJ2IPihxVuHZ","total":0.0}
+N/A|N/A|start|2020-06-17 13:46:34|responseSignature|MISSING_HEADER_SIGNATURE
+N/A|N/A|start|2020-06-17 13:46:34|responseSignatureValid|
+N/A|N/A|start|2020-06-17 13:46:34|errorCodes_0|5201
+N/A|N/A|start|2020-06-17 13:46:48|runMode|START
+N/A|N/A|start|2020-06-17 13:46:48|PHP|7.3
+N/A|N/A|start|2020-06-17 13:46:48|callState1|PREPARE
+N/A|N/A|start|2020-06-17 13:46:48|salt|KOVHto3Qb6mftVsc0BYlQHeqcdzRtwFu
+N/A|N/A|start|2020-06-17 13:46:48|merchant|
+N/A|N/A|start|2020-06-17 13:46:48|orderRef|115923944083627
+N/A|N/A|start|2020-06-17 13:46:48|currency|HUF
+N/A|N/A|start|2020-06-17 13:46:48|customerEmail|viharos.otto@gmail.com
+N/A|N/A|start|2020-06-17 13:46:48|language|HU
+N/A|N/A|start|2020-06-17 13:46:48|sdkVersion|SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477
+N/A|N/A|start|2020-06-17 13:46:48|methods_0|WIRE
+N/A|N/A|start|2020-06-17 13:46:48|total|0
+N/A|N/A|start|2020-06-17 13:46:48|customer|Viharos Ottó
+N/A|N/A|start|2020-06-17 13:46:48|timeout|2020-06-17T13:56:48+02:00
+N/A|N/A|start|2020-06-17 13:46:48|url|http://localhost/webrolling/szabadkikotopalyak/simple_pay/minta_kod/back.php
+N/A|N/A|start|2020-06-17 13:46:48|invoice_name|Viharos Ottó
+N/A|N/A|start|2020-06-17 13:46:48|invoice_country|hu
+N/A|N/A|start|2020-06-17 13:46:48|invoice_state|Budapest
+N/A|N/A|start|2020-06-17 13:46:48|invoice_city|Budapest
+N/A|N/A|start|2020-06-17 13:46:48|invoice_zip|1111
+N/A|N/A|start|2020-06-17 13:46:48|invoice_address|Address 1
+N/A|N/A|start|2020-06-17 13:46:48|signatureGeneration|Empty key or data for signature
+N/A|N/A|start|2020-06-17 13:46:48|callState2|REQUEST
+N/A|N/A|start|2020-06-17 13:46:48|sendApiUrl|https://sandbox.simplepay.hu/payment/v2/start
+N/A|N/A|start|2020-06-17 13:46:48|sendContent|{"salt":"29898a2b7839a2528d709938f9aee04a","merchant":"","orderRef":"115923944083627","currency":"HUF","customerEmail":"viharos.otto@gmail.com","language":"HU","sdkVersion":"SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477","methods":["WIRE"],"total":25,"customer":"Viharos Ott\u00f3","timeout":"2020-06-17T13:56:48+02:00","url":"http:\/\/localhost\/webrolling\/szabadkikotopalyak\/simple_pay\/minta_kod\/back.php","invoice":{"name":"Viharos Ott\u00f3","country":"hu","state":"Budapest","city":"Budapest","zip":"1111","address":"Address 1"}}
+N/A|N/A|start|2020-06-17 13:46:48|sendSignature|u5+LQcM19X4h7PBbPNJ/w5XU16KkU0TNJ8pIpR/68Ys288GswraZ+wmmRNY/88X1
+N/A|N/A|start|2020-06-17 13:46:48|callState3|RESULT
+N/A|N/A|start|2020-06-17 13:46:48|signatureToCheck|MISSING_HEADER_SIGNATURE
+N/A|N/A|start|2020-06-17 13:46:48|computedSignature|1mg2Njdf9eF/3JH+8LySrW5HLvAD4pim1B7Eyu01jKXAsrKbKnqvmwycC8tZW53i
+N/A|N/A|start|2020-06-17 13:46:48|hashCheckResult|fail
+N/A|N/A|start|2020-06-17 13:46:48|responseBody|{"errorCodes":[5201],"salt":"KOVHto3Qb6mftVsc0BYlQHeqcdzRtwFu","total":0.0}
+N/A|N/A|start|2020-06-17 13:46:48|responseSignature|MISSING_HEADER_SIGNATURE
+N/A|N/A|start|2020-06-17 13:46:48|responseSignatureValid|
+N/A|N/A|start|2020-06-17 13:46:48|errorCodes_0|5201
+N/A|N/A|start|2020-06-17 13:47:05|runMode|START
+N/A|N/A|start|2020-06-17 13:47:05|PHP|7.3
+N/A|N/A|start|2020-06-17 13:47:05|callState1|PREPARE
+N/A|N/A|start|2020-06-17 13:47:05|salt|EQeRYCXNE9KFzxSWdcCuvybPmX3dvnRx
+N/A|N/A|start|2020-06-17 13:47:05|merchant|
+N/A|N/A|start|2020-06-17 13:47:05|orderRef|115923944257755
+N/A|N/A|start|2020-06-17 13:47:05|currency|HUF
+N/A|N/A|start|2020-06-17 13:47:05|customerEmail|viharos.otto@gmail.com
+N/A|N/A|start|2020-06-17 13:47:05|language|HU
+N/A|N/A|start|2020-06-17 13:47:05|sdkVersion|SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477
+N/A|N/A|start|2020-06-17 13:47:05|methods_0|WIRE
+N/A|N/A|start|2020-06-17 13:47:05|total|0
+N/A|N/A|start|2020-06-17 13:47:05|customer|Viharos Ottó
+N/A|N/A|start|2020-06-17 13:47:05|timeout|2020-06-17T13:57:05+02:00
+N/A|N/A|start|2020-06-17 13:47:05|url|http://localhost/webrolling/szabadkikotopalyak/simple_pay/minta_kod/back.php
+N/A|N/A|start|2020-06-17 13:47:05|invoice_name|Viharos Ottó
+N/A|N/A|start|2020-06-17 13:47:05|invoice_country|hu
+N/A|N/A|start|2020-06-17 13:47:05|invoice_state|Budapest
+N/A|N/A|start|2020-06-17 13:47:05|invoice_city|Budapest
+N/A|N/A|start|2020-06-17 13:47:05|invoice_zip|1111
+N/A|N/A|start|2020-06-17 13:47:05|invoice_address|Address 1
+N/A|N/A|start|2020-06-17 13:47:05|signatureGeneration|Empty key or data for signature
+N/A|N/A|start|2020-06-17 13:47:05|callState2|REQUEST
+N/A|N/A|start|2020-06-17 13:47:05|sendApiUrl|https://sandbox.simplepay.hu/payment/v2/start
+N/A|N/A|start|2020-06-17 13:47:05|sendContent|{"salt":"c6acf5c107399735153bfb9004d953e0","merchant":"","orderRef":"115923944257755","currency":"HUF","customerEmail":"viharos.otto@gmail.com","language":"HU","sdkVersion":"SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477","methods":["WIRE"],"total":25,"customer":"Viharos Ott\u00f3","timeout":"2020-06-17T13:57:05+02:00","url":"http:\/\/localhost\/webrolling\/szabadkikotopalyak\/simple_pay\/minta_kod\/back.php","invoice":{"name":"Viharos Ott\u00f3","country":"hu","state":"Budapest","city":"Budapest","zip":"1111","address":"Address 1"}}
+N/A|N/A|start|2020-06-17 13:47:05|sendSignature|Fi9RW62KDCGbkwkQDRjo7FMfniG0gaYk1wjOKigto3hGkAMJNq0GJmf+5uK1DXPU
+N/A|N/A|start|2020-06-17 13:47:05|callState3|RESULT
+N/A|N/A|start|2020-06-17 13:47:05|signatureToCheck|MISSING_HEADER_SIGNATURE
+N/A|N/A|start|2020-06-17 13:47:05|computedSignature|nASgcTHzfUzHJmkHQUYIhPBM7DZ6bTiIvv2qbJacbDHeo5w4I3cs2kvcRDayZtcr
+N/A|N/A|start|2020-06-17 13:47:05|hashCheckResult|fail
+N/A|N/A|start|2020-06-17 13:47:05|responseBody|{"errorCodes":[5201],"salt":"EQeRYCXNE9KFzxSWdcCuvybPmX3dvnRx","total":0.0}
+N/A|N/A|start|2020-06-17 13:47:05|responseSignature|MISSING_HEADER_SIGNATURE
+N/A|N/A|start|2020-06-17 13:47:05|responseSignatureValid|
+N/A|N/A|start|2020-06-17 13:47:05|errorCodes_0|5201
+N/A|N/A|start|2020-06-17 13:58:00|runMode|START
+N/A|N/A|start|2020-06-17 13:58:00|PHP|7.3
+N/A|N/A|start|2020-06-17 13:58:00|callState1|PREPARE
+N/A|N/A|start|2020-06-17 13:58:00|salt|OIdKV93U8A1YETe5SdaUc2GP1xLiWBby
+N/A|N/A|start|2020-06-17 13:58:00|merchant|OMS5471401
+N/A|N/A|start|2020-06-17 13:58:00|orderRef|115923950805909
+N/A|N/A|start|2020-06-17 13:58:00|currency|HUF
+N/A|N/A|start|2020-06-17 13:58:00|customerEmail|viharos.otto@gmail.com
+N/A|N/A|start|2020-06-17 13:58:00|language|HU
+N/A|N/A|start|2020-06-17 13:58:00|sdkVersion|SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477
+N/A|N/A|start|2020-06-17 13:58:00|methods_0|WIRE
+N/A|N/A|start|2020-06-17 13:58:00|total|0
+N/A|N/A|start|2020-06-17 13:58:00|customer|Viharos Ottó
+N/A|N/A|start|2020-06-17 13:58:00|timeout|2020-06-17T14:08:00+02:00
+N/A|N/A|start|2020-06-17 13:58:00|url|http://localhost/webrolling/szabadkikotopalyak/simple_pay/minta_kod/back.php
+N/A|N/A|start|2020-06-17 13:58:00|invoice_name|Viharos Ottó
+N/A|N/A|start|2020-06-17 13:58:00|invoice_country|hu
+N/A|N/A|start|2020-06-17 13:58:00|invoice_state|Budapest
+N/A|N/A|start|2020-06-17 13:58:00|invoice_city|Budapest
+N/A|N/A|start|2020-06-17 13:58:00|invoice_zip|1111
+N/A|N/A|start|2020-06-17 13:58:00|invoice_address|Address 1
+N/A|N/A|start|2020-06-17 13:58:00|signatureGeneration|Empty key or data for signature
+N/A|N/A|start|2020-06-17 13:58:00|callState2|REQUEST
+N/A|N/A|start|2020-06-17 13:58:00|sendApiUrl|https://sandbox.simplepay.hu/payment/v2/start
+N/A|N/A|start|2020-06-17 13:58:00|sendContent|{"salt":"7cf6f930994b958109e54e49a572e766","merchant":"OMS5471401","orderRef":"115923950805909","currency":"HUF","customerEmail":"viharos.otto@gmail.com","language":"HU","sdkVersion":"SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477","methods":["WIRE"],"total":25,"customer":"Viharos Ott\u00f3","timeout":"2020-06-17T14:08:00+02:00","url":"http:\/\/localhost\/webrolling\/szabadkikotopalyak\/simple_pay\/minta_kod\/back.php","invoice":{"name":"Viharos Ott\u00f3","country":"hu","state":"Budapest","city":"Budapest","zip":"1111","address":"Address 1"}}
+N/A|N/A|start|2020-06-17 13:58:00|sendSignature|Orm4HbIx05IY54u33XpNW2jyN5OuhfBALPh5rwhYcw1wEC0GD/zP/bBkFi21ACXj
+N/A|N/A|start|2020-06-17 13:58:00|callState3|RESULT
+N/A|N/A|start|2020-06-17 13:58:00|signatureToCheck|QbC4cEEv9LEpNn0zlgNPWa2cdMdPkawpq2R6hS9dJ9D+TZNc1szX4OBUuM9W16U7
+N/A|N/A|start|2020-06-17 13:58:00|computedSignature|n415XkGKE10nwRl772HsdGoOv6C1Y3kPK+rmNLrzwZH3q1aOogT2peyWxgEwegCx
+N/A|N/A|start|2020-06-17 13:58:00|hashCheckResult|fail
+N/A|N/A|start|2020-06-17 13:58:00|responseBody|{"errorCodes":[5302],"salt":"OIdKV93U8A1YETe5SdaUc2GP1xLiWBby","total":0.0}
+N/A|N/A|start|2020-06-17 13:58:00|responseSignature|QbC4cEEv9LEpNn0zlgNPWa2cdMdPkawpq2R6hS9dJ9D+TZNc1szX4OBUuM9W16U7
+N/A|N/A|start|2020-06-17 13:58:00|responseSignatureValid|
+N/A|N/A|start|2020-06-17 13:58:00|errorCodes_0|5302
+N/A|N/A|start|2020-06-17 13:58:31|runMode|START
+N/A|N/A|start|2020-06-17 13:58:31|PHP|7.3
+N/A|N/A|start|2020-06-17 13:58:31|callState1|PREPARE
+N/A|N/A|start|2020-06-17 13:58:31|salt|2PxgCZBNm1WIY76PwhWoL5Imgll8tQNw
+N/A|N/A|start|2020-06-17 13:58:31|merchant|
+N/A|N/A|start|2020-06-17 13:58:31|orderRef|115923951114013
+N/A|N/A|start|2020-06-17 13:58:31|currency|HUF
+N/A|N/A|start|2020-06-17 13:58:31|customerEmail|viharos.otto@gmail.com
+N/A|N/A|start|2020-06-17 13:58:31|language|HU
+N/A|N/A|start|2020-06-17 13:58:31|sdkVersion|SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477
+N/A|N/A|start|2020-06-17 13:58:31|methods_0|WIRE
+N/A|N/A|start|2020-06-17 13:58:31|total|0
+N/A|N/A|start|2020-06-17 13:58:31|customer|Viharos Ottó
+N/A|N/A|start|2020-06-17 13:58:31|timeout|2020-06-17T14:08:31+02:00
+N/A|N/A|start|2020-06-17 13:58:31|url|http://localhost/webrolling/szabadkikotopalyak/simple_pay/minta_kod/back.php
+N/A|N/A|start|2020-06-17 13:58:31|invoice_name|Viharos Ottó
+N/A|N/A|start|2020-06-17 13:58:31|invoice_country|hu
+N/A|N/A|start|2020-06-17 13:58:31|invoice_state|Budapest
+N/A|N/A|start|2020-06-17 13:58:31|invoice_city|Budapest
+N/A|N/A|start|2020-06-17 13:58:31|invoice_zip|1111
+N/A|N/A|start|2020-06-17 13:58:31|invoice_address|Address 1
+N/A|N/A|start|2020-06-17 13:58:31|signatureGeneration|Empty key or data for signature
+N/A|N/A|start|2020-06-17 13:58:31|callState2|REQUEST
+N/A|N/A|start|2020-06-17 13:58:31|sendApiUrl|https://sandbox.simplepay.hu/payment/v2/start
+N/A|N/A|start|2020-06-17 13:58:31|sendContent|{"salt":"0d396bb9626b86df18210bdf21587b0e","merchant":"","orderRef":"115923951114013","currency":"HUF","customerEmail":"viharos.otto@gmail.com","language":"HU","sdkVersion":"SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477","methods":["WIRE"],"total":25,"customer":"Viharos Ott\u00f3","timeout":"2020-06-17T14:08:31+02:00","url":"http:\/\/localhost\/webrolling\/szabadkikotopalyak\/simple_pay\/minta_kod\/back.php","invoice":{"name":"Viharos Ott\u00f3","country":"hu","state":"Budapest","city":"Budapest","zip":"1111","address":"Address 1"}}
+N/A|N/A|start|2020-06-17 13:58:31|sendSignature|jXVkepZCyrcTVW+MCOQMuEmwBfAAfHj7lWkJF7ljExysOEY3fF1Vum67cvZIy/GD
+N/A|N/A|start|2020-06-17 13:58:31|callState3|RESULT
+N/A|N/A|start|2020-06-17 13:58:31|signatureToCheck|MISSING_HEADER_SIGNATURE
+N/A|N/A|start|2020-06-17 13:58:31|computedSignature|uny/JOdtu0Pco5RC1iBuCf6G3C0QJ+u/yyNJuak5qNMDBdXkfdhuTDJYG82RtWRK
+N/A|N/A|start|2020-06-17 13:58:31|hashCheckResult|fail
+N/A|N/A|start|2020-06-17 13:58:31|responseBody|{"errorCodes":[5201],"salt":"2PxgCZBNm1WIY76PwhWoL5Imgll8tQNw","total":0.0}
+N/A|N/A|start|2020-06-17 13:58:31|responseSignature|MISSING_HEADER_SIGNATURE
+N/A|N/A|start|2020-06-17 13:58:31|responseSignatureValid|
+N/A|N/A|start|2020-06-17 13:58:31|errorCodes_0|5201
+N/A|N/A|start|2020-06-17 13:58:42|runMode|START
+N/A|N/A|start|2020-06-17 13:58:42|PHP|7.3
+N/A|N/A|start|2020-06-17 13:58:42|callState1|PREPARE
+N/A|N/A|start|2020-06-17 13:58:42|salt|knfuyVLzCllLJLkriGkil4skbxczzmF9
+N/A|N/A|start|2020-06-17 13:58:42|merchant|OMS5471401
+N/A|N/A|start|2020-06-17 13:58:42|orderRef|115923951224431
+N/A|N/A|start|2020-06-17 13:58:42|currency|HUF
+N/A|N/A|start|2020-06-17 13:58:42|customerEmail|viharos.otto@gmail.com
+N/A|N/A|start|2020-06-17 13:58:42|language|HU
+N/A|N/A|start|2020-06-17 13:58:42|sdkVersion|SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477
+N/A|N/A|start|2020-06-17 13:58:42|methods_0|WIRE
+N/A|N/A|start|2020-06-17 13:58:42|total|0
+N/A|N/A|start|2020-06-17 13:58:42|customer|Viharos Ottó
+N/A|N/A|start|2020-06-17 13:58:42|timeout|2020-06-17T14:08:42+02:00
+N/A|N/A|start|2020-06-17 13:58:42|url|http://localhost/webrolling/szabadkikotopalyak/simple_pay/minta_kod/back.php
+N/A|N/A|start|2020-06-17 13:58:42|invoice_name|Viharos Ottó
+N/A|N/A|start|2020-06-17 13:58:42|invoice_country|hu
+N/A|N/A|start|2020-06-17 13:58:42|invoice_state|Budapest
+N/A|N/A|start|2020-06-17 13:58:42|invoice_city|Budapest
+N/A|N/A|start|2020-06-17 13:58:42|invoice_zip|1111
+N/A|N/A|start|2020-06-17 13:58:42|invoice_address|Address 1
+N/A|N/A|start|2020-06-17 13:58:42|signatureGeneration|Empty key or data for signature
+N/A|N/A|start|2020-06-17 13:58:42|callState2|REQUEST
+N/A|N/A|start|2020-06-17 13:58:42|sendApiUrl|https://sandbox.simplepay.hu/payment/v2/start
+N/A|N/A|start|2020-06-17 13:58:42|sendContent|{"salt":"6031cd924a97904dd1e6b0fb13d5acf0","merchant":"OMS5471401","orderRef":"115923951224431","currency":"HUF","customerEmail":"viharos.otto@gmail.com","language":"HU","sdkVersion":"SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477","methods":["WIRE"],"total":25,"customer":"Viharos Ott\u00f3","timeout":"2020-06-17T14:08:42+02:00","url":"http:\/\/localhost\/webrolling\/szabadkikotopalyak\/simple_pay\/minta_kod\/back.php","invoice":{"name":"Viharos Ott\u00f3","country":"hu","state":"Budapest","city":"Budapest","zip":"1111","address":"Address 1"}}
+N/A|N/A|start|2020-06-17 13:58:42|sendSignature|hDYey11naGaPzsxWd2Beg8V+p8VBWPHBTUV5flA5YWg+YNPfEU8Pjypr3iuoWkKJ
+N/A|N/A|start|2020-06-17 13:58:42|callState3|RESULT
+N/A|N/A|start|2020-06-17 13:58:42|signatureToCheck|wzPI4xKpyYc8haoX9l5FU2+nNhtfNpwhEz+QR/TJqbJ6OtKPCjuMFBVr/XpPFo2m
+N/A|N/A|start|2020-06-17 13:58:42|computedSignature|WipLQgTGvAtCfc7rHQHE7QrIMvy6c28506U9+xiGMpE2qK4qd0PMom8+6vwi4Let
+N/A|N/A|start|2020-06-17 13:58:42|hashCheckResult|fail
+N/A|N/A|start|2020-06-17 13:58:42|responseBody|{"errorCodes":[5302],"salt":"knfuyVLzCllLJLkriGkil4skbxczzmF9","total":0.0}
+N/A|N/A|start|2020-06-17 13:58:42|responseSignature|wzPI4xKpyYc8haoX9l5FU2+nNhtfNpwhEz+QR/TJqbJ6OtKPCjuMFBVr/XpPFo2m
+N/A|N/A|start|2020-06-17 13:58:42|responseSignatureValid|
+N/A|N/A|start|2020-06-17 13:58:42|errorCodes_0|5302
+115923952674994|10323145|start|2020-06-17 14:01:08|runMode|START
+115923952674994|10323145|start|2020-06-17 14:01:08|PHP|7.3
+115923952674994|10323145|start|2020-06-17 14:01:08|callState1|PREPARE
+115923952674994|10323145|start|2020-06-17 14:01:08|salt|K9SNnnhlCzIFW3R8xEZgMN5FstqNcrJZ
+115923952674994|10323145|start|2020-06-17 14:01:08|merchant|OMS5471401
+115923952674994|10323145|start|2020-06-17 14:01:08|orderRef|115923952674994
+115923952674994|10323145|start|2020-06-17 14:01:08|currency|HUF
+115923952674994|10323145|start|2020-06-17 14:01:08|customerEmail|viharos.otto@gmail.com
+115923952674994|10323145|start|2020-06-17 14:01:08|language|HU
+115923952674994|10323145|start|2020-06-17 14:01:08|sdkVersion|SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477
+115923952674994|10323145|start|2020-06-17 14:01:08|methods_0|WIRE
+115923952674994|10323145|start|2020-06-17 14:01:08|total|25
+115923952674994|10323145|start|2020-06-17 14:01:08|customer|Viharos Ottó
+115923952674994|10323145|start|2020-06-17 14:01:08|timeout|2020-07-01T23:59:59+02:00
+115923952674994|10323145|start|2020-06-17 14:01:08|url|http://localhost/webrolling/szabadkikotopalyak/simple_pay/minta_kod/back.php
+115923952674994|10323145|start|2020-06-17 14:01:08|invoice_name|Viharos Ottó
+115923952674994|10323145|start|2020-06-17 14:01:08|invoice_country|hu
+115923952674994|10323145|start|2020-06-17 14:01:08|invoice_state|Budapest
+115923952674994|10323145|start|2020-06-17 14:01:08|invoice_city|Budapest
+115923952674994|10323145|start|2020-06-17 14:01:08|invoice_zip|1111
+115923952674994|10323145|start|2020-06-17 14:01:08|invoice_address|Address 1
+115923952674994|10323145|start|2020-06-17 14:01:08|callState2|REQUEST
+115923952674994|10323145|start|2020-06-17 14:01:08|sendApiUrl|https://sandbox.simplepay.hu/payment/v2/start
+115923952674994|10323145|start|2020-06-17 14:01:08|sendContent|{"salt":"2d2f817ba4e6d84cfc1aa802bcb9e9de","merchant":"OMS5471401","orderRef":"115923952674994","currency":"HUF","customerEmail":"viharos.otto@gmail.com","language":"HU","sdkVersion":"SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477","methods":["WIRE"],"total":25,"customer":"Viharos Ott\u00f3","timeout":"2020-06-17T14:11:07+02:00","url":"http:\/\/localhost\/webrolling\/szabadkikotopalyak\/simple_pay\/minta_kod\/back.php","invoice":{"name":"Viharos Ott\u00f3","country":"hu","state":"Budapest","city":"Budapest","zip":"1111","address":"Address 1"}}
+115923952674994|10323145|start|2020-06-17 14:01:08|sendSignature|8CCorllUGPSSp7GQu3qJQu1gJOhlU5j6C6XO17JYyXqcEgkNcFQaXyae0EoASxp2
+115923952674994|10323145|start|2020-06-17 14:01:08|callState3|RESULT
+115923952674994|10323145|start|2020-06-17 14:01:08|signatureToCheck|gV69DhwsZCaw+EbnsJyKo+yf1C6bFjYqk7CYcODF5aHRDxsPmFnijXfcDFO0J1U2
+115923952674994|10323145|start|2020-06-17 14:01:08|computedSignature|gV69DhwsZCaw+EbnsJyKo+yf1C6bFjYqk7CYcODF5aHRDxsPmFnijXfcDFO0J1U2
+115923952674994|10323145|start|2020-06-17 14:01:08|hashCheckResult|success
+115923952674994|10323145|start|2020-06-17 14:01:08|responseBody|{"salt":"K9SNnnhlCzIFW3R8xEZgMN5FstqNcrJZ","merchant":"OMS5471401","orderRef":"115923952674994","currency":"HUF","transactionId":10323145,"timeout":"2020-07-01T23:59:59+02:00","total":25.0,"paymentUrl":"https://sandbox.simplepay.hu/pay/pay/pspHU/Sqgzpe2N5tErUS00gMINLi0zX6NHLAEgxSvyvWDHYiWQsy_GBk"}
+115923952674994|10323145|start|2020-06-17 14:01:08|responseSignature|gV69DhwsZCaw+EbnsJyKo+yf1C6bFjYqk7CYcODF5aHRDxsPmFnijXfcDFO0J1U2
+115923952674994|10323145|start|2020-06-17 14:01:08|responseSignatureValid|1
+115923952674994|10323145|start|2020-06-17 14:01:08|transactionId|10323145
+115923952674994|10323145|start|2020-06-17 14:01:08|paymentUrl|https://sandbox.simplepay.hu/pay/pay/pspHU/Sqgzpe2N5tErUS00gMINLi0zX6NHLAEgxSvyvWDHYiWQsy_GBk
+115923967638877|10323195|start|2020-06-17 14:26:04|runMode|START
+115923967638877|10323195|start|2020-06-17 14:26:04|PHP|7.3
+115923967638877|10323195|start|2020-06-17 14:26:04|callState1|PREPARE
+115923967638877|10323195|start|2020-06-17 14:26:04|salt|VWUmnyAeSJxvUxyAC0VvOtai8VA2Q1MP
+115923967638877|10323195|start|2020-06-17 14:26:04|merchant|OMS5471401
+115923967638877|10323195|start|2020-06-17 14:26:04|orderRef|115923967638877
+115923967638877|10323195|start|2020-06-17 14:26:04|currency|HUF
+115923967638877|10323195|start|2020-06-17 14:26:04|customerEmail|viharos.otto@gmail.com
+115923967638877|10323195|start|2020-06-17 14:26:04|language|HU
+115923967638877|10323195|start|2020-06-17 14:26:04|sdkVersion|SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477
+115923967638877|10323195|start|2020-06-17 14:26:04|methods_0|CARD
+115923967638877|10323195|start|2020-06-17 14:26:04|total|25
+115923967638877|10323195|start|2020-06-17 14:26:04|customer|Viharos Ottó
+115923967638877|10323195|start|2020-06-17 14:26:04|timeout|2020-06-17T14:36:03+02:00
+115923967638877|10323195|start|2020-06-17 14:26:04|url|http://localhost/webrolling/szabadkikotopalyak/simple_pay/minta_kod/back.php
+115923967638877|10323195|start|2020-06-17 14:26:04|invoice_name|Viharos Ottó
+115923967638877|10323195|start|2020-06-17 14:26:04|invoice_country|hu
+115923967638877|10323195|start|2020-06-17 14:26:04|invoice_state|Budapest
+115923967638877|10323195|start|2020-06-17 14:26:04|invoice_city|Budapest
+115923967638877|10323195|start|2020-06-17 14:26:04|invoice_zip|1111
+115923967638877|10323195|start|2020-06-17 14:26:04|invoice_address|Address 1
+115923967638877|10323195|start|2020-06-17 14:26:04|callState2|REQUEST
+115923967638877|10323195|start|2020-06-17 14:26:04|sendApiUrl|https://sandbox.simplepay.hu/payment/v2/start
+115923967638877|10323195|start|2020-06-17 14:26:04|sendContent|{"salt":"5f43c9c8226361af764e79f66d7493b0","merchant":"OMS5471401","orderRef":"115923967638877","currency":"HUF","customerEmail":"viharos.otto@gmail.com","language":"HU","sdkVersion":"SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477","methods":["CARD"],"total":25,"customer":"Viharos Ott\u00f3","timeout":"2020-06-17T14:36:03+02:00","url":"http:\/\/localhost\/webrolling\/szabadkikotopalyak\/simple_pay\/minta_kod\/back.php","invoice":{"name":"Viharos Ott\u00f3","country":"hu","state":"Budapest","city":"Budapest","zip":"1111","address":"Address 1"}}
+115923967638877|10323195|start|2020-06-17 14:26:04|sendSignature|JdB4oRvADRKgNVR80Lb+jtSzxnSxNonfPC2Mi/pSksDymUfgNioqODYCOtTU0xDc
+115923967638877|10323195|start|2020-06-17 14:26:04|callState3|RESULT
+115923967638877|10323195|start|2020-06-17 14:26:04|signatureToCheck|lh11XVQ20IFJcWHD3k1GMyehNPCdtK7UuVxOQm76WcBRhNsTTO4CnHrqKdFMzyez
+115923967638877|10323195|start|2020-06-17 14:26:04|computedSignature|lh11XVQ20IFJcWHD3k1GMyehNPCdtK7UuVxOQm76WcBRhNsTTO4CnHrqKdFMzyez
+115923967638877|10323195|start|2020-06-17 14:26:04|hashCheckResult|success
+115923967638877|10323195|start|2020-06-17 14:26:04|responseBody|{"salt":"VWUmnyAeSJxvUxyAC0VvOtai8VA2Q1MP","merchant":"OMS5471401","orderRef":"115923967638877","currency":"HUF","transactionId":10323195,"timeout":"2020-06-17T14:36:03+02:00","total":25.0,"paymentUrl":"https://sandbox.simplepay.hu/pay/pay/pspHU/7QhnZMnNGSrhSHqQ3vbNBnmzPS7HeQK9xSrui9ec8SzIfWBWDj"}
+115923967638877|10323195|start|2020-06-17 14:26:04|responseSignature|lh11XVQ20IFJcWHD3k1GMyehNPCdtK7UuVxOQm76WcBRhNsTTO4CnHrqKdFMzyez
+115923967638877|10323195|start|2020-06-17 14:26:04|responseSignatureValid|1
+115923967638877|10323195|start|2020-06-17 14:26:04|transactionId|10323195
+115923967638877|10323195|start|2020-06-17 14:26:04|paymentUrl|https://sandbox.simplepay.hu/pay/pay/pspHU/7QhnZMnNGSrhSHqQ3vbNBnmzPS7HeQK9xSrui9ec8SzIfWBWDj
+115923967638877|10323195|back|2020-06-17 14:26:28|runMode|BACK
+115923967638877|10323195|back|2020-06-17 14:26:28|PHP|7.3
+115923967638877|10323195|back|2020-06-17 14:26:28|rRequest|eyJyIjowLCJ0IjoxMDMyMzE5NSwiZSI6IlNVQ0NFU1MiLCJtIjoiT01TNTQ3MTQwMSIsIm8iOiIxMTU5MjM5Njc2Mzg4NzcifQ==
+115923967638877|10323195|back|2020-06-17 14:26:28|sRequest|LPAUH0f2XoBxhGa2ja3RThH4hfqP2Kg0gfwGFTfuh7Y7T4HfxUxXGkkCjfPkl4kU
+115923967638877|10323195|back|2020-06-17 14:26:28|rJson|{"r":0,"t":10323195,"e":"SUCCESS","m":"OMS5471401","o":"115923967638877"}
+115923967638877|10323195|back|2020-06-17 14:26:28|rContent_r|0
+115923967638877|10323195|back|2020-06-17 14:26:28|rContent_t|10323195
+115923967638877|10323195|back|2020-06-17 14:26:28|rContent_e|SUCCESS
+115923967638877|10323195|back|2020-06-17 14:26:28|rContent_m|OMS5471401
+115923967638877|10323195|back|2020-06-17 14:26:28|rContent_o|115923967638877
+115923967638877|10323195|back|2020-06-17 14:26:28|signatureToCheck|LPAUH0f2XoBxhGa2ja3RThH4hfqP2Kg0gfwGFTfuh7Y7T4HfxUxXGkkCjfPkl4kU
+115923967638877|10323195|back|2020-06-17 14:26:28|computedSignature|LPAUH0f2XoBxhGa2ja3RThH4hfqP2Kg0gfwGFTfuh7Y7T4HfxUxXGkkCjfPkl4kU
+115923967638877|10323195|back|2020-06-17 14:26:28|hashCheckResult|success
+115923968738231|10323200|start|2020-06-17 14:27:54|runMode|START
+115923968738231|10323200|start|2020-06-17 14:27:54|PHP|7.3
+115923968738231|10323200|start|2020-06-17 14:27:54|callState1|PREPARE
+115923968738231|10323200|start|2020-06-17 14:27:54|salt|mflgotspTvXZyliXvsPGz09pS4ci2d4Z
+115923968738231|10323200|start|2020-06-17 14:27:54|merchant|OMS5471401
+115923968738231|10323200|start|2020-06-17 14:27:54|orderRef|115923968738231
+115923968738231|10323200|start|2020-06-17 14:27:54|currency|HUF
+115923968738231|10323200|start|2020-06-17 14:27:54|customerEmail|viharos.otto@gmail.com
+115923968738231|10323200|start|2020-06-17 14:27:54|language|HU
+115923968738231|10323200|start|2020-06-17 14:27:54|sdkVersion|SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477
+115923968738231|10323200|start|2020-06-17 14:27:54|methods_0|CARD
+115923968738231|10323200|start|2020-06-17 14:27:54|total|25
+115923968738231|10323200|start|2020-06-17 14:27:54|customer|Viharos Ottó
+115923968738231|10323200|start|2020-06-17 14:27:54|timeout|2020-06-17T14:37:53+02:00
+115923968738231|10323200|start|2020-06-17 14:27:54|url|http://localhost/webrolling/szabadkikotopalyak/simple_pay/minta_kod/back.php
+115923968738231|10323200|start|2020-06-17 14:27:54|invoice_name|Viharos Ottó
+115923968738231|10323200|start|2020-06-17 14:27:54|invoice_country|hu
+115923968738231|10323200|start|2020-06-17 14:27:54|invoice_state|Budapest
+115923968738231|10323200|start|2020-06-17 14:27:54|invoice_city|Budapest
+115923968738231|10323200|start|2020-06-17 14:27:54|invoice_zip|1111
+115923968738231|10323200|start|2020-06-17 14:27:54|invoice_address|Address 1
+115923968738231|10323200|start|2020-06-17 14:27:54|callState2|REQUEST
+115923968738231|10323200|start|2020-06-17 14:27:54|sendApiUrl|https://sandbox.simplepay.hu/payment/v2/start
+115923968738231|10323200|start|2020-06-17 14:27:54|sendContent|{"salt":"ee5d39b18ec44d553f1b7cb3ba1c5540","merchant":"OMS5471401","orderRef":"115923968738231","currency":"HUF","customerEmail":"viharos.otto@gmail.com","language":"HU","sdkVersion":"SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477","methods":["CARD"],"total":25,"customer":"Viharos Ott\u00f3","timeout":"2020-06-17T14:37:53+02:00","url":"http:\/\/localhost\/webrolling\/szabadkikotopalyak\/simple_pay\/minta_kod\/back.php","invoice":{"name":"Viharos Ott\u00f3","country":"hu","state":"Budapest","city":"Budapest","zip":"1111","address":"Address 1"}}
+115923968738231|10323200|start|2020-06-17 14:27:54|sendSignature|YxAUhH8+rbeIDoBfwdoPivRumRAgQZOxe4xXZpME9HsIqe8x27NN1dHIEwnzsN4c
+115923968738231|10323200|start|2020-06-17 14:27:54|callState3|RESULT
+115923968738231|10323200|start|2020-06-17 14:27:54|signatureToCheck|hzLaoMjKiIwSHOh2J8JEoFUYpCV08JcMbqiry2JVa9GO1dFLWwdOwRj/gbcHAfjh
+115923968738231|10323200|start|2020-06-17 14:27:54|computedSignature|hzLaoMjKiIwSHOh2J8JEoFUYpCV08JcMbqiry2JVa9GO1dFLWwdOwRj/gbcHAfjh
+115923968738231|10323200|start|2020-06-17 14:27:54|hashCheckResult|success
+115923968738231|10323200|start|2020-06-17 14:27:54|responseBody|{"salt":"mflgotspTvXZyliXvsPGz09pS4ci2d4Z","merchant":"OMS5471401","orderRef":"115923968738231","currency":"HUF","transactionId":10323200,"timeout":"2020-06-17T14:37:53+02:00","total":25.0,"paymentUrl":"https://sandbox.simplepay.hu/pay/pay/pspHU/jMQThVsNKYwgBL_N2pKNCBuzMadHHAiixSrDwR3fUgWBhyemDk"}
+115923968738231|10323200|start|2020-06-17 14:27:54|responseSignature|hzLaoMjKiIwSHOh2J8JEoFUYpCV08JcMbqiry2JVa9GO1dFLWwdOwRj/gbcHAfjh
+115923968738231|10323200|start|2020-06-17 14:27:54|responseSignatureValid|1
+115923968738231|10323200|start|2020-06-17 14:27:54|transactionId|10323200
+115923968738231|10323200|start|2020-06-17 14:27:54|paymentUrl|https://sandbox.simplepay.hu/pay/pay/pspHU/jMQThVsNKYwgBL_N2pKNCBuzMadHHAiixSrDwR3fUgWBhyemDk
+115923968738231|10323200|back|2020-06-17 14:28:14|runMode|BACK
+115923968738231|10323200|back|2020-06-17 14:28:14|PHP|7.3
+115923968738231|10323200|back|2020-06-17 14:28:14|rRequest|eyJyIjowLCJ0IjoxMDMyMzIwMCwiZSI6IlNVQ0NFU1MiLCJtIjoiT01TNTQ3MTQwMSIsIm8iOiIxMTU5MjM5Njg3MzgyMzEifQ==
+115923968738231|10323200|back|2020-06-17 14:28:14|sRequest|sMruNb3/hYYX3mHctWnEkTzrKSRRF/CaxCG7Akl4PP6JeBOzEtxKDsh96icgbZ4C
+115923968738231|10323200|back|2020-06-17 14:28:14|rJson|{"r":0,"t":10323200,"e":"SUCCESS","m":"OMS5471401","o":"115923968738231"}
+115923968738231|10323200|back|2020-06-17 14:28:14|rContent_r|0
+115923968738231|10323200|back|2020-06-17 14:28:14|rContent_t|10323200
+115923968738231|10323200|back|2020-06-17 14:28:14|rContent_e|SUCCESS
+115923968738231|10323200|back|2020-06-17 14:28:14|rContent_m|OMS5471401
+115923968738231|10323200|back|2020-06-17 14:28:14|rContent_o|115923968738231
+115923968738231|10323200|back|2020-06-17 14:28:14|signatureToCheck|sMruNb3/hYYX3mHctWnEkTzrKSRRF/CaxCG7Akl4PP6JeBOzEtxKDsh96icgbZ4C
+115923968738231|10323200|back|2020-06-17 14:28:14|computedSignature|sMruNb3/hYYX3mHctWnEkTzrKSRRF/CaxCG7Akl4PP6JeBOzEtxKDsh96icgbZ4C
+115923968738231|10323200|back|2020-06-17 14:28:14|hashCheckResult|success
+115923969192153|10323201|start|2020-06-17 14:28:39|runMode|START
+115923969192153|10323201|start|2020-06-17 14:28:39|PHP|7.3
+115923969192153|10323201|start|2020-06-17 14:28:39|callState1|PREPARE
+115923969192153|10323201|start|2020-06-17 14:28:39|salt|tCPOAyhI6tkMQ3b6McH8Q5ZE28vizldG
+115923969192153|10323201|start|2020-06-17 14:28:39|merchant|OMS5471401
+115923969192153|10323201|start|2020-06-17 14:28:39|orderRef|115923969192153
+115923969192153|10323201|start|2020-06-17 14:28:39|currency|HUF
+115923969192153|10323201|start|2020-06-17 14:28:39|customerEmail|viharos.otto@gmail.com
+115923969192153|10323201|start|2020-06-17 14:28:39|language|HU
+115923969192153|10323201|start|2020-06-17 14:28:39|sdkVersion|SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477
+115923969192153|10323201|start|2020-06-17 14:28:39|methods_0|CARD
+115923969192153|10323201|start|2020-06-17 14:28:39|total|25
+115923969192153|10323201|start|2020-06-17 14:28:39|customer|Viharos Ottó
+115923969192153|10323201|start|2020-06-17 14:28:39|timeout|2020-06-17T14:38:39+02:00
+115923969192153|10323201|start|2020-06-17 14:28:39|url|http://localhost/webrolling/szabadkikotopalyak/simple_pay/minta_kod/backkk.php
+115923969192153|10323201|start|2020-06-17 14:28:39|invoice_name|Viharos Ottó
+115923969192153|10323201|start|2020-06-17 14:28:39|invoice_country|hu
+115923969192153|10323201|start|2020-06-17 14:28:39|invoice_state|Budapest
+115923969192153|10323201|start|2020-06-17 14:28:39|invoice_city|Budapest
+115923969192153|10323201|start|2020-06-17 14:28:39|invoice_zip|1111
+115923969192153|10323201|start|2020-06-17 14:28:39|invoice_address|Address 1
+115923969192153|10323201|start|2020-06-17 14:28:39|callState2|REQUEST
+115923969192153|10323201|start|2020-06-17 14:28:39|sendApiUrl|https://sandbox.simplepay.hu/payment/v2/start
+115923969192153|10323201|start|2020-06-17 14:28:39|sendContent|{"salt":"3d34818e9db23e1d8fef1ee6f904640d","merchant":"OMS5471401","orderRef":"115923969192153","currency":"HUF","customerEmail":"viharos.otto@gmail.com","language":"HU","sdkVersion":"SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477","methods":["CARD"],"total":25,"customer":"Viharos Ott\u00f3","timeout":"2020-06-17T14:38:39+02:00","url":"http:\/\/localhost\/webrolling\/szabadkikotopalyak\/simple_pay\/minta_kod\/backkk.php","invoice":{"name":"Viharos Ott\u00f3","country":"hu","state":"Budapest","city":"Budapest","zip":"1111","address":"Address 1"}}
+115923969192153|10323201|start|2020-06-17 14:28:39|sendSignature|IISBYfPzHklTV36FcNcjWCP8Gvulh0WqccdUyyBWLCEHB++ljXgHFaIfJaaArZoC
+115923969192153|10323201|start|2020-06-17 14:28:39|callState3|RESULT
+115923969192153|10323201|start|2020-06-17 14:28:39|signatureToCheck|FqIvPtXRCS7wndDnaU2TuoJgzZOKgZrU772Zh0W9bYGRRiDrM1/O9agx0u+fpx9M
+115923969192153|10323201|start|2020-06-17 14:28:39|computedSignature|FqIvPtXRCS7wndDnaU2TuoJgzZOKgZrU772Zh0W9bYGRRiDrM1/O9agx0u+fpx9M
+115923969192153|10323201|start|2020-06-17 14:28:39|hashCheckResult|success
+115923969192153|10323201|start|2020-06-17 14:28:39|responseBody|{"salt":"tCPOAyhI6tkMQ3b6McH8Q5ZE28vizldG","merchant":"OMS5471401","orderRef":"115923969192153","currency":"HUF","transactionId":10323201,"timeout":"2020-06-17T14:38:39+02:00","total":25.0,"paymentUrl":"https://sandbox.simplepay.hu/pay/pay/pspHU/F21IRQ9NbNATRIaNs3eNLo0zV6wFkwQQxSpBEk1x8ippMmBmBt"}
+115923969192153|10323201|start|2020-06-17 14:28:39|responseSignature|FqIvPtXRCS7wndDnaU2TuoJgzZOKgZrU772Zh0W9bYGRRiDrM1/O9agx0u+fpx9M
+115923969192153|10323201|start|2020-06-17 14:28:39|responseSignatureValid|1
+115923969192153|10323201|start|2020-06-17 14:28:39|transactionId|10323201
+115923969192153|10323201|start|2020-06-17 14:28:39|paymentUrl|https://sandbox.simplepay.hu/pay/pay/pspHU/F21IRQ9NbNATRIaNs3eNLo0zV6wFkwQQxSpBEk1x8ippMmBmBt
+115923969739296|10323205|start|2020-06-17 14:29:33|runMode|START
+115923969739296|10323205|start|2020-06-17 14:29:33|PHP|7.3
+115923969739296|10323205|start|2020-06-17 14:29:33|callState1|PREPARE
+115923969739296|10323205|start|2020-06-17 14:29:33|salt|KoMcDNLYlzNDz7ewxcZr35DhqDFCM44U
+115923969739296|10323205|start|2020-06-17 14:29:33|merchant|OMS5471401
+115923969739296|10323205|start|2020-06-17 14:29:33|orderRef|115923969739296
+115923969739296|10323205|start|2020-06-17 14:29:33|currency|HUF
+115923969739296|10323205|start|2020-06-17 14:29:33|customerEmail|viharos.otto@gmail.com
+115923969739296|10323205|start|2020-06-17 14:29:33|language|HU
+115923969739296|10323205|start|2020-06-17 14:29:33|sdkVersion|SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477
+115923969739296|10323205|start|2020-06-17 14:29:33|methods_0|CARD
+115923969739296|10323205|start|2020-06-17 14:29:33|total|25
+115923969739296|10323205|start|2020-06-17 14:29:33|customer|Viharos Ottó
+115923969739296|10323205|start|2020-06-17 14:29:33|timeout|2020-06-17T14:39:33+02:00
+115923969739296|10323205|start|2020-06-17 14:29:33|url|http://localhost/webrolling/szabadkikotopalyak/simple_pay/minta_kod/backkk.php
+115923969739296|10323205|start|2020-06-17 14:29:33|invoice_name|Viharos Ottó
+115923969739296|10323205|start|2020-06-17 14:29:33|invoice_country|hu
+115923969739296|10323205|start|2020-06-17 14:29:33|invoice_state|Budapest
+115923969739296|10323205|start|2020-06-17 14:29:33|invoice_city|Budapest
+115923969739296|10323205|start|2020-06-17 14:29:33|invoice_zip|1111
+115923969739296|10323205|start|2020-06-17 14:29:33|invoice_address|Address 1
+115923969739296|10323205|start|2020-06-17 14:29:33|callState2|REQUEST
+115923969739296|10323205|start|2020-06-17 14:29:33|sendApiUrl|https://sandbox.simplepay.hu/payment/v2/start
+115923969739296|10323205|start|2020-06-17 14:29:33|sendContent|{"salt":"74d15456e923b6534457639fd90fd23e","merchant":"OMS5471401","orderRef":"115923969739296","currency":"HUF","customerEmail":"viharos.otto@gmail.com","language":"HU","sdkVersion":"SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477","methods":["CARD"],"total":25,"customer":"Viharos Ott\u00f3","timeout":"2020-06-17T14:39:33+02:00","url":"http:\/\/localhost\/webrolling\/szabadkikotopalyak\/simple_pay\/minta_kod\/backkk.php","invoice":{"name":"Viharos Ott\u00f3","country":"hu","state":"Budapest","city":"Budapest","zip":"1111","address":"Address 1"}}
+115923969739296|10323205|start|2020-06-17 14:29:33|sendSignature|L+QvOjm9GrEbg/OqqvEIB10F26PVTimeNYAHrUv7gawyUq4LFCMx9Ce7nn13cFho
+115923969739296|10323205|start|2020-06-17 14:29:33|callState3|RESULT
+115923969739296|10323205|start|2020-06-17 14:29:33|signatureToCheck|zmNxhjs1tfEQ+ASBJl444S2+ZyeX7HAtiNku0cr6NdXHypxH7Mch4eyL1aceIN1W
+115923969739296|10323205|start|2020-06-17 14:29:33|computedSignature|zmNxhjs1tfEQ+ASBJl444S2+ZyeX7HAtiNku0cr6NdXHypxH7Mch4eyL1aceIN1W
+115923969739296|10323205|start|2020-06-17 14:29:33|hashCheckResult|success
+115923969739296|10323205|start|2020-06-17 14:29:33|responseBody|{"salt":"KoMcDNLYlzNDz7ewxcZr35DhqDFCM44U","merchant":"OMS5471401","orderRef":"115923969739296","currency":"HUF","transactionId":10323205,"timeout":"2020-06-17T14:39:33+02:00","total":25.0,"paymentUrl":"https://sandbox.simplepay.hu/pay/pay/pspHU/jVsKIEkNcFgLfSPV0IUNEu2zaWKHqQAMxStJwhJcUitguilmBg"}
+115923969739296|10323205|start|2020-06-17 14:29:33|responseSignature|zmNxhjs1tfEQ+ASBJl444S2+ZyeX7HAtiNku0cr6NdXHypxH7Mch4eyL1aceIN1W
+115923969739296|10323205|start|2020-06-17 14:29:33|responseSignatureValid|1
+115923969739296|10323205|start|2020-06-17 14:29:33|transactionId|10323205
+115923969739296|10323205|start|2020-06-17 14:29:33|paymentUrl|https://sandbox.simplepay.hu/pay/pay/pspHU/jVsKIEkNcFgLfSPV0IUNEu2zaWKHqQAMxStJwhJcUitguilmBg
+115923970208031|10323210|start|2020-06-17 14:30:20|runMode|START
+115923970208031|10323210|start|2020-06-17 14:30:20|PHP|7.3
+115923970208031|10323210|start|2020-06-17 14:30:20|callState1|PREPARE
+115923970208031|10323210|start|2020-06-17 14:30:20|salt|RnP7fJmIbRbZ2ShJCBjsQZ8ph3f34jEs
+115923970208031|10323210|start|2020-06-17 14:30:20|merchant|OMS5471401
+115923970208031|10323210|start|2020-06-17 14:30:20|orderRef|115923970208031
+115923970208031|10323210|start|2020-06-17 14:30:20|currency|HUF
+115923970208031|10323210|start|2020-06-17 14:30:20|customerEmail|viharos.otto@gmail.com
+115923970208031|10323210|start|2020-06-17 14:30:20|language|HU
+115923970208031|10323210|start|2020-06-17 14:30:20|sdkVersion|SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477
+115923970208031|10323210|start|2020-06-17 14:30:20|methods_0|CARD
+115923970208031|10323210|start|2020-06-17 14:30:20|total|25
+115923970208031|10323210|start|2020-06-17 14:30:20|customer|Viharos Ottó
+115923970208031|10323210|start|2020-06-17 14:30:20|timeout|2020-06-17T14:40:20+02:00
+115923970208031|10323210|start|2020-06-17 14:30:20|url|http://localhost/webrolling/szabadkikotopalyak/simple_pay/minta_kod/backkk.php
+115923970208031|10323210|start|2020-06-17 14:30:20|invoice_name|Viharos Ottó
+115923970208031|10323210|start|2020-06-17 14:30:20|invoice_country|hu
+115923970208031|10323210|start|2020-06-17 14:30:20|invoice_state|Budapest
+115923970208031|10323210|start|2020-06-17 14:30:20|invoice_city|Budapest
+115923970208031|10323210|start|2020-06-17 14:30:20|invoice_zip|1111
+115923970208031|10323210|start|2020-06-17 14:30:20|invoice_address|Address 1
+115923970208031|10323210|start|2020-06-17 14:30:20|callState2|REQUEST
+115923970208031|10323210|start|2020-06-17 14:30:20|sendApiUrl|https://sandbox.simplepay.hu/payment/v2/start
+115923970208031|10323210|start|2020-06-17 14:30:20|sendContent|{"salt":"723b1a732a8cfd4df7a10c0569fff60d","merchant":"OMS5471401","orderRef":"115923970208031","currency":"HUF","customerEmail":"viharos.otto@gmail.com","language":"HU","sdkVersion":"SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477","methods":["CARD"],"total":25,"customer":"Viharos Ott\u00f3","timeout":"2020-06-17T14:40:20+02:00","url":"http:\/\/localhost\/webrolling\/szabadkikotopalyak\/simple_pay\/minta_kod\/backkk.php","invoice":{"name":"Viharos Ott\u00f3","country":"hu","state":"Budapest","city":"Budapest","zip":"1111","address":"Address 1"}}
+115923970208031|10323210|start|2020-06-17 14:30:20|sendSignature|P8D0BozDv0Ydh0Ivf/GRe3cMMuDRvHleS8ov3p/qG7pdMVrJG6WhmnPV4wDJSET2
+115923970208031|10323210|start|2020-06-17 14:30:20|callState3|RESULT
+115923970208031|10323210|start|2020-06-17 14:30:20|signatureToCheck|2bfP9r26W98bg35Xf1tuSgtAylegkKYrkYJ+2hnrkxpD5jy9r4o2VrVE9Bgw43YY
+115923970208031|10323210|start|2020-06-17 14:30:20|computedSignature|2bfP9r26W98bg35Xf1tuSgtAylegkKYrkYJ+2hnrkxpD5jy9r4o2VrVE9Bgw43YY
+115923970208031|10323210|start|2020-06-17 14:30:20|hashCheckResult|success
+115923970208031|10323210|start|2020-06-17 14:30:20|responseBody|{"salt":"RnP7fJmIbRbZ2ShJCBjsQZ8ph3f34jEs","merchant":"OMS5471401","orderRef":"115923970208031","currency":"HUF","transactionId":10323210,"timeout":"2020-06-17T14:40:20+02:00","total":25.0,"paymentUrl":"https://sandbox.simplepay.hu/pay/pay/pspHU/2p5sJa8Nd328jAD5vPfNFHuzr6lEIgl4xSvzg1cfgC70s70WDj"}
+115923970208031|10323210|start|2020-06-17 14:30:20|responseSignature|2bfP9r26W98bg35Xf1tuSgtAylegkKYrkYJ+2hnrkxpD5jy9r4o2VrVE9Bgw43YY
+115923970208031|10323210|start|2020-06-17 14:30:20|responseSignatureValid|1
+115923970208031|10323210|start|2020-06-17 14:30:20|transactionId|10323210
+115923970208031|10323210|start|2020-06-17 14:30:20|paymentUrl|https://sandbox.simplepay.hu/pay/pay/pspHU/2p5sJa8Nd328jAD5vPfNFHuzr6lEIgl4xSvzg1cfgC70s70WDj
+115923970788505|10323214|start|2020-06-17 14:31:18|runMode|START
+115923970788505|10323214|start|2020-06-17 14:31:18|PHP|7.3
+115923970788505|10323214|start|2020-06-17 14:31:18|callState1|PREPARE
+115923970788505|10323214|start|2020-06-17 14:31:18|salt|Jp8D3MaMZqJp7mXqikJP66vDfgVJKPMv
+115923970788505|10323214|start|2020-06-17 14:31:18|merchant|OMS5471401
+115923970788505|10323214|start|2020-06-17 14:31:18|orderRef|115923970788505
+115923970788505|10323214|start|2020-06-17 14:31:18|currency|HUF
+115923970788505|10323214|start|2020-06-17 14:31:18|customerEmail|viharos.otto@gmail.com
+115923970788505|10323214|start|2020-06-17 14:31:18|language|HU
+115923970788505|10323214|start|2020-06-17 14:31:18|sdkVersion|SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477
+115923970788505|10323214|start|2020-06-17 14:31:18|methods_0|CARD
+115923970788505|10323214|start|2020-06-17 14:31:18|total|25
+115923970788505|10323214|start|2020-06-17 14:31:18|customer|Viharos Ottó
+115923970788505|10323214|start|2020-06-17 14:31:18|timeout|2020-06-17T14:41:18+02:00
+115923970788505|10323214|start|2020-06-17 14:31:18|url|http://localhost/webrolling/szabadkikotopalyak/simple_pay/minta_kod/back.php
+115923970788505|10323214|start|2020-06-17 14:31:18|invoice_name|Viharos Ottó
+115923970788505|10323214|start|2020-06-17 14:31:18|invoice_country|hu
+115923970788505|10323214|start|2020-06-17 14:31:18|invoice_state|Budapest
+115923970788505|10323214|start|2020-06-17 14:31:18|invoice_city|Budapest
+115923970788505|10323214|start|2020-06-17 14:31:18|invoice_zip|1111
+115923970788505|10323214|start|2020-06-17 14:31:18|invoice_address|Address 1
+115923970788505|10323214|start|2020-06-17 14:31:18|callState2|REQUEST
+115923970788505|10323214|start|2020-06-17 14:31:18|sendApiUrl|https://sandbox.simplepay.hu/payment/v2/start
+115923970788505|10323214|start|2020-06-17 14:31:18|sendContent|{"salt":"c4d029fe4aebb3aed014295c4aa9b7eb","merchant":"OMS5471401","orderRef":"115923970788505","currency":"HUF","customerEmail":"viharos.otto@gmail.com","language":"HU","sdkVersion":"SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477","methods":["CARD"],"total":25,"customer":"Viharos Ott\u00f3","timeout":"2020-06-17T14:41:18+02:00","url":"http:\/\/localhost\/webrolling\/szabadkikotopalyak\/simple_pay\/minta_kod\/back.php","invoice":{"name":"Viharos Ott\u00f3","country":"hu","state":"Budapest","city":"Budapest","zip":"1111","address":"Address 1"}}
+115923970788505|10323214|start|2020-06-17 14:31:18|sendSignature|7gidpdyFMI4O6iEQLZAR7fKBvySWESYkBDwvdbgO5nfqChRt8ijmJTkC797OnRvC
+115923970788505|10323214|start|2020-06-17 14:31:18|callState3|RESULT
+115923970788505|10323214|start|2020-06-17 14:31:18|signatureToCheck|ESbbUtAeB0aHgvUVce+28sGpS+XtX9jqFHPLO+df3NaPx2JA9eO/pPz7rxY9Mdns
+115923970788505|10323214|start|2020-06-17 14:31:18|computedSignature|ESbbUtAeB0aHgvUVce+28sGpS+XtX9jqFHPLO+df3NaPx2JA9eO/pPz7rxY9Mdns
+115923970788505|10323214|start|2020-06-17 14:31:18|hashCheckResult|success
+115923970788505|10323214|start|2020-06-17 14:31:18|responseBody|{"salt":"Jp8D3MaMZqJp7mXqikJP66vDfgVJKPMv","merchant":"OMS5471401","orderRef":"115923970788505","currency":"HUF","transactionId":10323214,"timeout":"2020-06-17T14:41:18+02:00","total":25.0,"paymentUrl":"https://sandbox.simplepay.hu/pay/pay/pspHU/sR5o4X9NbIIiNJrStA8NHL8zyynG4QbaxStxZzVdMQfdPz_GDB"}
+115923970788505|10323214|start|2020-06-17 14:31:18|responseSignature|ESbbUtAeB0aHgvUVce+28sGpS+XtX9jqFHPLO+df3NaPx2JA9eO/pPz7rxY9Mdns
+115923970788505|10323214|start|2020-06-17 14:31:18|responseSignatureValid|1
+115923970788505|10323214|start|2020-06-17 14:31:18|transactionId|10323214
+115923970788505|10323214|start|2020-06-17 14:31:18|paymentUrl|https://sandbox.simplepay.hu/pay/pay/pspHU/sR5o4X9NbIIiNJrStA8NHL8zyynG4QbaxStxZzVdMQfdPz_GDB
+115923970788505|10323214|back|2020-06-17 14:31:48|runMode|BACK
+115923970788505|10323214|back|2020-06-17 14:31:48|PHP|7.3
+115923970788505|10323214|back|2020-06-17 14:31:48|rRequest|eyJyIjowLCJ0IjoxMDMyMzIxNCwiZSI6IlNVQ0NFU1MiLCJtIjoiT01TNTQ3MTQwMSIsIm8iOiIxMTU5MjM5NzA3ODg1MDUifQ==
+115923970788505|10323214|back|2020-06-17 14:31:48|sRequest|8KTzJeurxsSsNUV6ENxYSLi9xXhYctXxTL4MACeGh3IAYEUiCOUss0pGA/M9nqxF
+115923970788505|10323214|back|2020-06-17 14:31:48|rJson|{"r":0,"t":10323214,"e":"SUCCESS","m":"OMS5471401","o":"115923970788505"}
+115923970788505|10323214|back|2020-06-17 14:31:48|rContent_r|0
+115923970788505|10323214|back|2020-06-17 14:31:48|rContent_t|10323214
+115923970788505|10323214|back|2020-06-17 14:31:48|rContent_e|SUCCESS
+115923970788505|10323214|back|2020-06-17 14:31:48|rContent_m|OMS5471401
+115923970788505|10323214|back|2020-06-17 14:31:48|rContent_o|115923970788505
+115923970788505|10323214|back|2020-06-17 14:31:48|signatureToCheck|8KTzJeurxsSsNUV6ENxYSLi9xXhYctXxTL4MACeGh3IAYEUiCOUss0pGA/M9nqxF
+115923970788505|10323214|back|2020-06-17 14:31:48|computedSignature|8KTzJeurxsSsNUV6ENxYSLi9xXhYctXxTL4MACeGh3IAYEUiCOUss0pGA/M9nqxF
+115923970788505|10323214|back|2020-06-17 14:31:48|hashCheckResult|success
+115923971694531|10323216|start|2020-06-17 14:32:50|runMode|START
+115923971694531|10323216|start|2020-06-17 14:32:50|PHP|7.3
+115923971694531|10323216|start|2020-06-17 14:32:50|callState1|PREPARE
+115923971694531|10323216|start|2020-06-17 14:32:50|salt|zLxcw09rxuV424HYiqkEur252L6ultOF
+115923971694531|10323216|start|2020-06-17 14:32:50|merchant|OMS5471401
+115923971694531|10323216|start|2020-06-17 14:32:50|orderRef|115923971694531
+115923971694531|10323216|start|2020-06-17 14:32:50|currency|HUF
+115923971694531|10323216|start|2020-06-17 14:32:50|customerEmail|viharos.otto@gmail.com
+115923971694531|10323216|start|2020-06-17 14:32:50|language|HU
+115923971694531|10323216|start|2020-06-17 14:32:50|sdkVersion|SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477
+115923971694531|10323216|start|2020-06-17 14:32:50|methods_0|WIRE
+115923971694531|10323216|start|2020-06-17 14:32:50|total|25
+115923971694531|10323216|start|2020-06-17 14:32:50|customer|Viharos Ottó
+115923971694531|10323216|start|2020-06-17 14:32:50|timeout|2020-07-01T23:59:59+02:00
+115923971694531|10323216|start|2020-06-17 14:32:50|url|http://localhost/webrolling/szabadkikotopalyak/simple_pay/minta_kod/back.php
+115923971694531|10323216|start|2020-06-17 14:32:50|invoice_name|Viharos Ottó
+115923971694531|10323216|start|2020-06-17 14:32:50|invoice_country|hu
+115923971694531|10323216|start|2020-06-17 14:32:50|invoice_state|Budapest
+115923971694531|10323216|start|2020-06-17 14:32:50|invoice_city|Budapest
+115923971694531|10323216|start|2020-06-17 14:32:50|invoice_zip|1111
+115923971694531|10323216|start|2020-06-17 14:32:50|invoice_address|Address 1
+115923971694531|10323216|start|2020-06-17 14:32:50|callState2|REQUEST
+115923971694531|10323216|start|2020-06-17 14:32:50|sendApiUrl|https://sandbox.simplepay.hu/payment/v2/start
+115923971694531|10323216|start|2020-06-17 14:32:50|sendContent|{"salt":"0d171a3f270183195074b5f41ff72b04","merchant":"OMS5471401","orderRef":"115923971694531","currency":"HUF","customerEmail":"viharos.otto@gmail.com","language":"HU","sdkVersion":"SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477","methods":["WIRE"],"total":25,"customer":"Viharos Ott\u00f3","timeout":"2020-06-17T14:42:49+02:00","url":"http:\/\/localhost\/webrolling\/szabadkikotopalyak\/simple_pay\/minta_kod\/back.php","invoice":{"name":"Viharos Ott\u00f3","country":"hu","state":"Budapest","city":"Budapest","zip":"1111","address":"Address 1"}}
+115923971694531|10323216|start|2020-06-17 14:32:50|sendSignature|8U5qn6JCUcN2/fvA17tNvbw4t7UstX2tkO9FgofAuYGfe63kDiN1x7v55DVMHQt9
+115923971694531|10323216|start|2020-06-17 14:32:50|callState3|RESULT
+115923971694531|10323216|start|2020-06-17 14:32:50|signatureToCheck|VrkxwxPCNUmxstmH8webmT+a2kfH/IzvtPr9oxIaEmE09Hty2FUC8X+i2k0EoHfu
+115923971694531|10323216|start|2020-06-17 14:32:50|computedSignature|VrkxwxPCNUmxstmH8webmT+a2kfH/IzvtPr9oxIaEmE09Hty2FUC8X+i2k0EoHfu
+115923971694531|10323216|start|2020-06-17 14:32:50|hashCheckResult|success
+115923971694531|10323216|start|2020-06-17 14:32:50|responseBody|{"salt":"zLxcw09rxuV424HYiqkEur252L6ultOF","merchant":"OMS5471401","orderRef":"115923971694531","currency":"HUF","transactionId":10323216,"timeout":"2020-07-01T23:59:59+02:00","total":25.0,"paymentUrl":"https://sandbox.simplepay.hu/pay/pay/pspHU/En9VRelNeJkgF3JRuDDNCA8zU6LEawsDxSte01ZnAC4dvyQWDd"}
+115923971694531|10323216|start|2020-06-17 14:32:50|responseSignature|VrkxwxPCNUmxstmH8webmT+a2kfH/IzvtPr9oxIaEmE09Hty2FUC8X+i2k0EoHfu
+115923971694531|10323216|start|2020-06-17 14:32:50|responseSignatureValid|1
+115923971694531|10323216|start|2020-06-17 14:32:50|transactionId|10323216
+115923971694531|10323216|start|2020-06-17 14:32:50|paymentUrl|https://sandbox.simplepay.hu/pay/pay/pspHU/En9VRelNeJkgF3JRuDDNCA8zU6LEawsDxSte01ZnAC4dvyQWDd
+N/A|N/A|start|2020-06-17 14:35:33|runMode|START
+N/A|N/A|start|2020-06-17 14:35:33|PHP|7.3
+N/A|N/A|start|2020-06-17 14:35:33|callState1|PREPARE
+N/A|N/A|start|2020-06-17 14:35:33|salt|SXyIsCBf5E0FCEchTXz4lW3V9V6oT0Sg
+N/A|N/A|start|2020-06-17 14:35:33|merchant|OMS5471401
+N/A|N/A|start|2020-06-17 14:35:33|orderRef|115923973336349
+N/A|N/A|start|2020-06-17 14:35:33|currency|HUF
+N/A|N/A|start|2020-06-17 14:35:33|customerEmail|viharos.otto@gmail.com
+N/A|N/A|start|2020-06-17 14:35:33|language|HU
+N/A|N/A|start|2020-06-17 14:35:33|sdkVersion|SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477
+N/A|N/A|start|2020-06-17 14:35:33|methods_0|CARD
+N/A|N/A|start|2020-06-17 14:35:33|total|0
+N/A|N/A|start|2020-06-17 14:35:33|items_0_ref|2
+N/A|N/A|start|2020-06-17 14:35:33|items_0_title|Ez egy termék név
+N/A|N/A|start|2020-06-17 14:35:33|items_0_description|Ez egy termék leírás
+N/A|N/A|start|2020-06-17 14:35:33|items_0_amount|1
+N/A|N/A|start|2020-06-17 14:35:33|items_0_price|0
+N/A|N/A|start|2020-06-17 14:35:33|items_0_tax|0
+N/A|N/A|start|2020-06-17 14:35:33|customer|Viharos Ottó
+N/A|N/A|start|2020-06-17 14:35:33|timeout|2020-06-17T14:45:33+02:00
+N/A|N/A|start|2020-06-17 14:35:33|url|http://localhost/webrolling/szabadkikotopalyak/simple_pay/minta_kod/back.php
+N/A|N/A|start|2020-06-17 14:35:33|invoice_name|Viharos Ottó
+N/A|N/A|start|2020-06-17 14:35:33|invoice_country|hu
+N/A|N/A|start|2020-06-17 14:35:33|invoice_state|Budapest
+N/A|N/A|start|2020-06-17 14:35:33|invoice_city|Budapest
+N/A|N/A|start|2020-06-17 14:35:33|invoice_zip|1111
+N/A|N/A|start|2020-06-17 14:35:33|invoice_address|Address 1
+N/A|N/A|start|2020-06-17 14:35:33|callState2|REQUEST
+N/A|N/A|start|2020-06-17 14:35:33|sendApiUrl|https://sandbox.simplepay.hu/payment/v2/start
+N/A|N/A|start|2020-06-17 14:35:33|sendContent|{"salt":"35e9d0066a840051c90847f6e25be258","merchant":"OMS5471401","orderRef":"115923973336349","currency":"HUF","customerEmail":"viharos.otto@gmail.com","language":"HU","sdkVersion":"SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477","methods":["CARD"],"total":150,"items":[{"ref":"2","title":"Ez egy term\u00e9k n\u00e9v","description":"Ez egy term\u00e9k le\u00edr\u00e1s","amount":"1","price":"0","tax":"0"}],"customer":"Viharos Ott\u00f3","timeout":"2020-06-17T14:45:33+02:00","url":"http:\/\/localhost\/webrolling\/szabadkikotopalyak\/simple_pay\/minta_kod\/back.php","invoice":{"name":"Viharos Ott\u00f3","country":"hu","state":"Budapest","city":"Budapest","zip":"1111","address":"Address 1"}}
+N/A|N/A|start|2020-06-17 14:35:33|sendSignature|Q/kae8Dy1NXWRbMdaMJKNs0mwTFofM+H41VskRYCsKAD45WX+yzCUvmbPM8QsHPY
+N/A|N/A|start|2020-06-17 14:35:33|callState3|RESULT
+N/A|N/A|start|2020-06-17 14:35:33|signatureToCheck|3CeKHDmetrlqET1wbpDvLuxpcem2Km8APL/8ucmRNO/P/3BLwCnilCJCaeVZVIKk
+N/A|N/A|start|2020-06-17 14:35:33|computedSignature|3CeKHDmetrlqET1wbpDvLuxpcem2Km8APL/8ucmRNO/P/3BLwCnilCJCaeVZVIKk
+N/A|N/A|start|2020-06-17 14:35:33|hashCheckResult|success
+N/A|N/A|start|2020-06-17 14:35:33|responseBody|{"errorCodes":[5020,5314],"salt":"SXyIsCBf5E0FCEchTXz4lW3V9V6oT0Sg","merchant":"OMS5471401","total":0.0}
+N/A|N/A|start|2020-06-17 14:35:33|responseSignature|3CeKHDmetrlqET1wbpDvLuxpcem2Km8APL/8ucmRNO/P/3BLwCnilCJCaeVZVIKk
+N/A|N/A|start|2020-06-17 14:35:33|responseSignatureValid|1
+N/A|N/A|start|2020-06-17 14:35:33|errorCodes_0|5020
+N/A|N/A|start|2020-06-17 14:35:33|errorCodes_1|5314
+115923973557361|10323223|start|2020-06-17 14:35:55|runMode|START
+115923973557361|10323223|start|2020-06-17 14:35:55|PHP|7.3
+115923973557361|10323223|start|2020-06-17 14:35:55|callState1|PREPARE
+115923973557361|10323223|start|2020-06-17 14:35:55|salt|9P8MddRSUDJsT8sfTcb4kppkoPDFA6z4
+115923973557361|10323223|start|2020-06-17 14:35:55|merchant|OMS5471401
+115923973557361|10323223|start|2020-06-17 14:35:55|orderRef|115923973557361
+115923973557361|10323223|start|2020-06-17 14:35:55|currency|HUF
+115923973557361|10323223|start|2020-06-17 14:35:55|customerEmail|viharos.otto@gmail.com
+115923973557361|10323223|start|2020-06-17 14:35:55|language|HU
+115923973557361|10323223|start|2020-06-17 14:35:55|sdkVersion|SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477
+115923973557361|10323223|start|2020-06-17 14:35:55|methods_0|CARD
+115923973557361|10323223|start|2020-06-17 14:35:55|total|150
+115923973557361|10323223|start|2020-06-17 14:35:55|customer|Viharos Ottó
+115923973557361|10323223|start|2020-06-17 14:35:55|timeout|2020-06-17T14:45:55+02:00
+115923973557361|10323223|start|2020-06-17 14:35:55|url|http://localhost/webrolling/szabadkikotopalyak/simple_pay/minta_kod/back.php
+115923973557361|10323223|start|2020-06-17 14:35:55|invoice_name|Viharos Ottó
+115923973557361|10323223|start|2020-06-17 14:35:55|invoice_country|hu
+115923973557361|10323223|start|2020-06-17 14:35:55|invoice_state|Budapest
+115923973557361|10323223|start|2020-06-17 14:35:55|invoice_city|Budapest
+115923973557361|10323223|start|2020-06-17 14:35:55|invoice_zip|1111
+115923973557361|10323223|start|2020-06-17 14:35:55|invoice_address|Address 1
+115923973557361|10323223|start|2020-06-17 14:35:55|callState2|REQUEST
+115923973557361|10323223|start|2020-06-17 14:35:55|sendApiUrl|https://sandbox.simplepay.hu/payment/v2/start
+115923973557361|10323223|start|2020-06-17 14:35:55|sendContent|{"salt":"bfd4285154a66efe92a9695fc8cdda8e","merchant":"OMS5471401","orderRef":"115923973557361","currency":"HUF","customerEmail":"viharos.otto@gmail.com","language":"HU","sdkVersion":"SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477","methods":["CARD"],"total":150,"customer":"Viharos Ott\u00f3","timeout":"2020-06-17T14:45:55+02:00","url":"http:\/\/localhost\/webrolling\/szabadkikotopalyak\/simple_pay\/minta_kod\/back.php","invoice":{"name":"Viharos Ott\u00f3","country":"hu","state":"Budapest","city":"Budapest","zip":"1111","address":"Address 1"}}
+115923973557361|10323223|start|2020-06-17 14:35:55|sendSignature|2vIAL4/w402YRI/1Rf02UPQmZulmKRy0YRtIC45wE/Br/o5e1DQ8ujNal+HTltZX
+115923973557361|10323223|start|2020-06-17 14:35:55|callState3|RESULT
+115923973557361|10323223|start|2020-06-17 14:35:55|signatureToCheck|TKlinvL7/OF9al3TT9yIV9cWFqA4cN1jOJNemfhu55MLewFAJef02P7w0vj1Q7vW
+115923973557361|10323223|start|2020-06-17 14:35:55|computedSignature|TKlinvL7/OF9al3TT9yIV9cWFqA4cN1jOJNemfhu55MLewFAJef02P7w0vj1Q7vW
+115923973557361|10323223|start|2020-06-17 14:35:55|hashCheckResult|success
+115923973557361|10323223|start|2020-06-17 14:35:55|responseBody|{"salt":"9P8MddRSUDJsT8sfTcb4kppkoPDFA6z4","merchant":"OMS5471401","orderRef":"115923973557361","currency":"HUF","transactionId":10323223,"timeout":"2020-06-17T14:45:55+02:00","total":150.0,"paymentUrl":"https://sandbox.simplepay.hu/pay/pay/pspHU/.SMsgqmNwh5JEUCZ1MkNKimz9ebGFAzJxSrL1EnTQw9ApjjmDF"}
+115923973557361|10323223|start|2020-06-17 14:35:55|responseSignature|TKlinvL7/OF9al3TT9yIV9cWFqA4cN1jOJNemfhu55MLewFAJef02P7w0vj1Q7vW
+115923973557361|10323223|start|2020-06-17 14:35:55|responseSignatureValid|1
+115923973557361|10323223|start|2020-06-17 14:35:55|transactionId|10323223
+115923973557361|10323223|start|2020-06-17 14:35:55|paymentUrl|https://sandbox.simplepay.hu/pay/pay/pspHU/.SMsgqmNwh5JEUCZ1MkNKimz9ebGFAzJxSrL1EnTQw9ApjjmDF
+N/A|N/A|start|2020-06-17 14:36:22|runMode|START
+N/A|N/A|start|2020-06-17 14:36:22|PHP|7.3
+N/A|N/A|start|2020-06-17 14:36:22|callState1|PREPARE
+N/A|N/A|start|2020-06-17 14:36:22|salt|TeShKcMWbfglk4CL1EbsYKycHymH2bUE
+N/A|N/A|start|2020-06-17 14:36:22|merchant|OMS5471401
+N/A|N/A|start|2020-06-17 14:36:22|orderRef|115923973814688
+N/A|N/A|start|2020-06-17 14:36:22|currency|HUF
+N/A|N/A|start|2020-06-17 14:36:22|customerEmail|viharos.otto@gmail.com
+N/A|N/A|start|2020-06-17 14:36:22|language|HU
+N/A|N/A|start|2020-06-17 14:36:22|sdkVersion|SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477
+N/A|N/A|start|2020-06-17 14:36:22|methods_0|CARD
+N/A|N/A|start|2020-06-17 14:36:22|total|0
+N/A|N/A|start|2020-06-17 14:36:22|items_0_ref|2
+N/A|N/A|start|2020-06-17 14:36:22|items_0_title|Ez egy termék név
+N/A|N/A|start|2020-06-17 14:36:22|items_0_description|Ez egy termék leírás
+N/A|N/A|start|2020-06-17 14:36:22|items_0_amount|1
+N/A|N/A|start|2020-06-17 14:36:22|items_0_price|0
+N/A|N/A|start|2020-06-17 14:36:22|items_0_tax|0
+N/A|N/A|start|2020-06-17 14:36:22|items_1_ref|Product ID 2
+N/A|N/A|start|2020-06-17 14:36:22|items_1_title|Product name 2
+N/A|N/A|start|2020-06-17 14:36:22|items_1_description|Product description 2
+N/A|N/A|start|2020-06-17 14:36:22|items_1_amount|2
+N/A|N/A|start|2020-06-17 14:36:22|items_1_price|5
+N/A|N/A|start|2020-06-17 14:36:22|items_1_tax|0
+N/A|N/A|start|2020-06-17 14:36:22|customer|Viharos Ottó
+N/A|N/A|start|2020-06-17 14:36:22|timeout|2020-06-17T14:46:21+02:00
+N/A|N/A|start|2020-06-17 14:36:22|url|http://localhost/webrolling/szabadkikotopalyak/simple_pay/minta_kod/back.php
+N/A|N/A|start|2020-06-17 14:36:22|invoice_name|Viharos Ottó
+N/A|N/A|start|2020-06-17 14:36:22|invoice_country|hu
+N/A|N/A|start|2020-06-17 14:36:22|invoice_state|Budapest
+N/A|N/A|start|2020-06-17 14:36:22|invoice_city|Budapest
+N/A|N/A|start|2020-06-17 14:36:22|invoice_zip|1111
+N/A|N/A|start|2020-06-17 14:36:22|invoice_address|Address 1
+N/A|N/A|start|2020-06-17 14:36:22|callState2|REQUEST
+N/A|N/A|start|2020-06-17 14:36:22|sendApiUrl|https://sandbox.simplepay.hu/payment/v2/start
+N/A|N/A|start|2020-06-17 14:36:22|sendContent|{"salt":"00fac6dfe8da780f4000d5007f969fbe","merchant":"OMS5471401","orderRef":"115923973814688","currency":"HUF","customerEmail":"viharos.otto@gmail.com","language":"HU","sdkVersion":"SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477","methods":["CARD"],"total":150,"items":[{"ref":"2","title":"Ez egy term\u00e9k n\u00e9v","description":"Ez egy term\u00e9k le\u00edr\u00e1s","amount":"1","price":"0","tax":"0"},{"ref":"Product ID 2","title":"Product name 2","description":"Product description 2","amount":"2","price":"5","tax":"0"}],"customer":"Viharos Ott\u00f3","timeout":"2020-06-17T14:46:21+02:00","url":"http:\/\/localhost\/webrolling\/szabadkikotopalyak\/simple_pay\/minta_kod\/back.php","invoice":{"name":"Viharos Ott\u00f3","country":"hu","state":"Budapest","city":"Budapest","zip":"1111","address":"Address 1"}}
+N/A|N/A|start|2020-06-17 14:36:22|sendSignature|tJfE6poF5+jwOJDwJfJd6EbtGnsjLw3K13mn4HcwNZsTEZrwpO+GLP0r+3uC528O
+N/A|N/A|start|2020-06-17 14:36:22|callState3|RESULT
+N/A|N/A|start|2020-06-17 14:36:22|signatureToCheck|hC1YNgL3P9ArMnLgNYuRUUQVTNQMjpgW0aZFFJ+Dr+OnDslvqF5mGahpkb5Y90gZ
+N/A|N/A|start|2020-06-17 14:36:22|computedSignature|hC1YNgL3P9ArMnLgNYuRUUQVTNQMjpgW0aZFFJ+Dr+OnDslvqF5mGahpkb5Y90gZ
+N/A|N/A|start|2020-06-17 14:36:22|hashCheckResult|success
+N/A|N/A|start|2020-06-17 14:36:22|responseBody|{"errorCodes":[5314],"salt":"TeShKcMWbfglk4CL1EbsYKycHymH2bUE","merchant":"OMS5471401","total":0.0}
+N/A|N/A|start|2020-06-17 14:36:22|responseSignature|hC1YNgL3P9ArMnLgNYuRUUQVTNQMjpgW0aZFFJ+Dr+OnDslvqF5mGahpkb5Y90gZ
+N/A|N/A|start|2020-06-17 14:36:22|responseSignatureValid|1
+N/A|N/A|start|2020-06-17 14:36:22|errorCodes_0|5314
+N/A|N/A|start|2020-06-17 14:37:02|runMode|START
+N/A|N/A|start|2020-06-17 14:37:02|PHP|7.3
+N/A|N/A|start|2020-06-17 14:37:02|callState1|PREPARE
+N/A|N/A|start|2020-06-17 14:37:02|salt|iWMJcCLWBHsf8mccl0m52z5aCBlPCClQ
+N/A|N/A|start|2020-06-17 14:37:02|merchant|OMS5471401
+N/A|N/A|start|2020-06-17 14:37:02|orderRef|115923974224356
+N/A|N/A|start|2020-06-17 14:37:02|currency|HUF
+N/A|N/A|start|2020-06-17 14:37:02|customerEmail|viharos.otto@gmail.com
+N/A|N/A|start|2020-06-17 14:37:02|language|HU
+N/A|N/A|start|2020-06-17 14:37:02|sdkVersion|SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477
+N/A|N/A|start|2020-06-17 14:37:02|methods_0|CARD
+N/A|N/A|start|2020-06-17 14:37:02|items_0_ref|2
+N/A|N/A|start|2020-06-17 14:37:02|items_0_title|Ez egy termék név
+N/A|N/A|start|2020-06-17 14:37:02|items_0_description|Ez egy termék leírás
+N/A|N/A|start|2020-06-17 14:37:02|items_0_amount|1
+N/A|N/A|start|2020-06-17 14:37:02|items_0_price|0
+N/A|N/A|start|2020-06-17 14:37:02|items_0_tax|0
+N/A|N/A|start|2020-06-17 14:37:02|items_1_ref|Product ID 2
+N/A|N/A|start|2020-06-17 14:37:02|items_1_title|Product name 2
+N/A|N/A|start|2020-06-17 14:37:02|items_1_description|Product description 2
+N/A|N/A|start|2020-06-17 14:37:02|items_1_amount|2
+N/A|N/A|start|2020-06-17 14:37:02|items_1_price|5
+N/A|N/A|start|2020-06-17 14:37:02|items_1_tax|0
+N/A|N/A|start|2020-06-17 14:37:02|customer|Viharos Ottó
+N/A|N/A|start|2020-06-17 14:37:02|timeout|2020-06-17T14:47:02+02:00
+N/A|N/A|start|2020-06-17 14:37:02|url|http://localhost/webrolling/szabadkikotopalyak/simple_pay/minta_kod/back.php
+N/A|N/A|start|2020-06-17 14:37:02|invoice_name|Viharos Ottó
+N/A|N/A|start|2020-06-17 14:37:02|invoice_country|hu
+N/A|N/A|start|2020-06-17 14:37:02|invoice_state|Budapest
+N/A|N/A|start|2020-06-17 14:37:02|invoice_city|Budapest
+N/A|N/A|start|2020-06-17 14:37:02|invoice_zip|1111
+N/A|N/A|start|2020-06-17 14:37:02|invoice_address|Address 1
+N/A|N/A|start|2020-06-17 14:37:02|callState2|REQUEST
+N/A|N/A|start|2020-06-17 14:37:02|sendApiUrl|https://sandbox.simplepay.hu/payment/v2/start
+N/A|N/A|start|2020-06-17 14:37:02|sendContent|{"salt":"71fa757ca2c1ca24dcf1e94f5bd36ccd","merchant":"OMS5471401","orderRef":"115923974224356","currency":"HUF","customerEmail":"viharos.otto@gmail.com","language":"HU","sdkVersion":"SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477","methods":["CARD"],"items":[{"ref":"2","title":"Ez egy term\u00e9k n\u00e9v","description":"Ez egy term\u00e9k le\u00edr\u00e1s","amount":"1","price":"0","tax":"0"},{"ref":"Product ID 2","title":"Product name 2","description":"Product description 2","amount":"2","price":"5","tax":"0"}],"customer":"Viharos Ott\u00f3","timeout":"2020-06-17T14:47:02+02:00","url":"http:\/\/localhost\/webrolling\/szabadkikotopalyak\/simple_pay\/minta_kod\/back.php","invoice":{"name":"Viharos Ott\u00f3","country":"hu","state":"Budapest","city":"Budapest","zip":"1111","address":"Address 1"}}
+N/A|N/A|start|2020-06-17 14:37:02|sendSignature|Q/2tPhRkz/FpIt2NtwXEdllXqPJAw2RmmUGcLB+CQjyA4JQpl2jVUjfyTLXI11t/
+N/A|N/A|start|2020-06-17 14:37:02|callState3|RESULT
+N/A|N/A|start|2020-06-17 14:37:02|signatureToCheck|1UhmghXbBjbi/gGHVIVscmPIGT7eBBRJm+I7Fvctrxt9PcGV6Hf3umwhl6dk9yEO
+N/A|N/A|start|2020-06-17 14:37:02|computedSignature|1UhmghXbBjbi/gGHVIVscmPIGT7eBBRJm+I7Fvctrxt9PcGV6Hf3umwhl6dk9yEO
+N/A|N/A|start|2020-06-17 14:37:02|hashCheckResult|success
+N/A|N/A|start|2020-06-17 14:37:02|responseBody|{"errorCodes":[5314],"salt":"iWMJcCLWBHsf8mccl0m52z5aCBlPCClQ","merchant":"OMS5471401","total":0.0}
+N/A|N/A|start|2020-06-17 14:37:02|responseSignature|1UhmghXbBjbi/gGHVIVscmPIGT7eBBRJm+I7Fvctrxt9PcGV6Hf3umwhl6dk9yEO
+N/A|N/A|start|2020-06-17 14:37:02|responseSignatureValid|1
+N/A|N/A|start|2020-06-17 14:37:02|errorCodes_0|5314
+N/A|N/A|start|2020-06-17 14:37:02|total|0
+115923974631689|10323231|start|2020-06-17 14:37:44|runMode|START
+115923974631689|10323231|start|2020-06-17 14:37:44|PHP|7.3
+115923974631689|10323231|start|2020-06-17 14:37:44|callState1|PREPARE
+115923974631689|10323231|start|2020-06-17 14:37:44|salt|XKsx7OVlOWeAarm6xC7fLZ16fU1pcjm3
+115923974631689|10323231|start|2020-06-17 14:37:44|merchant|OMS5471401
+115923974631689|10323231|start|2020-06-17 14:37:44|orderRef|115923974631689
+115923974631689|10323231|start|2020-06-17 14:37:44|currency|HUF
+115923974631689|10323231|start|2020-06-17 14:37:44|customerEmail|viharos.otto@gmail.com
+115923974631689|10323231|start|2020-06-17 14:37:44|language|HU
+115923974631689|10323231|start|2020-06-17 14:37:44|sdkVersion|SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477
+115923974631689|10323231|start|2020-06-17 14:37:44|methods_0|CARD
+115923974631689|10323231|start|2020-06-17 14:37:44|total|150
+115923974631689|10323231|start|2020-06-17 14:37:44|shippingCost|20
+115923974631689|10323231|start|2020-06-17 14:37:44|customer|Viharos Ottó
+115923974631689|10323231|start|2020-06-17 14:37:44|timeout|2020-06-17T14:47:43+02:00
+115923974631689|10323231|start|2020-06-17 14:37:44|url|http://localhost/webrolling/szabadkikotopalyak/simple_pay/minta_kod/back.php
+115923974631689|10323231|start|2020-06-17 14:37:44|invoice_name|Viharos Ottó
+115923974631689|10323231|start|2020-06-17 14:37:44|invoice_country|hu
+115923974631689|10323231|start|2020-06-17 14:37:44|invoice_state|Budapest
+115923974631689|10323231|start|2020-06-17 14:37:44|invoice_city|Budapest
+115923974631689|10323231|start|2020-06-17 14:37:44|invoice_zip|1111
+115923974631689|10323231|start|2020-06-17 14:37:44|invoice_address|Address 1
+115923974631689|10323231|start|2020-06-17 14:37:44|callState2|REQUEST
+115923974631689|10323231|start|2020-06-17 14:37:44|sendApiUrl|https://sandbox.simplepay.hu/payment/v2/start
+115923974631689|10323231|start|2020-06-17 14:37:44|sendContent|{"salt":"9c2ace1a145a9b365667e9d9283819ba","merchant":"OMS5471401","orderRef":"115923974631689","currency":"HUF","customerEmail":"viharos.otto@gmail.com","language":"HU","sdkVersion":"SimplePay_PHP_SDK_2.0.9_200130:27418e0ad7a666b23b8ce959b0659477","methods":["CARD"],"total":150,"shippingCost":20,"customer":"Viharos Ott\u00f3","timeout":"2020-06-17T14:47:43+02:00","url":"http:\/\/localhost\/webrolling\/szabadkikotopalyak\/simple_pay\/minta_kod\/back.php","invoice":{"name":"Viharos Ott\u00f3","country":"hu","state":"Budapest","city":"Budapest","zip":"1111","address":"Address 1"}}
+115923974631689|10323231|start|2020-06-17 14:37:44|sendSignature|FAovr575WaVpQmCA4JZFpFfGr3cZkCIn2ZK+BN4I6tjivO3gMM7Emnwz+X+waMJH
+115923974631689|10323231|start|2020-06-17 14:37:44|callState3|RESULT
+115923974631689|10323231|start|2020-06-17 14:37:44|signatureToCheck|r2XC9LoZ1z/HMO32kUDaVXPdk8okpO9DHsKSXmR+PHy9JDbd5Wue37o27HrrdW7A
+115923974631689|10323231|start|2020-06-17 14:37:44|computedSignature|r2XC9LoZ1z/HMO32kUDaVXPdk8okpO9DHsKSXmR+PHy9JDbd5Wue37o27HrrdW7A
+115923974631689|10323231|start|2020-06-17 14:37:44|hashCheckResult|success
+115923974631689|10323231|start|2020-06-17 14:37:44|responseBody|{"salt":"XKsx7OVlOWeAarm6xC7fLZ16fU1pcjm3","merchant":"OMS5471401","orderRef":"115923974631689","currency":"HUF","transactionId":10323231,"timeout":"2020-06-17T14:47:43+02:00","total":150.0,"paymentUrl":"https://sandbox.simplepay.hu/pay/pay/pspHU/P5J1Yv3NxlGsaN3EvOZNPvszyePFNQBYxSvfUlvTwA5xq67mB0"}
+115923974631689|10323231|start|2020-06-17 14:37:44|responseSignature|r2XC9LoZ1z/HMO32kUDaVXPdk8okpO9DHsKSXmR+PHy9JDbd5Wue37o27HrrdW7A
+115923974631689|10323231|start|2020-06-17 14:37:44|responseSignatureValid|1
+115923974631689|10323231|start|2020-06-17 14:37:44|transactionId|10323231
+115923974631689|10323231|start|2020-06-17 14:37:44|paymentUrl|https://sandbox.simplepay.hu/pay/pay/pspHU/P5J1Yv3NxlGsaN3EvOZNPvszyePFNQBYxSvfUlvTwA5xq67mB0

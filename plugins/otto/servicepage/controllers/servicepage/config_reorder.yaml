@@ -1,0 +1,4 @@
+title: ServicePage
+modelClass: Otto\Servicepage\Models\ServicePage
+toolbar:
+    buttons: reorder_toolbar

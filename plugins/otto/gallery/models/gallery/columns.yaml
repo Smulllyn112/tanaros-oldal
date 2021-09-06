@@ -1,0 +1,20 @@
+columns:
+    title:
+        label: Cím
+        type: text
+        searchable: true
+        sortable: true
+    sort_number:
+        label: 'Sorbarendezési szám'
+        type: number
+        searchable: false
+        sortable: true
+    type:
+        label: Képek
+        type: partial
+        sortable: true
+        path: ~/plugins/otto/gallery/models/gallery/_images_column.htm        
+    created_at:
+        label: Létrehozva
+        type: date
+        sortable: true

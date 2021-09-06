@@ -1,0 +1,11 @@
+columns:
+    created_at:
+        label: Létrehozva
+        type: time
+        searchable: true
+        sortable: true
+    updated_at:
+        label: Módosítva
+        type: time
+        searchable: true
+        sortable: true

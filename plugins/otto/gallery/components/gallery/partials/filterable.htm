@@ -1,0 +1,136 @@
+
+
+
+
+<ul class="nav nav-pills
+  active-bg-{{gallery_config.active_tab_bg}}
+  inactive-color-{{gallery_config.tab_color}}
+ mb-3" id="pills-tab" role="tablist">
+
+  <li 
+	data-filter="all"
+  class="nav-item">
+    <a class="nav-link
+	    {% if gallery_config.cornered_tabs %}
+	      cornered
+	    {% endif %}
+      active" 
+
+       data-toggle="pill" href="#" role="tab"  
+
+    aria-selected="true"
+
+
+
+    >Mind</a>
+  </li>
+
+{% for gallery in galleries %}
+  <li 
+	data-filter="{{gallery.id}}"
+  class="nav-item">
+    <a class="nav-link
+    {% if gallery_config.cornered_tabs %}
+      cornered
+    {% endif %}
+    "
+ 		data-toggle="pill" href="#" role="tab" aria-controls="pills-{{gallery.id}}" 
+    >{{gallery.title}}</a>
+  </li>
+{% endfor %}
+</ul>
+
+
+
+<div class="row filter-container" >
+{% for gallery in galleries %}
+	{% for image in gallery.gallery_images %}
+				<div class="col-md-{{12/gallery_config.items_per_row}} filtr-item mt-{{gallery_config.grid_margin}} text-center
+				{% if gallery_config.extra_effect == 'zoom' %} img-zoomable {% endif %}
+				"
+				data-category="{{gallery.id}}"
+				data-sort="value"
+				>
+				<a href="{{image.thumb(800,800)}}" data-lightbox="mygallery" data-title="{{image.title}}">
+					<img 
+						{% set img_dim = 1100/gallery_config.items_per_row %}
+
+						data-src="{{image.thumb(img_dim,img_dim / gallery_config.img_ratio,'crop')}}"
+						src="{{image.thumb(img_dim // 10,(img_dim / gallery_config.img_ratio) // 10,'crop')}}"
+
+						class="
+						       lazy
+
+						       img-{{gallery_config.extra_effect}}
+						      
+						      {% if gallery_config.is_grayscale %}
+						      	img-grayscale
+						      {% endif %}
+						      "
+					>
+				</a>
+					{% if gallery_config.show_image_titles %}
+						<h5 class="mt-2">{{image.title}}</h5>
+					{% endif %}
+				</div>
+  	{% endfor %}
+{% endfor %}
+
+
+
+
+			
+				{% for image in gallery.gallery_images  %}
+
+				<div class="col-md-{{12/gallery_config.items_per_row}} mt-{{gallery_config.grid_margin}} text-center
+				{% if gallery_config.extra_effect == 'zoom' %} img-zoomable {% endif %}
+				">
+				<a href="{{image.thumb(800,800)}}" data-lightbox="mygallery" data-title="{{image.title}}">
+					<img 
+						{% set img_dim = 1100/gallery_config.items_per_row %}
+
+						data-src="{{image.thumb(img_dim,img_dim / gallery_config.img_ratio,'crop')}}"
+						src="{{image.thumb(img_dim // 10,(img_dim / gallery_config.img_ratio) // 10,'crop')}}"
+
+						class="
+						       lazy
+
+						       img-{{gallery_config.extra_effect}}
+						      
+						      {% if gallery_config.is_grayscale %}
+						      	img-grayscale
+						      {% endif %}
+						      "
+					>
+				</a>
+					{% if gallery_config.show_image_titles %}
+						<h5 class="mt-2">{{image.title}}</h5>
+					{% endif %}
+				</div>
+				{% endfor %}
+		
+
+
+
+
+
+
+
+
+
+
+  <div class="filtr-item col-md-3" data-category="web" data-sort="value">
+    <img src="assets/images/fekvo_01.jpg" alt="sample" />
+    <p>web</p>
+  </div>
+  <div class="filtr-item col-md-3" data-category="web, grafika" data-sort="value">
+    <img src="assets/images/fekvo_02.jpg" alt="sample" />
+    <p>web, grafika</p>
+  </div>	
+  <div class="filtr-item col-md-3" data-category="grafika" data-sort="value">
+    <img src="assets/images/fekvo_03.jpg" alt="sample" />
+    <p>grafika</p>
+  </div>	
+
+</div>
+

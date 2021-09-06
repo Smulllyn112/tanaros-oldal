@@ -1,0 +1,10 @@
+name: Article
+form: $/otto/article/models/article/fields.yaml
+modelClass: Otto\Article\Models\Article
+defaultRedirect: otto/article/article
+create:
+    redirect: 'otto/article/article/update/:id'
+    redirectClose: otto/article/article
+update:
+    redirect: otto/article/article
+    redirectClose: otto/article/article

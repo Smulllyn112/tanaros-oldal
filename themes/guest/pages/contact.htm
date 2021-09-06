@@ -1,0 +1,136 @@
+title = "Kapcsolat"
+url = "/kapcsolat"
+layout = "guest"
+meta_title = "Kapcsolat - ProfiMagántanár"
+meta_description = "Küldj üzenetet, és 24 órán belül válaszol a ProfiMagántanár csapata!"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[siteSearchInclude]
+
+[captcha]
+
+[contactform]
+showPhone = 1
+showEmail = 1
+showSubject = 1
+showName = 1
+showMessage = 1
+phonePlaceholder = "..."
+emailPlaceholder = "..."
+subjectPlaceholder = "..."
+namePlaceholder = "..."
+messagePlaceholder = "..."
+phoneLabel = "Az Ön telefonszáma:"
+emailLabel = "Az Ön e-mail címe:"
+subjectLabel = "Üzenet tárgya:"
+nameLabel = "Az Ön neve:"
+messageLabel = "Üzenet:"
+showLabels = 1
+showCaptcha = 1
+areElementsBorderless = 0
+isButtonFullwidth = 0
+buttonBackground = "base"
+buttonColor = "base"
+marginTop = 20
+marginBottom = 20
+==
+
+<div style="height:100px"></div>
+
+<!--start section-->
+<section class="nicdark_section">
+
+    <!--start nicdark_container-->
+    <div class="nicdark_container nicdark_clearfix">
+
+        <div class="nicdark_space40"></div>
+
+
+        <div class="grid grid_4">
+
+
+            <div class="nicdark_archive1 nicdark_bg_grey nicdark_radius nicdark_shadow">
+                <div class="nicdark_margin20 nicdark_relative">
+                        <a href="#" class="nicdark_displaynone_ipadpotr nicdark_btn_icon nicdark_bg_orange extrabig nicdark_radius_circle white nicdark_absolute nicdark_shadow"><i class="icon-address nicdark_rotate"></i></a>
+                        <div class="nicdark_activity nicdark_marginleft100 nicdark_disable_marginleft_ipadpotr">
+                            <h4>24 órán belül válaszolunk!</h4>                        
+                            <div class="nicdark_space20"></div>
+                            <p>Kérdésed lenne az oldal működésével kapcsolatban?</p>
+                        </div>
+                </div>
+            </div>
+
+            <div class="nicdark_space20"></div>
+
+
+            <div class="nicdark_archive1 nicdark_bg_grey nicdark_radius nicdark_shadow">
+                <div class="nicdark_margin20 nicdark_relative">
+                        <a href="#" class="nicdark_displaynone_ipadpotr nicdark_btn_icon nicdark_bg_yellow extrabig nicdark_radius_circle white nicdark_absolute nicdark_shadow"><i class="icon-location-outline nicdark_rotate"></i></a>
+                        <div class="nicdark_activity nicdark_marginleft100 nicdark_disable_marginleft_ipadpotr">
+                            <h4>Telefonszám</h4>                        
+                            <div class="nicdark_space20"></div>
+                            <p>{{admin_phone}}</p>
+                        </div>
+                </div>
+            </div>
+
+            <div class="nicdark_space20"></div>
+
+
+
+            <div class="nicdark_archive1 nicdark_bg_greydark nicdark_radius nicdark_shadow">
+                <div class="nicdark_margin20 nicdark_relative">
+                        <a href="#" class="nicdark_displaynone_ipadpotr nicdark_btn_icon nicdark_bg_red extrabig nicdark_radius_circle white nicdark_absolute nicdark_shadow"><i class="icon-paper-plane-empty nicdark_rotate"></i></a>
+                        <div class="nicdark_activity nicdark_marginleft100 nicdark_disable_marginleft_ipadpotr">
+                            <h4 class="white">Email cím</h4>                        
+                            <div class="nicdark_space20"></div>
+                            <p class="white">
+                              {{admin_email}}
+                            </p>
+                        </div>
+                </div>
+            </div>
+
+        
+        </div>
+
+
+        <div class="grid grid_8">
+          <form
+            method="POST" 
+            data-request="contactform::onSend"  
+            data-request-validate
+          >
+           <div class="nicdark_archive1 nicdark_bg_grey nicdark_radius nicdark_shadow">
+                <div class="nicdark_textevidence nicdark_bg_orange nicdark_radius_top">
+                    <h4 class="white nicdark_margin20">Üzenetküldés</h4>
+                    <i class="icon-mail nicdark_iconbg right medium orange"></i>
+                </div>
+                <div class="nicdark_margin20">
+                    <input class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle" type="text" value="" name="name" required placeholder="*Név">
+                    <div class="nicdark_space20"></div>
+                    <input class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle" type="text" name="email" reuqired placeholder="*Email">
+                    <div class="nicdark_space20"></div>
+                    <textarea class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle" required placeholder="*Üzenet" rows="7"></textarea>
+                    <div class="nicdark_space20"></div>
+
+                    <input class="nicdark_btn nicdark_bg_yellow medium nicdark_shadow nicdark_radius white nicdark_press" type="submit" value="Küldd!">
+                </div>
+            </div>
+          </form>
+        </div>
+
+
+       
+
+        <div class="nicdark_space50"></div>
+
+
+    </div>
+    <!--end nicdark_container-->
+            
+</section>
+<!--end section-->
+

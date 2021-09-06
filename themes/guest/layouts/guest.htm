@@ -1,0 +1,569 @@
+[session]
+[cookieConsent]
+message = "A weboldal cookie-kat használ annak érdekében, hogy a lehető legjobb felhasználói élményt tudja nyújtani."
+dismiss = "Elfogadom"
+learnMore = "More info"
+link = "http://www.yourwebpage.com/cookies"
+theme = "light-bottom"
+[contactform]
+==
+<?php
+function onStart(){
+	use Otto\Article\Models\Article;
+  use Otto\Personfinder\Models\City;
+  use Otto\Personfinder\Models\Subject;
+
+	//$this['service_pages_shared'] = ServicePage::where('type','szolgaltatas')->orderBy('sort_number','desc')->orderBy('id','desc')->get();
+
+    $this["latest_articles"] = Article::where("is_published",1)->take(3)->get();
+
+	$this['full_url'] = \Request::fullUrl();
+
+    $this['admin_phone'] = env('ADMIN_PHONE');
+    $this['admin_email'] = env('ADMIN_EMAIL');
+    $this['admin_location'] = env('ADMIN_LOCATION');
+
+
+    $relativeUrl = \Request::path();
+
+    $this["most_popular_cities"] = City::orderBy("sort_number","desc")->take(30)->get();
+
+    //$this["most_popular_subjects"] = Subject::orderBy("sort_number","desc")->take(30)->get();
+
+    $this["most_popular_subjects"] = Subject::whereIn("name",Subject::$footerItems)->get();
+
+
+}
+?>
+==
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+
+
+
+		<meta charset="utf-8">
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">	
+		<meta name="language" content="Hungary">
+		<meta http-equiv="content-language" content="hu">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+		<title>{{ this.page.meta_title }}</title>	
+
+		<meta name="title" content="{{ this.page.meta_title }}">
+	    <meta name="description" content="{{ this.page.meta_description }}">
+  		<meta name="author" content="webrolling">
+
+	    <link rel="canonical" href="{{full_url}}" />
+
+	    <meta name="description" content="{{ this.page.meta_description }}">
+		<meta property="og:title" content="{{ this.page.meta_title }}" />
+		<meta property="og:description" content="{{ this.page.meta_description }}" />
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="{{ this.page.meta_title }}" />
+		{% if this.page.og_title %}
+		<meta property="og:image" content="{{this.page.og_title}}" />
+		{% else %}
+		<meta property="og:image" content="{{'assets/static-image/keszthelyi_kozep.PNG'|theme}}" />
+		{% endif %}
+		<meta property="og:url" content="{{full_url}}" />
+		<meta property="og:locale" content="hu_HU" />
+		<meta property="DC.publisher" content="WebRolling" />
+		<meta property="DC.title" content="{{this.page.meta_title}}" />
+		<meta property="DC.description" content="{{this.page.meta_description}}" />
+		<meta property="DC.type" content="Text" />
+		<meta property="DC.format" content="text/html" />
+		<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+		<meta name="DC.coverage" content="Hungary" />
+		<meta name="DC.description" content="{{ this.page.meta_description }}" />
+		<meta name="DC.identifier" content="http://www.webrolling.hu" />
+		<meta name="DC.publisher" content="WebRolling" />
+		<meta name="DC.title" content="Weboldal készítés - WebRolling " />
+		<meta name="DC.type" content="Text" />
+		<meta name="robots" content="index,follow">
+
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:description" content="{{this.page.meta_description}}" />
+		<meta name="twitter:title" content="{{ this.page.meta_title }}" />
+
+
+  
+    <!--START CSS--> 
+    <link rel="stylesheet" href="{{'assets/theme/css/nicdark_style.css'|theme}}"> <!--style-->
+    <link rel="stylesheet" href="{{'assets/theme/css/nicdark_responsive.css'|theme}}"> <!--nicdark_responsive-->
+
+    <!--revslider-->
+    <link rel="stylesheet" href="{{'assets/theme/css/revslider/settings.css'|theme}}"> <!--revslider-->
+
+    <!--END CSS-->
+    
+    <!--google fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'> <!-- font-family: 'Montserrat', sans-serif; -->
+    <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'> <!-- font-family: 'Raleway', sans-serif; -->
+    <link href='http://fonts.googleapis.com/css?family=Montez' rel='stylesheet' type='text/css'> <!-- font-family: 'Montez', cursive; -->
+
+    <!--[if lt IE 9]>  
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>  
+    <![endif]-->  
+    
+    <!--FAVICONS-->
+    <link rel="shortcut icon" href="{{'assets/theme/img/favicon/favicon.ico'|theme}}">
+    <link rel="apple-touch-icon" href="{{'assets/theme/img/favicon/apple-touch-icon.png'|theme}}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{'assets/theme/img/favicon/apple-touch-icon-72x72.png'|theme}}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{'assets/theme/img/favicon/apple-touch-icon-114x114.png'|theme}}">
+    <!--END FAVICONS-->
+
+    <link rel="stylesheet" href="{{'assets/own/own_3.css'|theme}}">
+    
+		
+		{% styles %}
+	
+
+	</head>
+
+<body id="start_nicdark_framework">
+
+<div class="nicdark_site">
+    <div class="nicdark_site_fullwidth nicdark_clearfix"><div class="nicdark_overlay"></div>
+
+
+
+
+<div class="nicdark_section nicdark_navigation fade-down">
+    
+    <div class="nicdark_menu_boxed">
+
+        <div class="nicdark_section nicdark_bg_greydark nicdark_displaynone_responsive">
+            <div class="nicdark_container nicdark_clearfix">
+                <div class="grid grid_6">
+                    <div class="nicdark_focus">
+                      
+                    </div>
+                </div>
+    <div class="grid grid_6 right">
+        <div class="nicdark_focus right">
+            <h6 class="white">
+
+
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="grey">·</span>&nbsp;&nbsp;&nbsp;&nbsp;
+
+                
+                    <i class="icon-plus-outline"></i>&nbsp;&nbsp;<a class="white" 
+
+                    {% if user %}
+                    data-request="onLogout" data-request-data="redirect: '/'"
+                    {% else %}
+                        href="{{'login'|page}}"
+                    {% endif %}
+                    >
+                    {% if user %}
+                        Kijelentkezés
+                    {% else %}
+                        Bejelentkezés
+                    {% endif %}
+                </a>
+
+
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="grey">·</span>&nbsp;&nbsp;&nbsp;&nbsp;
+
+                
+                    <i class="icon-plus-outline"></i>&nbsp;&nbsp;<a class="white" href="{{'profile'|page}}">
+                        {% if user %}
+                    Személyes profil
+                    {% else %}
+                        Regisztráció
+                    {% endif %}
+                </a>
+
+
+            </h6>
+        </div>
+    </div>
+
+                <!--info window for languages-->
+                <div id="nicdark_window" class="nicdark_bg_white nicdark_radius zoom-anim-dialog mfp-hide">
+                    
+                    <div class="nicdark_textevidence nicdark_bg_red nicdark_radius_top">
+                        <div class="nicdark_margin20">
+                            <h4 class="white">LANGUAGES</h4>
+                        </div>
+                    </div>
+
+                    <div class="nicdark_margin20">
+                        
+                        <ul class="nicdark_list border">
+                        
+                            <li class="nicdark_border_grey">
+                                <p><a class="grey" href="index.html">ENGLISH</a><a href="index.html" class="nicdark_btn right nicdark_opacity"><img alt="" width="30" src="img/flag/img1.png"></a></p>
+                                <div class="nicdark_space15"></div>
+                            </li>
+
+                            <li class="nicdark_border_grey">
+                                <div class="nicdark_space15"></div>
+                                <p><a class="grey" href="index.html">RUSSIAN</a><a href="index.html" class="nicdark_btn right nicdark_opacity"><img alt="" width="30" src="img/flag/img2.png"></a></p>   
+                                <div class="nicdark_space15"></div>
+                            </li>
+                                
+                            <li class="nicdark_border_grey">
+                                <div class="nicdark_space15"></div>
+                                <p><a class="grey" href="index.html">ARABIC</a><a href="index.html" class="nicdark_btn right nicdark_opacity"><img alt="" width="30" src="img/flag/img3.png"></a></p>   
+                                <div class="nicdark_space15"></div>
+                            </li>
+
+                            <li class="nicdark_border_grey">
+                                <div class="nicdark_space15"></div>
+                                <p><a class="grey" href="index.html">ITALIAN</a><a href="index.html" class="nicdark_btn right nicdark_opacity"><img alt="" width="30" src="img/flag/img4.png"></a></p>    
+                            </li>
+                                
+                        </ul>
+
+                    </div>
+                </div>
+                <!--end window-->
+
+            </div>
+        </div>
+
+        <div class="nicdark_space3 nicdark_bg_gradient"></div>
+                    
+        <div class="nicdark_section nicdark_bg_grey nicdark_shadow nicdark_radius_bottom">
+            <div class="nicdark_container nicdark_clearfix">
+
+                <div class="grid grid_12 percentage">
+                        
+                        <div class="nicdark_space20"></div>
+
+                        <div class="nicdark_logo nicdark_marginleft10">
+                            <a href="{{'home'|page}}"><img alt="" src="{{'assets/themes/img/logo.png'|theme}}"></a>
+                        </div>
+
+                        
+            <nav>
+                <ul class="nicdark_menu nicdark_margin010 nicdark_padding50">
+
+
+                    <li class="orange">
+                        <a href="{{'home'|page}}">Magántanárt keresek</a>
+                    </li>
+
+                    {% if not user %}
+                    <li class="orange">
+                        <a href="{{'miert-minket'|page}}">Miért minket?</a>
+                    </li>
+
+                    <li class="orange">
+                        <a href="{{'profile'|page}}">Hirdetés feladása</a>
+                    </li>
+
+                    <li class="orange">
+                        <a href="{{'ingyenes-ebook-tanaroknak'|page}}">Ingyenes eBook tanároknak</a>
+                    </li>
+                    {% endif %}
+
+                    {% if user %}
+                    <li class="orange">
+                        <a href="{{'kiemeles-index'|page}}">Kiemelés kérése</a>
+                    </li>
+
+                    <li class="orange">
+                        <a href="{{'ajanlasi-rendszer'|page}}">Ajánlási rendszer</a>
+                    </li>
+
+                    {% endif %}
+
+                </ul>
+            </nav>
+
+                        <div class="nicdark_space20"></div>
+
+                </div>
+
+            </div>
+            <!--end container-->
+
+        </div>
+        <!--end header-->
+
+    </div>
+
+</div>
+
+
+{% flash %}
+    <div class="nicdark_progressbar nicdark_bg_grey nicdark_radius nicdark_shadow flash-messages">
+        <h5 class="nicdark_progressbar_title nicdark_bg_green nicdark_bg_greendark_hover nicdark_radius nicdark_shadow fade-left animate3 animated fadeInLeft" style="width:100%">
+            <span class="white nicdark_size_big">{{message}}</span>
+        </h5>
+    </div>
+{% endflash %}
+
+
+		{% page %}
+
+	</div>
+</div>
+
+
+
+{% component "cookieConsent" %}
+
+
+
+<section class="nicdark_section nicdark_bg_greydark">
+
+    <!--start nicdark_container-->
+    <div class="nicdark_container nicdark_clearfix">
+
+        <div class="nicdark_space30"></div>
+
+        <div class="grid grid_3 nomargin percentage">
+
+            <div class="nicdark_space20"></div>
+
+            <div class="nicdark_margin10">
+                <h4 class="white">Miért a ProfiMagántanár?</h4>
+                <div class="nicdark_space20"></div>
+                <div class="nicdark_divider left small"><span class="nicdark_bg_white nicdark_radius"></span></div>
+                <div class="nicdark_space20"></div>
+                <p class="white">
+                  A ProfiMagántanár Magyarország egyik legnagyobb látogatottságú magántanár kereső weboldala. Weboldalunk a maximálisan könnyű használhatóságra törekszik. 
+                </p>
+                <div class="nicdark_space20"></div>
+                <div class="nicdark_divider left small"><span class="nicdark_bg_white nicdark_radius"></span></div>
+                <div class="nicdark_space20"></div>
+                <a href="mailto:{{admin_email}}" class="nicdark_btn_icon nicdark_bg_orange small nicdark_shadow nicdark_radius white"><i class="icon-mail-1 nicdark_rotate"></i></a>
+                
+
+            </div>
+        </div>
+
+        <div class="grid grid_3 nomargin percentage">
+            
+            <div class="nicdark_space30"></div>
+
+            <div class="nicdark_marginleft10">
+                <h4 class="white">Legnépszerűbb városok</h4>
+                <div class="nicdark_space20"></div>
+                <div class="nicdark_divider left small"><span class="nicdark_bg_white nicdark_radius"></span></div>
+            </div>
+            <div class="nicdark_space10"></div>
+
+            {% for city in most_popular_cities %}
+            <a href="{{'magantanar-kereses'|page}}?varos={{city.name}}" class="nicdark_btn nicdark_bg_greydark2 small nicdark_shadow nicdark_radius white subtitle nicdark_margin10">{{city.name}}</a>
+            {% endfor %}
+            
+
+        </div>
+
+        <div class="grid grid_3 nomargin percentage">
+            
+            <div class="nicdark_space30"></div>
+
+            <div class="nicdark_marginleft10">
+                <h4 class="white">Legnépszerűbb tárgyak</h4>
+                <div class="nicdark_space20"></div>
+                <div class="nicdark_divider left small"><span class="nicdark_bg_white nicdark_radius"></span></div>
+            </div>
+            <div class="nicdark_space10"></div>
+
+            {% for subject in most_popular_subjects %}
+            <a href="{{'magantanar-kereses'|page}}?targy={{subject.name}}" class="nicdark_btn nicdark_bg_greydark2 small nicdark_shadow nicdark_radius white subtitle nicdark_margin10">{{subject.name}}</a>
+            {% endfor %}
+            
+
+        </div>
+
+
+        <div class="grid grid_3 nomargin percentage">
+            <div class="nicdark_space30"></div>
+
+            <div class="nicdark_marginleft10">
+                <h4 class="white">Oldalaink közül</h4>
+                <div class="nicdark_space20"></div>
+                <div class="nicdark_divider left small"><span class="nicdark_bg_white nicdark_radius"></span></div>
+            </div>
+            <div class="nicdark_space10"></div>
+
+            <ul class="footer-pages">
+                <li>
+                    <a href="{{'contact'|page}}">Kapcsolat</a>
+                </li>
+                <li>
+                    <a href="{{'oldalterkep'|page}}">Oldaltérkép</a>
+                </li>
+                <li>
+                    <a href="{{'aszf'|page}}">Ászf</a>
+                </li>
+                <li>
+                    <a href="{{'adatkezeles'|page}}">Adatkezelés</a>
+                </li>
+            </ul>
+
+        </div> 
+
+        <div class="nicdark_space50"></div> 
+
+    </div>
+    <!--end nicdark_container-->
+            
+</section>
+
+
+    <!--main-->
+    <script src="{{'assets/theme/js/main/jquery.min.js'|theme}}"></script> <!--Jquery-->
+    <script src="{{'assets/theme/js/main/jquery-ui.js'|theme}}"></script> <!--Jquery UI-->
+    <script src="{{'assets/theme/js/main/excanvas.js'|theme}}"></script> <!--canvas need for ie-->
+
+    <!--plugins-->
+    <script src="{{'assets/theme/js/plugins/revslider/jquery.themepunch.tools.min.js'|theme}}"></script> <!--revslider-->
+    <script src="{{'assets/theme/js/plugins/revslider/jquery.themepunch.revolution.min.js'|theme}}"></script> <!--revslider-->
+
+    <!--menu-->
+    <script src="{{'assets/theme/js/plugins/menu/superfish.min.js'|theme}}"></script> <!--superfish-->
+    <script src="{{'assets/theme/js/plugins/menu/tinynav.min.js'|theme}}"></script> <!--tinynav-->
+
+    <!--other-->
+    <script src="{{'assets/theme/js/plugins/isotope/isotope.pkgd.min.js'|theme}}"></script> <!--isotope-->
+    <script src="{{'assets/theme/js/plugins/mpopup/jquery.magnific-popup.min.js'|theme}}"></script> <!--mpopup-->
+    <script src="{{'assets/theme/js/plugins/scroolto/scroolto.js'|theme}}"></script> <!--Scrool To-->
+    <script src="{{'assets/theme/js/plugins/nicescrool/jquery.nicescroll.min.js'|theme}}"></script> <!--Nice Scroll-->
+    <script src="{{'assets/theme/js/plugins/inview/jquery.inview.min.js'|theme}}"></script> <!--inview-->
+    <script src="{{'assets/theme/js/plugins/parallax/jquery.parallax-1.1.3.js'|theme}}"></script> <!--parallax-->
+    <script src="{{'assets/theme/js/plugins/countto/jquery.countTo.js'|theme}}"></script> <!--jquery.countTo-->
+    <script src="{{'assets/theme/js/plugins/countdown/jquery.countdown.js'|theme}}"></script> <!--countdown-->
+    
+    <!--settings-->
+    <script src="{{'assets/theme/js/settings.js'|theme}}"></script> <!--settings-->
+<!--custom js-->
+<script type="text/javascript">
+  jQuery(document).ready(function() {
+
+
+    //START SLIDE
+    jQuery('.nicdark_slide1').show().revolution(
+    {
+      dottedOverlay:"none",
+      delay:16000,
+      startwidth:1170,
+      startheight:650,
+      hideThumbs:200,
+      
+      thumbWidth:100,
+      thumbHeight:50,
+      thumbAmount:5,
+      
+      navigationType:"none",
+      navigationArrows:"solo",
+      navigationStyle:"preview2",
+      
+      touchenabled:"on",
+      onHoverStop:"on",
+      
+      swipe_velocity: 0.7,
+      swipe_min_touches: 1,
+      swipe_max_touches: 1,
+      drag_block_vertical: false,
+                  
+      parallax:"mouse",
+      parallaxBgFreeze:"on",
+      parallaxLevels:[7,4,3,2,5,4,3,2,1,0],
+                  
+      keyboardNavigation:"off",
+      
+      navigationHAlign:"center",
+      navigationVAlign:"bottom",
+      navigationHOffset:0,
+      navigationVOffset:20,
+
+      soloArrowLeftHalign:"left",
+      soloArrowLeftValign:"center",
+      soloArrowLeftHOffset:20,
+      soloArrowLeftVOffset:0,
+
+      soloArrowRightHalign:"right",
+      soloArrowRightValign:"center",
+      soloArrowRightHOffset:20,
+      soloArrowRightVOffset:0,
+          
+      shadow:0,
+      fullWidth:"on",
+      fullScreen:"off",
+
+      spinner:"spinner4",
+      
+      stopLoop:"off",
+      stopAfterLoops:-1,
+      stopAtSlide:-1,
+
+      shuffle:"off",
+      
+      autoHeight:"off",           
+      forceFullWidth:"off",           
+                  
+      hideTimerBar: "on",         
+                  
+      hideThumbsOnMobile:"off",
+      hideNavDelayOnMobile:1500,            
+      hideBulletsOnMobile:"off",
+      hideArrowsOnMobile:"off",
+      hideThumbsUnderResolution:0,
+      
+      hideSliderAtLimit:0,
+      hideCaptionAtLimit:0,
+      hideAllCaptionAtLilmit:0,
+      startWithSlide:0,
+      videoJsPath:"rs-plugin/videojs/",
+      fullScreenOffsetContainer: "" 
+    });
+    //END SLIDE
+    
+    
+
+    //START PARALLAX SECTIONS
+    $('#nicdark_parallax_big_image').parallax("50%", 0.3);
+    $('#nicdark_parallax_2_btns').parallax("50%", 0.3);
+    $('#nicdark_parallax_countdown').parallax("50%", 0.3);
+    $('#nicdark_parallax_counter').parallax("50%", 0.3);
+    //END PARALLAX SECTIONS
+
+    
+
+    //START COUNTDOWN GRID SECTION
+    //variables
+    var endDate = "May 26, 2016 20:00:00";
+    var grid = "grid_3";
+    //insert the class nicdark_displaynone in the var if you wnat to hide the visualization
+    var display_years = "nicdark_displaynone";
+    var display_days = "";
+    var display_hours = "";
+    var display_minutes = "";
+    var display_seconds = "";
+    //call
+    $(".nicdark_countdown").countdown({
+      date: endDate,
+      render: function(data) {
+        $(this.el).html("<div class=\"grid "+ grid +" "+ display_years +" \"><div class=\"nicdark_textevidence center\"><h1 class=\"subtitle white extrasize\">"+ this.leadingZeros(data.years, 4) +"</h1><div class=\"nicdark_space20\"></div><a class=\"nicdark_btn nicdark_bg_blue small nicdark_shadow nicdark_radius white\">YEARS</a><div class=\"nicdark_space5\"></div></div></div><div class=\"grid "+ grid +" "+ display_days +"  \"><div class=\"nicdark_textevidence center\"><h1 class=\"subtitle white extrasize\">"+ this.leadingZeros(data.days, 3) +"</h1><div class=\"nicdark_space20\"></div><a class=\"nicdark_btn nicdark_bg_blue small nicdark_shadow nicdark_radius white\">DAYS</a><div class=\"nicdark_space5\"></div></div></div><div class=\"grid "+ grid +" "+ display_hours +"  \"><div class=\"nicdark_textevidence center\"><h1 class=\"subtitle white extrasize\">"+ this.leadingZeros(data.hours, 2) +"</h1><div class=\"nicdark_space20\"></div><a class=\"nicdark_btn nicdark_bg_yellow small nicdark_shadow nicdark_radius white\">HOURS</a><div class=\"nicdark_space5\"></div></div></div><div class=\"grid "+ grid +" "+ display_minutes +"  \"><div class=\"nicdark_textevidence center\"><h1 class=\"subtitle white extrasize\">"+ this.leadingZeros(data.min, 2) +"</h1><div class=\"nicdark_space20\"></div><a class=\"nicdark_btn nicdark_bg_green small nicdark_shadow nicdark_radius white\">MINUTES</a><div class=\"nicdark_space5\"></div></div></div><div class=\"grid "+ grid +" "+ display_seconds +"  \"><div class=\"nicdark_textevidence center\"><h1 class=\"subtitle white extrasize\">"+ this.leadingZeros(data.sec, 2) +"</h1><div class=\"nicdark_space20\"></div><a class=\"nicdark_btn nicdark_bg_violet small nicdark_shadow nicdark_radius white\">SECONDS</a><div class=\"nicdark_space5\"></div></div></div>");
+      }
+    });
+    //END COUNTDOWN GRID SECTION
+
+  });
+</script>
+<!--custom js-->
+
+    {% scripts %}
+
+    {% framework extras %}
+       
+
+</body>  
+</html>
+

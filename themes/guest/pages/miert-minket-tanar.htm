@@ -1,0 +1,235 @@
+title = "Miért minket?"
+url = "/miert-minket-tanar"
+layout = "guest"
+meta_title = "Miért minket válassz? - Profimagántanár.hu"
+meta_description = "Nálunk megéri diákot keresni, és hirdetni is - számos okból!"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[siteSearchInclude]
+
+[contactform]
+showPhone = 1
+showEmail = 1
+showSubject = 1
+showName = 1
+showMessage = 1
+phonePlaceholder = "..."
+emailPlaceholder = "..."
+subjectPlaceholder = "..."
+namePlaceholder = "..."
+messagePlaceholder = "..."
+phoneLabel = "Az Ön telefonszáma:"
+emailLabel = "Az Ön e-mail címe:"
+subjectLabel = "Üzenet tárgya:"
+nameLabel = "Az Ön neve:"
+messageLabel = "Üzenet:"
+showLabels = 1
+showCaptcha = 1
+areElementsBorderless = 0
+isButtonFullwidth = 0
+buttonBackground = "base"
+buttonColor = "base"
+marginTop = 20
+marginBottom = 20
+==
+<?php
+function onStart(){
+	use Otto\Article\Models\Article;
+  use Otto\Personfinder\Models\City;
+  use Otto\Personfinder\Models\Subject;
+  use Rainlab\User\Models\User;
+
+}
+?>
+==
+
+
+
+
+
+
+<!--end section--><!--start section-->
+<section class="nicdark_section" id="home-introduction" style="margin-top:160px !important">
+
+    <!--start nicdark_container-->
+    <div class="nicdark_container nicdark_clearfix">
+
+
+        <div class="nicdark_space50"></div>
+
+
+        <div class="grid grid_12">
+            <h1 class="subtitle greydark">Miért a ProfiMagántanár?</h1>
+            <div class="nicdark_space20"></div>
+            <h3 class="subtitle grey">Kiemelt hirdetési kampányok - kiemelési lehetőségek - kedvező árak</h3>
+            <div class="nicdark_space20"></div>
+            <div class="nicdark_divider center big"><span class="nicdark_bg_yellow nicdark_radius"></span></div>
+            <div class="nicdark_space10"></div>
+        </div>
+
+
+        <p>
+          Mégis miben számít különlegesnek a ProfiMagántanár weboldala mindazok számára, akik hirdetni szeretnék magukat? A weboldalunk nagyon kedvező hirdetési árak mellet kínál lehetőséget megjelenni egy olyan platformon, ami nagy látogatottságú. A regisztráció mellé egy ingyenes ebookot is kapsz, mely számos tuti tippet tartalmaz magántanároknak. Itt olyan kérdésekre kaphatsz választ, hogy hogyan szerezz magadnak diákokat, hogyan alakíts ki profin egy adatlapot, vagy hogy hogyan érdemes árat emelni.  
+
+
+
+          <br><br>
+
+
+
+            <div class="nicdark_textevidence nicdark_bg_grey nicdark_shadow nicdark_radius left overflow_scroll">  
+                <table class="nicdark_table extrabig nicdark_bg_blue nicdark_radius ">
+                    <thead class="nicdark_border_blue">
+                        <tr>
+                            <td><h4 class="white">Amiben jók vagyunk</h4></td>
+                            <td class="nicdark_width_percentage1"></td>
+                        </tr>
+                    </thead>
+                    <tbody class="nicdark_bg_grey nicdark_border_grey">
+
+                        <tr>
+                            <td><p>Kedvező hirdetési díjak</p></td>
+                            <td>
+                            	<a href="#" class="nicdark_btn_icon  small nicdark_radius_circle white nicdark_bg_green">
+					          		<i class="icon-ok-outline"></i>  
+					          	</a>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td><p>Országos kereső</p></td>
+                            <td>
+                            	<a href="#" class="nicdark_btn_icon  small nicdark_radius_circle white nicdark_bg_green">
+					          		<i class="icon-ok-outline"></i>  
+					          	</a>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td><p>Több, mint 70 tantárgy</p></td>
+                            <td>
+                            	<a href="#" class="nicdark_btn_icon  small nicdark_radius_circle white nicdark_bg_green">
+					          		<i class="icon-ok-outline"></i>  
+					          	</a>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td><p>Kiemelt hirdetési kampányok a Googleban</p></td>
+                            <td>
+                            	<a href="#" class="nicdark_btn_icon  small nicdark_radius_circle white nicdark_bg_green">
+					          		<i class="icon-ok-outline"></i>  
+					          	</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><p>Egyszerű használat</p></td>
+                            <td>
+                            	<a href="#" class="nicdark_btn_icon  small nicdark_radius_circle white nicdark_bg_green">
+					          		<i class="icon-ok-outline"></i>  
+					          	</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+   
+        </p>
+
+
+        <div class="nicdark_space50"></div>
+
+
+
+            <div class="nicdark_textevidence nicdark_bg_grey nicdark_shadow nicdark_radius left overflow_scroll">  
+                <table class="nicdark_table extrabig nicdark_bg_blue nicdark_radius ">
+                    <thead class="nicdark_border_blue">
+                        <tr>
+                            <td><h4 class="white">Ingyenes eBook a regisztrálóknak - mit tartalmaz?</h4></td>
+                            <td class="nicdark_width_percentage1"></td>
+                        </tr>
+                    </thead>
+                    <tbody class="nicdark_bg_grey nicdark_border_grey">
+
+                        <tr>
+                            <td><p>Hogyan szerkessz profi tanári adatlapot, ami alapján TÉGED választanak majd</p></td>
+                            <td>
+                            	<a href="#" class="nicdark_btn_icon  small nicdark_radius_circle white nicdark_bg_green">
+					          		<i class="icon-ok-outline"></i>  
+					          	</a>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td><p>Hogyan árazz</p></td>
+                            <td>
+                            	<a href="#" class="nicdark_btn_icon  small nicdark_radius_circle white nicdark_bg_green">
+					          		<i class="icon-ok-outline"></i>  
+					          	</a>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td><p>Mikor emelj órabért és hogyan</p></td>
+                            <td>
+                            	<a href="#" class="nicdark_btn_icon  small nicdark_radius_circle white nicdark_bg_green">
+					          		<i class="icon-ok-outline"></i>  
+					          	</a>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td><p>Hogyan ismerhetjük fel a problémás diákokat</p></td>
+                            <td>
+                            	<a href="#" class="nicdark_btn_icon  small nicdark_radius_circle white nicdark_bg_green">
+					          		<i class="icon-ok-outline"></i>  
+					          	</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><p>
+                            	Hogyan találd meg a legjobb diákokat
+                            </p></td>
+                            <td>
+                            	<a href="#" class="nicdark_btn_icon  small nicdark_radius_circle white nicdark_bg_green">
+					          		<i class="icon-ok-outline"></i>  
+					          	</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><p>
+                            	Hogyan hitesd el a diákoddal, hogy az online óra is ugyanolyan hatékony lehet
+                            </p></td>
+                            <td>
+                            	<a href="#" class="nicdark_btn_icon  small nicdark_radius_circle white nicdark_bg_green">
+					          		<i class="icon-ok-outline"></i>  
+					          	</a>
+                            </td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+
+
+
+    </div>
+    <!--end nicdark_container-->
+            
+</section>
+
+      <div class="nicdark_space50"></div>

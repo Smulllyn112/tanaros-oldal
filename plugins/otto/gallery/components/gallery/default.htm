@@ -1,0 +1,47 @@
+
+
+
+{% set gallery = __SELF__.gallery %}
+{% set gallery_config = __SELF__.gallery_config %}
+
+{{gallery.title}} 22
+{{gallery_config.items_per_row}}
+
+<section >
+
+
+
+
+
+
+
+
+<div		
+	class=" mt-{{gallery_config.section_margin_top}} 
+			mb-{{gallery_config.section_margin_bottom}}
+			own-image-gallery
+		"
+>			
+
+	{% if gallery_config.type == "base" %}
+		{% partial 'gallery::partials/base' gallery_config=gallery_config gallery=gallery %}
+	{% endif %}
+	
+	{% if gallery_config.type == "tabbed"  %}
+		{% partial 'gallery::partials/tabbed' gallery_config=gallery_config galleries=gallery %}
+	{% endif %}
+
+	{% if gallery_config.type == "sortable"  %}
+		{% partial 'gallery::partials/filterable' gallery_config=gallery_config galleries=gallery %}
+	{% endif %}
+
+
+
+
+
+</div>
+
+</section>
+
+
+

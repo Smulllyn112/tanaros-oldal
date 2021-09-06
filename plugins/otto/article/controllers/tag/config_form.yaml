@@ -1,0 +1,10 @@
+name: Tag
+form: $/otto/article/models/tag/fields.yaml
+modelClass: Otto\Article\Models\Tag
+defaultRedirect: otto/article/tag
+create:
+    redirect: 'otto/article/tag/update/:id'
+    redirectClose: otto/article/tag
+update:
+    redirect: otto/article/tag
+    redirectClose: otto/article/tag

@@ -1,0 +1,120 @@
+title = "Blog kategória"
+url = "/blog-kategoria/:slug"
+layout = "guest"
+meta_title = "Matekos blogunk - MatekDzsungel"
+meta_description = "Matekos blogunk kifejezetten gyerekeknek szól! Szeretnéd megismerni a geometria rejtelmeit, mindezt játékosan? Hát a kombinatnorikát?"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[builderDetails]
+modelClass = "Otto\Article\Models\Category"
+identifierValue = "{{ :slug }}"
+modelKeyColumn = "slug"
+displayColumn = "name"
+notFoundMessage = "Nem található elem."
+==
+<?php
+use Otto\Article\Models\Article;
+use Otto\Article\Models\Category;
+function onStart(){
+	$this['categories'] = Category::with(['articles' => function($query){
+		$query->where('is_published',1);
+	}])->orderBy('sort_number','desc')->orderBy('id','desc')->get();
+
+	$this["category"] = Category::where('slug',\Request::segment(2))->firstOrFail();
+
+    $this->page->meta_description = $this['category']->meta_description;
+    $this->page->meta_title = $this['category']->meta_title;
+
+}
+?>
+==
+
+
+
+
+
+    <section>
+      <div class="container mt-30 mb-30 pt-30 pb-30">
+        <div class="row">
+          <div class="col-md-9">
+            <div class="blog-posts">
+              <div class="col-md-12">
+                <div class="row list-dashed">
+                    {% for article in category.articles %}
+                      <article class="post clearfix mb-30 pb-30">
+                        <div class="entry-header">
+                          <div class="post-thumb thumb"> 
+                            {% if article.cover_image %}
+                                <a href="{{ 'single-slug'|page({ slug: article.slug }) }}">    
+                                    <img src="{{ article.cover_image.thumb(840,360,{}) }}" alt="{{article.title}}" class="img-responsive img-fullwidth">
+                                </a>
+                            {% endif %} 
+                          </div>
+                        </div>
+                        <div class="entry-content border-1px p-20 pr-10">
+                          <div class="entry-meta media mt-0 no-bg no-border">
+                            <div class="entry-date media-left text-center flip bg-theme-colored pt-5 pr-15 pb-5 pl-15">
+                              <ul>
+                                <li class="font-16 text-white font-weight-600">{{article.creation_day}}</li>
+                                <li class="font-12 text-white text-uppercase">{{article.creation_month}}</li>
+                              </ul>
+                            </div>
+                            <div class="media-body pl-15">
+                              <div class="event-content pull-left flip">
+                                <h4 class="entry-title text-white text-uppercase m-0 mt-5"><a href="{{ 'single-slug'|page({ slug: article.slug }) }}">{{article.title}}</a></h4>
+                            
+                              </div>
+                            </div>
+                          </div>
+                          <p class="mt-10">
+                               {{article.excerpt|raw}}
+                          </p>
+                          <a href="{{ 'single-slug'|page({ slug: article.slug }) }}" class="btn-read-more">Tovább olvasom</a>
+                          <div class="clearfix"></div>
+                        </div>
+                      </article>
+                    {% endfor %}
+
+                </div>
+              </div>
+
+              <!--
+              <div class="col-md-12">
+                <nav>
+                  <ul class="pagination theme-colored">
+                    <li> <a aria-label="Previous" href="#"> <span aria-hidden="true">«</span> </a> </li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">...</a></li>
+                    <li> <a aria-label="Next" href="#"> <span aria-hidden="true">»</span> </a> </li>
+                  </ul>
+                </nav>
+              </div>
+                -->
+
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="sidebar sidebar-right mt-sm-30">
+              <div class="widget">
+                <h5 class="widget-title line-bottom">Kategóriák</h5>
+                <ul class="list-divider list-border list check">
+                    {% for category in categories %}
+                        <li><a href="{{'blog-category-show'|page({slug: category.slug})}}">{{category.name}}</a></li>
+                    {% endfor %}
+                
+                </ul>
+              </div>
+           
+ 
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> 

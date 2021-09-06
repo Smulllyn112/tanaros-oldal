@@ -1,0 +1,10 @@
+name: Point
+form: $/otto/servicepage/models/point/fields.yaml
+modelClass: Otto\Servicepage\Models\Point
+defaultRedirect: otto/servicepage/point
+create:
+    redirect: 'otto/servicepage/point/update/:id'
+    redirectClose: otto/servicepage/point
+update:
+    redirect: otto/servicepage/point
+    redirectClose: otto/servicepage/point

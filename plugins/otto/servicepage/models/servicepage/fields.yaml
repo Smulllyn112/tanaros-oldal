@@ -1,0 +1,49 @@
+fields:
+    title:
+        label: Cím
+        span: left
+        required: 1
+        type: text
+    slug:
+        label: Slug
+        span: right
+        preset:
+            field: title
+            type: slug
+        required: 1
+        type: text
+        comment: 'Ez fog megjelenni az URL végében. Mindenképp add meg.'
+    section_title:
+        label: 'Szekció címe'
+        span: full
+        type: text
+    section_description:
+        label: 'Szekció leírása'
+        size: huge
+        span: full
+        type: richeditor
+    section_image:
+        label: 'Szekció képe'
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: full
+        type: fileupload
+    sort_number:
+        label: 'Sorbarendezési szám'
+        span: full
+        attributes:
+            min: '1'
+            max: '1000'
+        type: number
+    type:
+        label: Típus
+        options:
+            modszer: Módszer
+            szolgaltatas: Szolgáltatás
+        showSearch: true
+        span: auto
+        default: modszer
+        type: dropdown

@@ -1,0 +1,76 @@
+
+
+<section class="nicdark_section"
+{% if bottom_grid %}
+	style="margin-top:80px !important"
+{% elseif top_grid %}
+	style="margin-top:50px !important"
+{% endif %}
+>
+
+    <!--start nicdark_container-->
+    <div class="nicdark_container nicdark_clearfix">
+
+        <div class="grid grid_12">
+     		{% if teachers.count() > 0 or user  %}
+            <h3 class="subtitle greydark upper-first">
+            
+            {{title}}
+
+        	</h3>
+        	
+            
+            <div class="nicdark_space20"></div>
+            <div class="nicdark_divider left small"><span class="nicdark_bg_green nicdark_radius"></span></div>
+            {% endif %}
+            <div class="nicdark_space10"></div>
+        </div>
+
+
+	        {% set color_arr = ["green", "blue", "pink", "yellow", "orange"] %}
+
+	        {% for teacher in teachers %}
+	        	{% partial "teacher-grid-item" teacher=teacher color=color_arr[loop.index0 % 5] %}
+		    {% endfor %}
+
+      </div>
+
+      {% if user %}
+		    <!--start nicdark_container-->
+		    <div class="nicdark_container nicdark_clearfix">
+
+		        <div class="nicdark_space30"></div>
+
+		        <div class="grid grid_12">
+		            <div class="nicdark_textevidence center">
+		            	{% if is_extra_featured %}
+		                <a href="{{'kiemeles-index'|page}}" class="nicdark_zoom nicdark_btn nicdark_bg_red medium nicdark_shadow nicdark_radius white nicdark_margin10">
+
+		                
+		                Extra kiemelést kérek!
+
+		                
+
+		            	
+		            	</a>
+		            	{% elseif is_featured %}
+		                <a href="{{'kiemeles-index'|page}}" class="nicdark_zoom nicdark_btn nicdark_bg_red medium nicdark_shadow nicdark_radius white nicdark_margin10">
+Kiemelést kérek!
+		            	
+		            	</a>
+		                
+		                {% endif %}
+
+		            </div>
+		        </div>
+
+		        <div class="nicdark_space40"></div>
+
+		    </div>
+		    <!--end nicdark_container-->
+
+       
+      {% endif %}
+
+  
+</section>

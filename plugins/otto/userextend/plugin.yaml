@@ -1,0 +1,6 @@
+plugin:
+    name: 'otto.userextend::lang.plugin.name'
+    description: 'otto.userextend::lang.plugin.description'
+    author: Otto
+    icon: oc-icon-user
+    homepage: ''

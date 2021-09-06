@@ -1,0 +1,41 @@
+<p>
+	Új kapcsolatfelvételi kérelem érkezett!
+</p>
+
+{% if name %}
+	<strong>Név</strong>
+	<p>
+		{{name}}
+	</p>
+{% endif %}
+
+
+{% if email %}
+<strong>Email</strong>
+<p>
+	{{email}}
+</p>
+{% endif %}
+
+{% if phone %}
+<strong>Telefonszám</strong>
+<p>
+	{{phone}}
+</p>
+{% endif %}
+
+{% if subject_from_sender %}
+<strong>Tárgy</strong>
+<p>
+	{{subject_from_sender}}
+</p>
+{% endif %}
+
+{% if msg %}
+<strong>Üzenet</strong>
+<p>
+	{{msg|nl2br}}
+</p>
+{% endif %}
+
+Üdvözlettel, a Profifelkészítő.NET csapata 

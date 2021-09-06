@@ -1,0 +1,5 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table otto_gallery_'
+    - builder_table_create_otto_gallery_.php

@@ -1,0 +1,19 @@
+columns:
+    title:
+        label: Cím
+        type: text
+        searchable: true
+        sortable: true
+    sort_number:
+        label: 'Sorbarendezési szám'
+        type: number
+        sortable: true
+    description:
+        label: Leírás
+        type: text
+        searchable: true
+        sortable: true
+    created_at:
+        label: Létrehozva
+        type: time
+        sortable: true

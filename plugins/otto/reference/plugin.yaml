@@ -1,0 +1,6 @@
+plugin:
+    name: 'otto.reference::lang.plugin.name'
+    description: 'otto.reference::lang.plugin.description'
+    author: Otto
+    icon: oc-icon-behance
+    homepage: ''

@@ -1,0 +1,90 @@
+
+
+<div class="grid grid_4">       
+    <!--archive1-->
+    <div class="nicdark_archive1 
+
+    {% if color=='green' %}
+    	nicdark_bg_green
+    {% elseif color=='blue' %}
+    	nicdark_bg_blue
+    {% elseif color=='pink' %}
+    	nicdark_bg_violet
+    {% elseif color=='yellow' %}
+    	nicdark_bg_yellow
+    {% elseif color=='orange' %} 
+    	nicdark_bg_orange
+    {% endif %}
+
+    nicdark_radius nicdark_shadow">
+
+    	{% if is_extra_featured %}
+	        <a href="{{'teacher-show'|page({slug:teacher.slug})}}" class="nicdark_btn nicdark_bg_greydark white medium nicdark_radius nicdark_absolute_left">
+	        	Extrán Kiemelt
+	        </a>
+        {% elseif is_featured %}
+	        <a href="{{'teacher-show'|page({slug:teacher.slug})}}" class="nicdark_btn nicdark_bg_greydark white medium nicdark_radius nicdark_absolute_left">
+	        	Kiemelt
+	        </a>
+        {% endif %}
+
+        <a href="{{'teacher-show'|page({slug:teacher.slug})}}">
+            {% if teacher.avatar %}
+        	   <img alt="{{teacher.name}}" src="{{teacher.avatar.thumb(400,400,{mode:'crop'}) }}">
+            {% else %}
+                <img alt="{{teacher.name}}" src="{{'assets/own/images/alap_avatar.png'|theme}}">
+            {% endif %}
+        </a>
+        <div class="nicdark_textevidence nicdark_bg_greydark">
+            <h4 class="white nicdark_margin20">{{teacher.name}}</h4>
+        </div>
+        
+        <div class="nicdark_margin20">
+        	{% if teacher.is_online_teaching %}
+            	<h5 class="white">
+            	<i class="icon-pin-outline"></i>Online tanít</h5>
+            {% elseif teacher.is_group_teaching %}
+
+            	<h5 class="white">
+            	<i class="icon-pin-outline"></i>Csoportos órák is</h5>
+
+            {% endif %}
+            <div class="nicdark_space10"></div>
+
+            {% if teacher.is_going_to_house %}
+            <h5 class="white"><i class="icon-clock-1"></i>Házhoz megy</h5>
+
+            {% elseif teacher.cities.count()>0 %}
+            	<h5 class="white"><i class="icon-clock-1"></i>{{teacher.cities.first().name}}</h5>
+            {% endif %}
+            
+            <div class="nicdark_space20"></div>
+            <div class="nicdark_divider left small"><span class="nicdark_bg_white nicdark_radius"></span></div>
+            <div class="nicdark_space20"></div>
+            <p class="white">
+            	{{teacher.excerpt|raw}}
+            </p>
+            <div class="nicdark_space20"></div>
+            <a href="{{'teacher-show'|page({slug:teacher.slug})}}" class=" nicdark_press nicdark_btn
+ 
+
+
+		    {% if color=='green' %}
+		    	nicdark_bg_greendark
+		    {% elseif color=='blue' %}
+		    	nicdark_bg_bluedark
+		    {% elseif color=='pink' %}
+		    	nicdark_bg_violetdark
+		    {% elseif color=='yellow' %}
+		    	nicdark_bg_yellowdark
+		    {% elseif color=='orange' %} 
+		    	nicdark_bg_orangedark
+		    {% endif %}
+
+            white nicdark_radius nicdark_shadow medium">Adatlap</a>
+        </div>
+
+    </div>
+    <!--archive1-->
+
+</div>

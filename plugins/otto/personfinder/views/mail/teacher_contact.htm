@@ -1,0 +1,35 @@
+<p>
+	Új megkeresés a {{app_name}} weboldalon!
+</p>
+
+<p>
+	{{teacher_name}} adatlapjáról üzenetet küldtek a {{app_name}} weboldalon!
+</p>
+
+{% if sender_name %}
+<p>
+	Név: {{sender_name}}
+</p>
+{% endif %}
+
+{% if sender_email %}
+<p>
+	Email: {{sender_email}}
+</p>
+{% endif %}
+
+{% if sender_phone %}
+<p>
+	Név: {{sender_phone}}
+</p>
+{% endif %}
+
+{% if sender_message %}
+<p>
+	Üzenet: {{sender_message|raw}}
+</p>
+{% endif %}
+
+<p>
+	{{regards}}
+</p>

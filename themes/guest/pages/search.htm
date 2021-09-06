@@ -1,0 +1,37 @@
+title = "search"
+url = "/search"
+layout = "guest"
+meta_title = "Keresés - ProfiMagántanár.hu"
+meta_description = "A kereső segít téged abban, hogy megtalált azt az oktató magántanárt, akire szükséged lenne."
+is_hidden = 0
+seo_keywords = "Webrolling,keresés,új,szükséged,megtalál,kezelhetőség,informatív,esztétikus,visszatérő"
+robot_index = "index"
+robot_follow = "follow"
+
+[searchResults]
+resultsPerPage = 10
+showProviderBadge = 1
+noResultsMessage = "Your search returned no results."
+visitPageMessage = "Visit page"
+==
+        <div class="banner_area">
+            <h2>Keresés</h2>
+            <a href="{{'home'|page}}">Főoldal <span>>Keresés</span></a>
+        </div>
+
+
+
+<div class="container my-5" style="min-height:300px">
+	{% set results = searchResults.results %}
+
+{% for result in results %}
+    {# Display all results #}
+    {% partial searchResults ~ '::searchresult.htm' result = result %}
+{% else %}
+    {# No results found #}
+    <h1 class="mt-5">Nincs a keresési eredménynek megfelelő találat.</h1>
+{% endfor %}
+
+{% partial searchResults ~ '::pagination.htm' results = results %}
+
+</div>

@@ -1,0 +1,559 @@
+title = "Regisztráció"
+url = "/regisztracio-profil"
+layout = "guest"
+meta_title = "Regisztráció - Profimagántanár.hu"
+meta_description = "Regisztrálj magántanár adatbázisunkba, és találj magadnak diákot akár napokon belül!"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[siteSearchInclude]
+
+[register_form]
+[contactform]
+showPhone = 1
+showEmail = 1
+showSubject = 1
+showName = 1
+showMessage = 1
+phonePlaceholder = "..."
+emailPlaceholder = "..."
+subjectPlaceholder = "..."
+namePlaceholder = "..."
+messagePlaceholder = "..."
+phoneLabel = "Az Ön telefonszáma:"
+emailLabel = "Az Ön e-mail címe:"
+subjectLabel = "Üzenet tárgya:"
+nameLabel = "Az Ön neve:"
+messageLabel = "Üzenet:"
+showLabels = 1
+showCaptcha = 1
+areElementsBorderless = 0
+isButtonFullwidth = 0
+buttonBackground = "base"
+buttonColor = "base"
+marginTop = 20
+marginBottom = 20
+==
+<?php
+function onStart(){
+	use Otto\Personfinder\Models\City;
+    use Otto\Personfinder\Models\Subject;
+
+    $this["cities"] = City::getItemsList();
+    $this["subjects"] = Subject::getItemsList();
+
+    $this["packages"] = City::$subscriptionPackages;
+
+    //dd($this["cities"],$this["subjects"]);
+}
+?>
+==
+
+<!--start section-->
+<section class="nicdark_section">
+
+    <!--start nicdark_container-->
+    <div class="nicdark_container nicdark_clearfix">
+
+        <div class="nicdark_space40"></div>
+
+        <div class="grid grid_12">
+
+            <div class="nicdark_space20"></div>
+
+
+        </div>
+
+        <div class="nicdark_space40"></div>
+    <form method="post" 
+         {% if user %}
+            data-request="register_form::onUpdate" 
+        {% else %}
+            data-request="register_form::onSend" 
+        {% endif %}
+    data-request-files
+     enctype="multipart/form-data">
+        <div class="grid grid_6">
+            <!--title-->
+            <h3 class="subtitle greydark">
+            {% if user %}
+                Személyes profil
+            {% else %}
+                Regisztráció
+            {% endif %}
+            </h3>
+            <div class="nicdark_space20"></div>
+            <div class="nicdark_divider left small"><span class="nicdark_bg_yellow nicdark_radius"></span></div>
+            <!--title--> 
+            
+            <div class="nicdark_space20"></div>
+
+            <div class="nicdark_archive1 nicdark_bg_grey nicdark_radius nicdark_shadow">
+                <div class="nicdark_textevidence nicdark_bg_yellow nicdark_radius_top">
+                    <h4 class="white nicdark_margin20">Személyes adatok</h4>
+                    <i class="icon-globe-1 nicdark_iconbg right medium yellow"></i>
+                </div>
+                <div class="nicdark_margin20">
+
+                    <p>Profilkép</p>
+                    <input type="file" name="avatar" data-request-files data-request-flash>
+
+                    {% if user and user.avatar %}
+                    <div class="profile-img-container">
+                        <img src="{{ user.avatar.path }}">
+                    </div>
+                    {% else %}
+                        <div class="profile-img-container">
+                            <img src="{{ 'assets/own/images/alap_avatar.png'|theme }}">
+                        </div>
+
+                        Töltsd fel a profilképedet!
+                    {% endif %}
+
+                    <p>*Név</p>
+                    <div class="nicdark_space5"></div>
+                    <input class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle" type="text"
+
+                    {% if user %}
+                    value="{{user.name}}" 
+                    {% endif %}
+
+                    size="200" name="name" required placeholder="Kötelező megadni...">
+
+                    <div class="nicdark_space20"></div>
+                    
+                    <p>*Email</p>
+                    <div class="nicdark_space5"></div>
+                    <input class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle email-input" type="email" placeholder="Kötelező megadni..." 
+
+                    {% if user %}
+                    value="{{user.email}}" 
+                    {% endif %}
+
+
+                     name="email" size="200" required>
+
+                    <div class="nicdark_space20"></div>
+
+                    {% if user %}
+                        <p>Jelszó módosítása</p>
+                    {% else %}
+                        <p>*Jelszó</p>
+                    {% endif %}
+                    <div class="nicdark_space5"></div>
+                    <input class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle email-input" type="password"
+                    {% if not user %}
+                     placeholder="Kötelező megadni..." 
+                     {% endif %}
+                    value="" name="password" size="200"
+
+                    {% if not user %}
+                     required
+                 {% endif %}
+                     >
+
+
+                    <div class="nicdark_space20"></div>
+
+                    {% if user %}
+                        <p>Jelszó módosítása</p>
+                    {% else %}
+                        <p>*Jelszómódosítás megerősítése</p>
+                    {% endif %}
+
+                    
+                    <div class="nicdark_space5"></div>
+                    <input class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle email-input" type="password" 
+
+                    {% if not user %}
+                        placeholder="Kötelező megadni..."
+                     {% endif %}
+
+                    value="" name="password_confirmation" size="200"
+                    {% if not user %}
+                     required
+                 {% endif %}
+                     >
+
+
+                    <div class="nicdark_space20"></div>
+
+
+                    <p>*Telefonszám</p>
+
+                    <div class="nicdark_space5"></div>
+                    <input class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle" placeholder="Kötelező megadni..." type="text" 
+                    required
+                    {% if user %}
+                    value="{{user.phone}}" 
+                    {% endif %}
+
+                    name="phone" size="200">
+
+                    <div class="nicdark_space20"></div>
+                    <p>*Órabér (pl. 4000 - 6000 Ft / óra)</p>
+                    <div class="nicdark_space5"></div>
+                    <input class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle" placeholder="Kötelező megadni..." type="text" 
+
+                    {% if user %}
+                    value="{{user.hour_price}}" 
+                    {% endif %}
+
+                    size="200" name="hour_price" required>
+
+                    <div class="nicdark_space20"></div>
+                    <p>Személyes weboldal (ha van ilyen)</p>
+                    <div class="nicdark_space5"></div>
+                    <input class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle" name="personal_website" type="text" 
+
+                    {% if user %}
+                    value="{{user.personal_website}}" 
+                    {% endif %}
+
+                    size="200">
+
+
+                    <div class="nicdark_space20"></div>
+                    <p>Vállalsz csoportos órát? (ha igen, például: 2-4 főt egyszerre)</p>
+                    <div class="nicdark_space5"></div>
+                    <input class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle" name="group_teaching" type="text" 
+
+                    {% if user %}
+                    value="{{user.group_teaching}}" 
+                    {% endif %}
+                    size="200">
+
+
+                    <div class="nicdark_space20"></div>
+                    <p>* Személyes leírás (saját magadról egy 5-20 mondatos megfogalmazás)</p>
+                    <div class="nicdark_space5"></div>
+                    <textarea class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle" name="description" placeholder="Kötelező megadni..." required 
+                    rows="22"
+                    size="200">{% if user %}{{user.description}} 
+                    {% endif %}</textarea>
+
+
+                    <div class="nicdark_space20"></div>
+                    <p>* Profil előkép leírás (ez jelenik meg a listázott tanárok között a kártyán, mint leírás alul)</p>
+                    <div class="nicdark_space5"></div>
+                    
+                    <textarea class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle" name="excerpt" required placeholder="Kötelező megadni..." 
+                    rows="12"
+                     size="200">{% if user %}{{user.excerpt}} 
+                    {% endif %}</textarea>
+
+
+
+                    <div class="nicdark_space20"></div>
+                    <p>Van valamilyen speciális végzettséged? (Akkor add meg, ha van ilyen, például: egyetemi diploma nyelvtanárként)</p>
+                    <div class="nicdark_space5"></div>
+                    <textarea class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle" name="	graduate" size="200">{% if user %}{{user.graduate}} 
+                    {% endif %}</textarea>
+
+
+                    <div class="nicdark_space20"></div>
+                    <p>Mikor tartasz órát? (Pl: déután 5 óra után, hétvégente bármikor)</p>
+                    <div class="nicdark_space5"></div>
+                    <textarea class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle" name="business_hours" size="200">{% if user %}{{user.business_hours}} 
+                    {% endif %}</textarea>
+
+
+                    <div class="nicdark_space20"></div>
+                    <p>Házhoz mész igény esetén?</p>
+                    <div class="nicdark_space5"></div>
+                    <input type="radio" name="is_going_to_house" value="1"
+
+                    {% if not user or user.is_going_to_house %}
+                        checked 
+                    {% endif %}
+
+                    > Igen 
+
+                    <br>
+                    <input type="radio" name="is_going_to_house" value="0"
+
+                    {% if not user.is_going_to_house %}
+                        checked 
+                    {% endif %}
+
+                    > Nem 
+
+
+
+                    <div class="nicdark_space20"></div>
+                    <p>Tanítasz online is?</p>
+                    <div class="nicdark_space5"></div>
+                    <input type="radio" name="is_online_teaching" value="1"
+
+                    {% if not user or user.is_online_teaching %}
+                        checked 
+                    {% endif %}
+
+                    > Igen 
+
+                    <br>
+                    <input type="radio" name="is_online_teaching" value="0"
+
+                    {% if not user.is_online_teaching %}
+                        checked 
+                    {% endif %}
+
+                    > Nem 
+
+                    <div class="nicdark_space20"></div>
+                    <p>Ha tanítasz személyesen is, mely városokban? (ha nincs meg valamelyik város a listában, akkor alul add hozzá, a lista alatti mezőben, mely jóváhagyás után megjelenik majd!)</p>
+                    <div class="nicdark_space5"></div>
+                    
+                    {% for city in cities %}
+                    <input type="checkbox" name="cities[]" value="{{city.id}}"
+
+                    {% if user.cities.contains(city.id) %}
+                        checked 
+                    {% endif %} 
+
+                    > {{city.name}} <br>
+                    {% endfor %}
+
+                    <br>
+
+                     <p>Ha nincs a listában, add meg az új város nevét</p>
+                    <input class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle" name="new_city" type="text" value="" size="200">
+
+
+                    <div class="nicdark_space20"></div>
+                    <p>Mely tantárgyakat tanítasz? (ha nincs meg valamelyik tantárgy a listában, akkor alul add hozzá, a lista alatti mezőben, mely jóváhagyás után megjelenik majd!)</p>
+                    <div class="nicdark_space5"></div>
+
+                    {% for subject in subjects %}
+                    <input type="checkbox" name="subjects[]" value="{{subject.id}}"
+
+                    {% if user.subjects.contains(subject.id) %}
+                        checked 
+                    {% endif %} 
+
+                    > {{subject.name}} <br>
+                    {% endfor %}
+
+                    <br>
+
+                    <p>Ha nincs a listában, add meg az új tárgy nevét</p>
+                    <input class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle" name="new_subject" type="text" value="" size="200">
+
+            {% if user %}
+            <div style="height:70px;"></div>
+            <a class="nicdark_btn nicdark_bg_yellow medium nicdark_shadow nicdark_radius white nicdark_press alert-btn elofizetes-gomb" href="{{'elofizetes-modositas'|page}}">Előfizetésem</a>
+
+            {% endif %}
+
+                    {% if not user %}
+                    <div style="height:70px;"></div>
+                    <p>Ajánlói Email cím</p>
+                    <div class="nicdark_space5"></div>
+                    <input class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle email-input" type="email" placeholder="..." 
+
+
+                     name="ajanloi_email" size="200" >
+                     <small>Csak akkor add meg, ha valamelyik ismerősöd ajánlott a platformra. Ez esetben az ő itt regisztrált e-mail címére lenne szükség.</small>
+                    <div class="nicdark_space20"></div>
+                    {% endif %}
+
+
+                    <div style="height:50px;"></div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="grid grid_6">
+            <!--title-->
+
+            <h3 class="subtitle greydark">Számlázási adatok</h3>
+            <div class="nicdark_space20"></div>
+            <div class="nicdark_divider left small"><span class="nicdark_bg_red nicdark_radius"></span></div>
+            <!--title-->   
+            
+            <div class="nicdark_space20"></div>
+                <table class="nicdark_table extrabig nicdark_bg_red nicdark_radius ">
+                 <thead class="nicdark_border_red">
+                        <tr>
+                            <td><h4 class="white">Számlázási adatok</h4></td>
+
+                           
+                        </tr>
+                    </thead>
+
+                </table>
+            <div class="nicdark_textevidence nicdark_bg_grey nicdark_shadow nicdark_radius left overflow_scroll billing-container">   
+    
+                    <p>*Ország</p>
+                    <div class="nicdark_space5"></div>
+                    <input class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle" type="text"
+
+                    {% if user %}
+                    value="{{user.billing_country}}" 
+                    {% endif %}
+
+                    size="200" name="billing_country" required placeholder="Kötelező megadni..."
+                    >
+
+                    <div class="nicdark_space20"></div>
+                    
+
+                    <p>*Város</p>
+                    <div class="nicdark_space5"></div>
+                    <input class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle" type="text"
+
+                    {% if user %}
+                    value="{{user.billing_city}}" 
+                    {% endif %}
+
+                    size="200" name="billing_city" required placeholder="Kötelező megadni..."
+                    >
+
+                    <div class="nicdark_space20"></div>
+
+
+
+
+                    <p>*Zip kód</p>
+                    <div class="nicdark_space5"></div>
+                    <input class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle" type="text"
+
+                    {% if user %}
+                    value="{{user.billing_zip}}" 
+                    {% endif %}
+
+                    size="200" name="billing_zip" required placeholder="Kötelező megadni..."
+                    >
+
+                    <div class="nicdark_space20"></div>
+
+
+
+                    <p>*Utca</p>
+                    <div class="nicdark_space5"></div>
+                    <input class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle" type="text"
+
+                    {% if user %}
+                    value="{{user.billing_street}}" 
+                    {% endif %}
+
+                    size="200" name="billing_street" required placeholder="Kötelező megadni..."
+                    >
+
+                    <div class="nicdark_space20"></div>
+
+            </div>
+
+
+
+
+
+
+
+
+            <h3 class="subtitle greydark">Csomag</h3>
+            <div class="nicdark_space20"></div>
+            <div class="nicdark_divider left small"><span class="nicdark_bg_red nicdark_radius"></span></div>
+            <!--title-->   
+            
+            <div class="nicdark_space20"></div>
+
+            <div class="nicdark_textevidence nicdark_bg_grey nicdark_shadow nicdark_radius left overflow_scroll">   
+                <table class="nicdark_table extrabig nicdark_bg_red nicdark_radius ">
+                    <thead class="nicdark_border_red">
+                        <tr>
+                            <td><h4 class="white">Előfizetés</h4></td>
+                            <td class="nicdark_width_percentage1"><h4 class="white">Választ</h4></td>
+                        </tr>
+                    </thead>
+                    <tbody class="nicdark_bg_grey nicdark_border_grey">
+                    {% for element in packages %}
+                        <tr>
+                            <td><p>Előfizetés 
+                                <strong>
+                                    {{element.duration}} hónapra 
+                                </strong> {% if not user %}(Bármikor lemondható) {% endif %} - {{element.price}} Ft
+                            </p></td>
+                            <td>
+                                <input type="radio" name="package" value="{{element.id}}
+                                "
+                                {% if not user and element.is_default %}
+                                    checked
+                                {% endif %}
+
+                                {% if user %}
+                                    disabled
+                                {% endif %}
+
+                                {% if user.subscription_duration == element.duration %}
+                                    checked
+                                {% endif %}
+                                >
+                            </td>
+                        </tr>
+                    {% endfor %}
+          
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="nicdark_space60"></div>
+
+            {% if user %}
+            <!--
+                <a class="nicdark_btn nicdark_bg_red medium nicdark_shadow nicdark_radius white nicdark_press alert-btn" href="#">Előfizetésed eddig tart: {{user.active_until}}</a>
+        -->
+
+
+
+
+            {% endif %}
+
+            {% if not user %}
+            <p>
+                <a href="#" class="nicdark_btn_icon nicdark_bg_green small nicdark_radius_circle white">
+                    <i class="icon-ok-outline"></i>
+                </a>
+                <span>
+                Regisztráció után ingyenes eBook magántanároknak - mely kifejezetten a magántanárok marketingjét segíti.</span>
+            </p>
+            {% endif %}
+
+            <br>
+            <input class="nicdark_btn nicdark_bg_orange medium nicdark_shadow nicdark_radius white nicdark_press alert-btn" type="submit" 
+            {% if user %}
+                value="Adatok módosítása"
+            {% else %}
+                value="Regisztráció"
+            {% endif %}
+            >
+
+        
+            <div style="height:30px"></div>
+            <h3 class="subtitle greydark">Hogyan zajlik a fizetés?</h3>
+            <div class="nicdark_space20"></div>
+            <div class="nicdark_divider left small"><span class="nicdark_bg_green nicdark_radius"></span></div>
+            <!--title-->   
+            
+            <div class="nicdark_space20"></div>
+
+            <p>A fizetés egyszerű Online Kártyás fizetéssel történik, OTP SimplePay segítségével.</p>
+            <br>
+
+            {% if not user.is_published %}
+            <a class="nicdark_btn nicdark_bg_orange medium nicdark_shadow nicdark_radius white nicdark_press alert-btn" href="#">Profil jóváhagyásra vár</a>
+            {% endif %}
+
+        </div>
+     </form>
+    </div>
+    <!--end nicdark_container-->
+
+    <div class="nicdark_space50"></div>
+     
+</section>
+<!--end section-->

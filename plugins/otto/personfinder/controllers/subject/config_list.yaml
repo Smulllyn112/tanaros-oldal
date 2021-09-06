@@ -1,0 +1,12 @@
+list: $/otto/personfinder/models/subject/columns.yaml
+modelClass: Otto\Personfinder\Models\Subject
+title: Subject
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'otto/personfinder/subject/update/:id'

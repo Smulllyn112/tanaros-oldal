@@ -1,0 +1,10 @@
+name: CategoryController
+form: $/otto/reference/models/category/fields.yaml
+modelClass: Otto\Reference\Models\Category
+defaultRedirect: otto/reference/categorycontroller
+create:
+    redirect: 'otto/reference/categorycontroller/update/:id'
+    redirectClose: otto/reference/categorycontroller
+update:
+    redirect: otto/reference/categorycontroller
+    redirectClose: otto/reference/categorycontroller

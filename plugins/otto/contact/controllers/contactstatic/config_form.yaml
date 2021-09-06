@@ -1,0 +1,10 @@
+name: ContactStatic
+form: $/otto/contact/models/contactstatic/fields.yaml
+modelClass: Otto\Contact\Models\ContactStatic
+defaultRedirect: otto/contact/contactstatic
+create:
+    redirect: 'otto/contact/contactstatic/update/:id'
+    redirectClose: otto/contact/contactstatic
+update:
+    redirect: otto/contact/contactstatic
+    redirectClose: otto/contact/contactstatic

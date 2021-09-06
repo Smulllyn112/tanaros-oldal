@@ -1,0 +1,23 @@
+<p>
+	Új regisztráció a(z) {{app_name}} weboldalon!
+</p>
+
+<p>
+	A profil jóváhagyásához <a href="{{client_url}}">kattints ide!</a>
+</p>
+
+{% if new_city %}
+<p>
+	Új várost adott hozzá egy felhasználó: {{new_city}}
+</p>
+{% endif %}
+
+{% if new_subject %}
+<p>
+	Új tárgyat adott hozzá egy felhasználó: {{new_subject}}
+</p>
+{% endif %}
+
+<p>
+	{{regards}}
+</p>

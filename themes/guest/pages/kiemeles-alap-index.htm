@@ -1,0 +1,133 @@
+title = "Miért minket?"
+url = "/kiemeles-alap-valaszt"
+layout = "guest"
+meta_title = "Kiemelés alap? - Profimagántanár.hu"
+meta_description = "Alap kiemelés - Profimagántanár.hu"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[siteSearchInclude]
+
+[contactform]
+showPhone = 1
+showEmail = 1
+showSubject = 1
+showName = 1
+showMessage = 1
+phonePlaceholder = "..."
+emailPlaceholder = "..."
+subjectPlaceholder = "..."
+namePlaceholder = "..."
+messagePlaceholder = "..."
+phoneLabel = "Az Ön telefonszáma:"
+emailLabel = "Az Ön e-mail címe:"
+subjectLabel = "Üzenet tárgya:"
+nameLabel = "Az Ön neve:"
+messageLabel = "Üzenet:"
+showLabels = 1
+showCaptcha = 1
+areElementsBorderless = 0
+isButtonFullwidth = 0
+buttonBackground = "base"
+buttonColor = "base"
+marginTop = 20
+marginBottom = 20
+==
+<?php
+function onStart(){
+	use Otto\Article\Models\Article;
+  use Otto\Personfinder\Models\City;
+  use Otto\Personfinder\Models\Subject;
+  use Rainlab\User\Models\User;
+
+}
+?>
+==
+
+
+
+
+
+
+
+<!--end section--><!--start section-->
+<section class="nicdark_section" id="home-introduction" style="margin-top:160px !important;margin-bottom:160px !important">
+
+    <!--start nicdark_container-->
+    <div class="nicdark_container nicdark_clearfix">
+
+
+        <div class="nicdark_space50"></div>
+
+
+        <div class="grid grid_12">
+            <h1 class="subtitle greydark">Melyik tárgyból szeretnél kiemelést?</h1>
+            <div class="nicdark_space20"></div>
+        
+            <div class="nicdark_space20"></div>
+            <div class="nicdark_divider center big"><span class="nicdark_bg_yellow nicdark_radius"></span></div>
+            <div class="nicdark_space10"></div>
+        </div>
+
+
+        <p>
+          Válaszd ki, hogy melyik tantárgyból szeretnél kérni alap kiemelést. 
+
+          <br><br>
+
+
+
+            <div class="nicdark_textevidence nicdark_bg_grey nicdark_shadow nicdark_radius left overflow_scroll">  
+                <table class="nicdark_table extrabig nicdark_bg_blue nicdark_radius ">
+                    <thead class="nicdark_border_blue">
+                        <tr>
+                            <td><h4 class="white">Oktatott tantárgyaid</h4></td>
+                            <td class="nicdark_width_percentage1"></td>
+                        </tr>
+                    </thead>
+
+
+                    <tbody class="nicdark_bg_grey nicdark_border_grey">
+                    <form method="POST" action="/alap-kiemeles">
+                        {% for subject in user.subjects %}
+                            <tr>
+                            <td><p>{{subject.name}}</p></td>
+                            <td>Választ
+                            	<input type="radio" name="subject" value="{{subject.id}}"
+
+                                {% if loop.index ==1 %}
+                                checked 
+                                {% endif %}
+                                 > 
+                                
+                            </td>
+                            </tr>
+
+                        {% endfor %}
+                    
+
+                    </tbody>
+
+
+
+                </table>
+            </div>
+
+            <br>
+
+            <input class="nicdark_btn nicdark_bg_orange medium nicdark_shadow nicdark_radius white nicdark_press alert-btn" type="submit" 
+
+                value="Választ"
+
+            >
+   </form>
+        </p>
+
+
+        <div class="nicdark_space50"></div>
+
+    </div>
+    <!--end nicdark_container-->
+            
+</section>

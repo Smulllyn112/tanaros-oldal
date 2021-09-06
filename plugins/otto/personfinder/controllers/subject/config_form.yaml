@@ -1,0 +1,10 @@
+name: Subject
+form: $/otto/personfinder/models/subject/fields.yaml
+modelClass: Otto\Personfinder\Models\Subject
+defaultRedirect: otto/personfinder/subject
+create:
+    redirect: 'otto/personfinder/subject/update/:id'
+    redirectClose: otto/personfinder/subject
+update:
+    redirect: otto/personfinder/subject
+    redirectClose: otto/personfinder/subject

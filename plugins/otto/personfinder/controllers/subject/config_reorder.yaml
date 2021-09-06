@@ -1,0 +1,4 @@
+title: Subject
+modelClass: Otto\Personfinder\Models\Subject
+toolbar:
+    buttons: reorder_toolbar

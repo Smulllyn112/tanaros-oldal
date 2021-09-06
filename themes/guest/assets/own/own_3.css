@@ -1,0 +1,186 @@
+
+#search-form{
+	display: flex;
+    justify-content: center;
+}
+
+#nicdark_parallax_title .nicdark_clearfix{
+	text-align:center;
+}
+
+#nicdark_parallax_title .nicdark_filter.greydark{
+	position:relative;
+
+}
+
+/*#nicdark_parallax_title .overlay-2{
+    background: rgba(0,0,0,0.2);
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+}*/
+
+
+.search-form-design-btn {
+    background: #e0b84e !important;
+}
+
+/*#nicdark_parallax_title .overlay{
+    background: rgba(0,0,0,0.2);
+    margin:0px !important;
+    width:100% !important;
+}*/
+
+.nicdark_parallaxx_img8{
+    
+}
+
+#search-form input[type="text"]::placeholder{
+	color:#fff;
+	opacity:0.8;
+}
+
+#search-form input[type="text"]{
+	opacity:1;
+	color:#fff;
+}
+
+#home-introduction{
+	text-align:center;
+}
+
+.email-input, .password-input{
+	font-size: 15px;
+    width: 90%;
+    padding: 10px 5%;
+    border-width:0px;
+}
+
+.profile-img-container{
+	padding:12px;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+.profile-img-container img{
+	max-width:100%;
+}
+
+.alert-btn{
+	width:80% !important;
+	margin-bottom:15px !important;
+}
+
+.prices-introduction{
+	text-align:center;
+}
+
+.good{
+	color:green;
+}
+
+.wrong{
+	color:red;
+}
+
+.price-section{
+	margin-top:-60px;
+}
+
+.flash-messages{
+    margin-bottom: 100px;
+    margin-top: 200px;
+    z-index: 10000;
+}
+
+.o-grid{
+	display:flex;
+	flex-direction:row;
+	flex-wrap:wrap;
+}
+
+.o-grid-3{
+	width:25%;
+	margin:10px;
+}
+
+.contact-btn{
+	color: #fff;
+    border: 0px;
+}
+
+.overlay-404{
+	background: rgba(0,0,0,0.6) !important;
+}
+
+.search-page-top-section{
+	/*height:300px !important;*/
+}
+
+/*.search-page-top-section .overlay .inner-cont{
+	transform:translateY(-20px) !important;
+}*/
+
+.search-page-top-section .nicdark_divider, .search-page-top-section .subtitle{
+	/*transform:translateY(-30px) !important;*/
+} 
+
+.upper-first:first-letter{
+	text-transform:uppercase !important;
+}
+
+.flex-cont-btn{
+	display:flex;
+	justify-content: center;
+	align-items:center;
+}
+
+ul.footer-pages{
+	list-style-type:none;
+	margin-left:-30px;
+}
+
+ul.footer-pages li{
+	margin-top:20px !important;
+}
+
+ul.footer-pages li a{
+	color:#fff;	
+	border-bottom:1px solid white;
+}
+
+.billing-container{
+	padding: 30px 20px 30px 20px;
+    box-sizing: border-box;
+    margin-bottom: 50px;
+}
+
+.fizetesi-oldal button[type="submit"]{
+	padding: 10px 20px;
+    font-size: 17px;
+    box-shadow: 0px 4px 0px 0px #df764e;
+    color: #ffffff;
+    margin-bottom: 15px !important;
+    font-family: 'Montserrat', sans-serif;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    background-color: #ec774b;
+    border-radius: 5px 5px 5px 5px;
+    border-width:0px;
+}
+
+.response-container .nicdark_progressbar{
+	margin-bottom:20px !important;
+	margin-top:0px !important;
+	margin-left:20px;
+	margin-right:20px;
+}
+
+.elofizetes-gomb{
+	background: transparent !important;
+    box-shadow: none  !important;
+    border: 1px solid #e0b84e  !important;
+    color: #e0b84e  !important;
+}

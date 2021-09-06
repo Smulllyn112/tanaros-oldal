@@ -1,0 +1,511 @@
+[cookieConsent]
+message = "Ez a weboldal sütiket(cookie-kat) használ azért, hogy a weboldal működjön és jobb felhasználói élményt nyújtson. Az oldal további használatával beleegyezik a sütik használatába."
+dismiss = "Elfogadom"
+theme = "light-bottom"
+==
+
+function onStart(){
+	use Otto\ServicePage\Models\ServicePage;
+	$this['service_pages_shared'] = ServicePage::where('type','service_page')->orderBy('sort_number','desc')->orderBy('id','desc')->get();
+	$this['full_url'] = \Request::fullUrl();
+
+}
+
+==
+<!DOCTYPE html>
+<html class="boxed" >
+	<head>
+		<!-- TAG MANAGER -->
+		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-P5K49NM');</script>
+		<!-- Basic -->
+
+
+
+		<meta charset="utf-8">
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">	
+		<meta name="language" content="Hungary">
+		<meta http-equiv="content-language" content="hu">
+
+		<title>{{ this.page.meta_title }}</title>	
+
+		<meta name="title" content="{{ this.page.meta_title }}">
+	    <meta name="description" content="{{ this.page.meta_description }}">
+  		<meta name="author" content="webrolling">
+
+	    <link rel=”canonical” href=”{{full_url}}” />
+
+	    <meta name="description" content="{{ this.page.meta_description }}">
+		<meta property="og:title" content="{{ this.page.meta_title }}" />
+		<meta property="og:description" content="{{ this.page.meta_description }}" />
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="{{ this.page.meta_title }}" />
+		{% if this.page.og_title %}
+		<meta property="og:image" content="{{this.page.og_title}}" />
+		{% elseif this.page.seo_keywords %}
+		<meta property="og:image" content="{{this.page.seo_keywords}}" />
+		{% else %}
+		<meta property="og:image" content="{{'assets/static-image/home/webaruhaz_keszites.jpg'|theme}}" />
+		{% endif %}
+		<meta property="og:url" content="{{full_url}}" />
+		<meta property="og:locale" content="hu_HU" />
+		<meta property="DC.publisher" content="WebRolling" />
+		<meta property="DC.title" content="{{this.page.meta_title}}" />
+		<meta property="DC.description" content="{{this.page.meta_description}}" />
+		<meta property="DC.type" content="Text" />
+		<meta property="DC.format" content="text/html" />
+		<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+		<meta name="DC.coverage" content="Hungary" />
+		<meta name="DC.description" content="{{ this.page.meta_description }}" />
+		<meta name="DC.identifier" content="http://www.webrolling.hu" />
+		<meta name="DC.publisher" content="WebRolling" />
+		<meta name="DC.title" content="Weboldal készítés - WebRolling " />
+		<meta name="DC.type" content="Text" />
+		<meta name="robots" content="index,follow">
+
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:description" content="{{this.page.meta_description}}" />
+		<meta name="twitter:title" content="{{ this.page.meta_title }}" />
+
+
+
+
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="{{'assets/static-image/favicon.png'|theme}}" type="image/x-icon" />
+		<link rel="apple-touch-icon" href="{{'assets/static-image/favicon.png'|theme}}">
+		
+
+
+		<!-- Mobile Metas -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+
+
+
+
+
+
+
+
+
+
+		<!-- Web Fonts  MUSZAJ az egesz themet athatja.-->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">
+
+		<!-- Vendor CSS ALAPVETO -->
+		<!-- pbolaljuk ki CDN-el -->
+		<!--<link rel="stylesheet" href="{{'assets/theme/vendor/bootstrap/css/bootstrap.min.css'|theme}}"> -->
+		<link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+		<!--muszaj mert ikonok a fejlec felett mindenhol vannak. -->
+		<link rel="stylesheet" href="{{'assets/theme/vendor/fontawesome-free/css/all.min.css'|theme}}">
+
+		<!--a fooldali kepes gridért, es a szolgaltatasok aloldalakat adja. Nem kisporolhato.   CDN gyorsabb lesz
+		<link rel="stylesheet" href="{{'assets/theme/vendor/animate/animate.min.css'|theme}}"> -->
+
+		
+		<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+		
+
+
+<!--
+		<link rel="stylesheet" href="{{'assets/theme/vendor/simple-line-icons/css/simple-line-icons.min.css'|theme}}">-->
+
+<!--
+		<link rel="stylesheet" href="{{'assets/theme/vendor/owl.carousel/assets/owl.carousel.min.css'|theme}}">
+		<link rel="stylesheet" href="{{'assets/theme/vendor/owl.carousel/assets/owl.theme.default.min.css'|theme}}">
+-->
+
+<!--
+		<link rel="stylesheet" href="{{'assets/theme/vendor/magnific-popup/magnific-popup.min.css'|theme}}">
+-->
+		<!-- Theme CSS MINDENUTT OTT VANNAK -->
+		<link rel="stylesheet" href="{{'assets/theme/css/theme.css'|theme}}">
+		<link rel="stylesheet" href="{{'assets/theme/css/theme-elements.css'|theme}}">
+
+
+		
+		{% styles %}
+		<!--
+		<link rel="stylesheet" href="{{'assets/theme/css/theme-shop.css'|theme}}">
+
+-->
+		<!-- a slidernek kell -->
+		<!-- 
+		<link rel="stylesheet" href="{{'assets/theme/vendor/rs-plugin/css/settings.css'|theme}}">
+		<link rel="stylesheet" href="{{'assets/theme/vendor/rs-plugin/css/layers.css'|theme}}">
+		<link rel="stylesheet" href="{{'assets/theme/vendor/rs-plugin/css/navigation.css'|theme}}">
+		<link rel="stylesheet" href="{{'assets/theme/vendor/circle-flip-slideshow/css/component.css'|theme}}">
+		-->
+		<!-- Demo CSS -->
+
+
+		<!-- Skin CSS. ITT LEHETNE SOKAT JAVITANI EZ FELEL A SZINEZETÉRT- -->
+		<link rel="stylesheet" href="{{'assets/theme/css/skins/default.css'|theme}}"> 
+
+		<!-- Theme Custom CSS -->
+		<!--
+		<link rel="stylesheet" href="{{'assets/theme/css/custom.css'|theme}}">
+-->
+		<link rel="stylesheet" href="{{'assets/own/own.css'|theme}}">
+
+		<!-- Head Libs -->
+		<!--
+		<script src="{{'assets/theme/vendor/modernizr/modernizr.min.js'|theme}}"></script>
+		-->
+
+	</head>
+	<body>
+
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5K49NM"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+
+
+
+		<div class="body">
+			<header id="header" data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyStartAt': 45, 'stickySetTop': '-45px', 'stickyChangeLogo': true}">
+				<div class="header-body" id="header-body">
+					<div class="header-container container">
+						<div class="header-row">
+							<div class="header-column">
+								<div class="header-row">
+									<div class="header-logo">
+										<a href="#">
+											<img alt="Webrolling" width="70" height="48" data-sticky-width="65" data-sticky-height="40" data-sticky-top="25" src="{{'assets/static-image/logo-text.png'|theme}}" >
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="header-column justify-content-end">
+								<div class="header-row pt-3">
+									<nav class="header-nav-top">
+										<ul class="nav nav-pills">
+											<li class="nav-item nav-item-anim-icon d-none d-md-block">
+												<a class="nav-link pl-0" href="{{'about'|page}}"><i class="fas fa-angle-right"><!-- --></i>Rólunk</a>
+											</li>
+											<li class="nav-item nav-item-anim-icon d-none d-md-block">
+												<a class="nav-link" href="{{'references'|page}}"><i class="fas fa-angle-right"><!-- --></i>Referenciáink</a>
+											</li>
+
+
+
+
+											<li class="nav-item nav-item-anim-icon d-none d-md-block">
+												<a class="nav-link" href="{{'blog-index'|page}}"><i class="fas fa-angle-right"><!-- --></i>Blog</a>
+											</li>
+
+											<li class="nav-item nav-item-left-border-remove nav-item-left-border-md-show top-phone">
+												
+												<span class="ws-nowrap"><i class="fas fa-phone"><!-- --></i>  +36 30 701 84 41</span>
+											</li>
+
+										
+
+
+											
+										</ul>
+									</nav>
+									
+								</div>
+								<div class="header-row">
+									<div class="header-nav pt-1">
+										<div class="header-nav-main header-nav-main-effect-1 header-nav-main-sub-effect-1  header-nav-dropdowns-dark">
+											<nav class="collapse">
+												<ul class="nav nav-pills" id="mainNav">
+													<li class="dropdown-full-color dropdown-dark">
+														<a 
+															class="dropdown-item dropdown-toggle dark
+															{% if this.page.id == 'home' %} active {% endif %}
+															" href="{{'home'|page}}">
+															Főoldal
+														</a>
+													</li>
+
+													<li class="dropdown-full-color dropdown-dark only-mobile-shown">
+														<a 
+															class="dropdown-item dropdown-toggle dark
+															{% if this.page.id == 'about' %} active {% endif %}
+															" href="{{'about'|page}}">
+															Rólunk
+														</a>
+													</li>
+
+													<li class="dropdown-full-color dropdown-dark only-mobile-shown">
+														<a 
+															class="dropdown-item dropdown-toggle dark
+															{% if this.page.id == 'references' %} active {% endif %}
+															" href="{{'references'|page}}">
+															Referenciáink
+														</a>
+													</li>
+
+													<li class="dropdown-full-color dropdown-dark" >
+														<a 
+															class="dropdown-item dropdown-toggle dark 
+															{% if this.page.id == 'website-making' %} active {% endif %}
+															" href="{{'website-making'|page}}">
+															Weboldal készítés
+														</a>
+													</li>
+
+
+
+
+													<li>
+														<a 
+															class="dropdown-item dropdown-toggle dark
+															{% if this.page.id == 'webshop-making' %} active {% endif %}
+															" href="{{'webshop-making'|page}}">
+															Webáruház készítés
+														</a>
+													</li>
+
+
+
+
+													<li class="dropdown dropdown-full-color dropdown-dark">
+														<a class="dropdown-item dropdown-toggle
+														{% if this.page.id == 'service-show' %} active {% endif %}
+														" href="#" >
+															Szolgáltatásaink
+														</a>
+														<ul class="dropdown-menu">
+															{% for service in service_pages_shared %}
+																<li><a class="dropdown-item" href="{{ 'service-show'|page({ slug: service.slug }) }}">{{service.title}}</a></li>
+															{% endfor %}
+														</ul>
+													</li>
+
+													<li class="dropdown-full-color dropdown-dark only-mobile-shown">
+														<a 
+															class="dropdown-item dropdown-toggle dark
+															{% if this.page.id == 'blog-index' %} active {% endif %}
+															" href="{{'blog-index'|page}}">
+															Blog
+														</a>
+													</li>
+
+													<li  >
+														<a 
+															class="dropdown-item dropdown-toggle red
+															{% if this.page.id == 'take-offer' %} active {% endif %}
+															" href="{{'take-offer'|page}}">
+															Ajánlatkérés
+														</a>
+													</li>
+
+													<li >
+														<a 
+															class="dropdown-item dropdown-toggle blue
+															{% if this.page.id == 'contact' %} active {% endif %}
+															" href="{{'contact'|page}}">
+															Kapcsolat
+														</a>
+													</li>
+
+
+
+
+	
+												</ul>
+											</nav>
+										</div>
+									
+										<button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main nav">
+											<i class="fas fa-bars"><!-- --></i>
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</header>
+
+
+			<div id="main" class="main">
+				
+				{% page %}
+
+			</div>
+
+
+
+
+
+      <footer id="footer">
+        <div class="container">
+          <div class="footer-ribbon">
+            <span>Állunk rendelkezésére</span>
+          </div>
+          <div class="row py-5 my-4">
+            <div class="col-md-4 mb-4 mb-lg-0">
+              <a href="{{'about'|page}}" >
+                <h3>Rólunk</h3>
+              </a>
+              <p class=" mb-2 paragraph">Azon dolgozunk, hogy a cégek a lehető legtöbbet hozhassák ki vállalkozásuk internetes jelenlétéből. Segítünk, hogy honlapjuk ne csak egy online cégbemutató, hanem hatékony vevőszerző eszköz legyen. 
+              </p>
+              <p class="mb-0"><a href="{{ 'about'|page }}" class="btn-flat btn-xs text-color-light"><strong class="text-2">OLVASS TOVÁBB</strong><i class="fas fa-angle-right p-relative top-1 pl-2"><!-- --></i></a></p>
+            </div>
+            <div class="col-md-8">
+         
+              <div class="row">
+                <div class="col-md-6">
+                  <h3>Elérhetőségeink</h3>
+                  <ul class="list list-icons list-icons-lg">
+                    <li class="mb-1"><i class="far fa-dot-circle text-color-primary"><!-- --></i><p class="m-0">Cím: 1222 Budapest, Háros utca 169.</p></li>
+                    <li class="mb-1"><i class="fab fa-whatsapp text-color-primary"><!-- --></i><p class="m-0"><a href="tel:+36307018441">Mobil: +36 30 701 84 41</a></p></li>
+                    <li class="mb-1"><i class="far fa-envelope text-color-primary"><!-- --></i><p class="m-0"><a href="mailto:hello@webrolling.hu">Email: hello@webrolling.hu</a></p></li>
+                  </ul>
+                </div>
+
+
+
+
+                <div class="col-md-6">
+                  <h3>Rólunk mondták</h3>
+      
+								<div class="testimonial testimonial-style-2 testimonial-with-quotes footer-blockquote">
+									<blockquote>
+										<p>Türelmesen és rugalmasan alkalmazkodtak magas és folyamatosan változó igényeimhez és számos új, hasznos ötlettel álltak elő a munka során.</p>
+										
+									</blockquote>
+								</div>
+
+
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-copyright footer-copyright-style-1" id="footer-bottom">
+          <div class="container py-2">
+            <div class="row py-4">
+              <div class="col d-flex align-items-center justify-content-between">
+                <p>
+                <a href="{{'home'|page}}"><img alt="Webrolling" width="50"  src="{{'assets/static-image/logo.png'|theme}}" ></a>
+                © Copyright 2006 - 2019. Minden jog fenntartva.</p> 
+                <p><a href="{{'contact'|page}}">Kapcsolat</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+
+
+
+
+
+{% component "cookieConsent" %}
+
+
+
+
+
+
+		</div>
+
+
+		<!-- Vendor 
+		<script src="{{'assets/theme/vendor/jquery/jquery.min.js'|theme}}"></script> CDN-es
+		-->
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+		<!--az animaciokhoz kell 
+		<script src="{{'assets/theme/vendor/jquery.appear/jquery.appear.min.js'|theme}}"></script>  CDN gyorsabb
+		-->
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-appear/0.1/jquery.appear.min.js"></script>
+	
+
+		<!--
+		<script src="{{'assets/theme/vendor/jquery.easing/jquery.easing.min.js'|theme}}"></script> -->
+		<!--
+		<script src="{{'assets/theme/vendor/jquery.cookie/jquery.cookie.min.js'|theme}}"></script> -->
+
+	<!--
+		<script src="{{'assets/theme/vendor/popper/umd/popper.min.js'|theme}}"></script>
+	-->
+	<!--  CDN legyen.
+		<script src="{{'assets/theme/vendor/bootstrap/js/bootstrap.min.js'|theme}}"></script>
+	-->
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+		<script src="{{'assets/theme/vendor/common/common.min.js'|theme}}"></script>
+		<!--
+		<script src="{{'assets/theme/vendor/jquery.validation/jquery.validate.min.js'|theme}}"></script>
+
+		<script src="{{'assets/theme/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js'|theme}}"></script>
+		-->
+		<!--
+		<script src="{{'assets/theme/vendor/jquery.gmap/jquery.gmap.min.js'|theme}}"></script> -->
+
+<!--
+		<script src="{{'assets/theme/vendor/isotope/jquery.isotope.min.js'|theme}}"></script>
+-->
+<!--
+		<script src="{{'assets/theme/vendor/owl.carousel/owl.carousel.min.js'|theme}}"></script>
+-->
+<!--
+		<script src="{{'assets/theme/vendor/magnific-popup/jquery.magnific-popup.min.js'|theme}}"></script> -->
+
+<!--
+		<script src="{{'assets/theme/vendor/vide/jquery.vide.min.js'|theme}}"></script>
+		<script src="{{'assets/theme/vendor/vivus/vivus.min.js'|theme}}"></script>
+		<script src="{{'assets/theme/vendor/instafeed/instafeed.min.js'|theme}}"></script>
+-->
+		<!-- Theme Base, Components and Settings -->
+		<script src="{{'assets/theme/js/theme.js'|theme}}"></script>
+		
+		<!-- 
+		A slidernek kell
+		<script src="{{'assets/theme/vendor/rs-plugin/js/jquery.themepunch.tools.min.js'|theme}}"></script>
+		<script src="{{'assets/theme/vendor/rs-plugin/js/jquery.themepunch.revolution.min.js'|theme}}"></script>
+		<script src="{{'assets/theme/vendor/circle-flip-slideshow/js/jquery.flipshow.min.js'|theme}}"></script>
+		
+		-->
+
+		{% scripts %}
+
+
+		<!-- Theme Custom -->
+		<!--
+		<script src="{{'assets/theme/js/custom.js'|theme}}"></script>
+		-->
+		<!-- Theme Initialization Files -->
+		<script src="{{'assets/theme/js/theme.init.js'|theme}}"></script>
+
+		<!-- Examples 
+		<script src="{{'assets/theme/js/examples/examples.instafeed.js'|theme}}"></script>
+-->
+
+
+		<script src="{{'assets/own/lazyLoad.js'|theme}}"></script>
+		
+
+		<!-- Google Analytics: Change UA-XXXXX-X to be your site's ID. Go to http://www.google.com/analytics/ for more information.
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		
+			ga('create', 'UA-12345678-1', 'auto');
+			ga('send', 'pageview');
+		</script>
+		 -->
+        {% framework extras %}
+        
+	</body>
+</html>

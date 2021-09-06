@@ -1,0 +1,7 @@
+fields:
+    content:
+        label: Tartalom
+        size: giant
+        span: full
+        required: 1
+        type: richeditor

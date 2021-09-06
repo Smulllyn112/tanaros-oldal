@@ -1,0 +1,11 @@
+columns:
+    name:
+        label: Név
+        type: text
+        searchable: true
+        sortable: true
+    sort_number:
+        label: 'Sorbarendezési szám'
+        type: number
+        searchable: true
+        sortable: true

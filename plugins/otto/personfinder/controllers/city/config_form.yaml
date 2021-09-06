@@ -1,0 +1,10 @@
+name: City
+form: $/otto/personfinder/models/city/fields.yaml
+modelClass: Otto\Personfinder\Models\City
+defaultRedirect: otto/personfinder/city
+create:
+    redirect: 'otto/personfinder/city/update/:id'
+    redirectClose: otto/personfinder/city
+update:
+    redirect: otto/personfinder/city
+    redirectClose: otto/personfinder/city

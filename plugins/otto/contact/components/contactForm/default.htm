@@ -1,0 +1,39 @@
+{% set form_config = __SELF__.form_config %}
+
+
+<div class="row contact_us_row">
+    <div class="col-lg-7 getin_touch">
+        <div class="left_tittle">
+            <h2>Küldj üzenetet számomra!</h2>
+        </div> 
+
+
+        <form class="row from_main" 
+        method="POST" 
+        data-request="contactform::onSend"  
+        data-request-validate
+         id="phpcontactform" novalidate="novalidate"> 
+            <div class="form-group col-lg-6">
+                <input type="text" class="form-control" id="name" name="name" placeholder="*Név" required>
+            </div>
+            <div class="form-group col-lg-6">
+                <input type="email" class="form-control" id="email" name="email" placeholder="*Email" required>
+            </div>
+            <div class="form-group col-12">   
+                <input type="text" class="form-control" id="subject" name="subject" placeholder="Tárgy*" required> 
+            </div>
+            <div class="form-group col-12">
+                <textarea class="form-control" id="message" name="message" placeholder="*Üzenet" required></textarea>
+            </div>
+            <div class="form-group m-0 col-12">
+                <button class="find_btn btn" id="js-contact-btn" type="submit">Küldés!</button> 
+                <div id="js-contact-result" data-success-msg="Form submitted successfully." data-error-msg="Messages Successfully"></div>
+            </div>
+        </form> 
+
+
+    </div> 
+    <div class="col-lg-5 map_area"> 
+        <iframe width="100%" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=university%20of%20san%20francisco&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </div>
+</div>

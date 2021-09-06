@@ -1,0 +1,100 @@
+title = "Főoldal"
+url = "/ajanlasi-rendszer"
+layout = "guest"
+meta_title = "Ajánlási rendszer magántanároknak - Profimagántanár.hu"
+meta_description = "Szükséged lenne pár plusz hónap előfizetésre? Jó helyen járt, csatlakozz ajánlási rendszerünkhöz!"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[siteSearchInclude]
+
+[contactform]
+showPhone = 1
+showEmail = 1
+showSubject = 1
+showName = 1
+showMessage = 1
+phonePlaceholder = "..."
+emailPlaceholder = "..."
+subjectPlaceholder = "..."
+namePlaceholder = "..."
+messagePlaceholder = "..."
+phoneLabel = "Az Ön telefonszáma:"
+emailLabel = "Az Ön e-mail címe:"
+subjectLabel = "Üzenet tárgya:"
+nameLabel = "Az Ön neve:"
+messageLabel = "Üzenet:"
+showLabels = 1
+showCaptcha = 1
+areElementsBorderless = 0
+isButtonFullwidth = 0
+buttonBackground = "base"
+buttonColor = "base"
+marginTop = 20
+marginBottom = 20
+==
+<?php
+function onStart(){
+	use Otto\Article\Models\Article;
+  use Otto\Personfinder\Models\City;
+  use Otto\Personfinder\Models\Subject;
+  use Rainlab\User\Models\User;
+
+  $this["ajanlasi_bonusz_ido"] = City::$ajanlasiBonuszIdo;
+
+}
+?>
+==
+
+
+
+
+
+
+<!--end section--><!--start section-->
+<section class="nicdark_section" id="home-introduction" style="margin-top:100px">
+
+    <!--start nicdark_container-->
+    <div class="nicdark_container nicdark_clearfix">
+
+
+        <div class="nicdark_space50"></div>
+
+
+        <div class="grid grid_12">
+            <h1 class="subtitle greydark">Használd ki ajánlási rendszerünket!</h1>
+            <div class="nicdark_space20"></div>
+            <h3 class="subtitle grey">Szerezz teljesen ingyen {{ajanlasi_bonusz_ido}} hónap előfizetést! </h3>
+            <div class="nicdark_space20"></div>
+            <div class="nicdark_divider center big"><span class="nicdark_bg_yellow nicdark_radius"></span></div>
+            <div class="nicdark_space10"></div>
+        </div>
+
+
+        <p>
+          A ProfiMagántanár egy remek ajánlási rendszert dolgozott ki azon magántanároknak, akik <strong>szeretnének szerezni teljesen ingyen {{ajanlasi_bonusz_ido}} hónap </strong> hirdetési időt! 
+
+          <br><br>
+
+          Nincs más teendőd, mint hogy
+          <strong>
+           szólj valamelyik magántanár ismerősödnek, aki még nem regisztrált a weboldalunkra. </strong> Amennyiben ő beregisztrál hozzánk, a regisztrációs űrlapon az "ajánló e-mail címe" mezőbe kerüljön a Te email címed. Ekkor a rendszer automatikusan hozzáad a hirdetési hónapjaidhoz {{ajanlasi_bonusz_ido}} hónapot!
+          <br><br>
+
+          Lényegében bárkit hozhatsz - aki tud tanítani és szeret is, nálunk csak ez a fontos. :) Akár egyetemista ismerősöket is. Az ajánlási rendszer bárhányszor kijátszható! Ha például 6 tanárt is hozol, akkor akár {{6*ajanlasi_bonusz_ido}} hónap hirdetési bónuszt is kaphatsz! 
+
+          Az alábbi példa a regisztrációs űrlap használatát mutatja be, ahol az email címet kell megadni. 
+        </p>
+
+        <img src="{{'assets/own/images/ajanlas.png'|theme}}" style="max-width:100%">
+
+
+        <div class="nicdark_space50"></div>
+
+    </div>
+    <!--end nicdark_container-->
+            
+</section>
+
+

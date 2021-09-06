@@ -1,0 +1,4 @@
+title: ContactStatic
+modelClass: Otto\Contact\Models\ContactStatic
+toolbar:
+    buttons: reorder_toolbar

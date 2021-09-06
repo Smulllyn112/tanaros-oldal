@@ -1,0 +1,10 @@
+name: Category
+form: $/otto/article/models/category/fields.yaml
+modelClass: Otto\Article\Models\Category
+defaultRedirect: otto/article/category
+create:
+    redirect: 'otto/article/category/update/:id'
+    redirectClose: otto/article/category
+update:
+    redirect: otto/article/category
+    redirectClose: otto/article/category

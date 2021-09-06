@@ -1,0 +1,93 @@
+title = "Bejelentkezés"
+url = "/bejelentkezes"
+layout = "guest"
+meta_title = "Bejelentkezés - Profimagántanár.hu"
+meta_description = "Jelentkezz be, és szerkeszd profilon a ProfiMagántanár weboldal felületén!"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[siteSearchInclude]
+[login_form]
+[register_form]
+[contactform]
+showPhone = 1
+showEmail = 1
+showSubject = 1
+showName = 1
+showMessage = 1
+phonePlaceholder = "..."
+emailPlaceholder = "..."
+subjectPlaceholder = "..."
+namePlaceholder = "..."
+messagePlaceholder = "..."
+phoneLabel = "Az Ön telefonszáma:"
+emailLabel = "Az Ön e-mail címe:"
+subjectLabel = "Üzenet tárgya:"
+nameLabel = "Az Ön neve:"
+messageLabel = "Üzenet:"
+showLabels = 1
+showCaptcha = 1
+areElementsBorderless = 0
+isButtonFullwidth = 0
+buttonBackground = "base"
+buttonColor = "base"
+marginTop = 20
+marginBottom = 20
+==
+<?php
+function onStart(){
+	use Otto\Personfinder\Models\City;
+    use Otto\Personfinder\Models\Subject;
+
+    $this["cities"] = City::getItemsList();
+    $this["subjects"] = Subject::getItemsList();
+
+    $this["packages"] = City::$subscriptionPackages;
+
+    //dd($this["cities"],$this["subjects"]);
+}
+?>
+==
+
+
+<div style="height:150px"></div>
+
+<section class="nicdark_section">
+
+    <!--start nicdark_container-->
+    <div class="nicdark_container nicdark_clearfix">
+
+        <div class="nicdark_space10"></div>
+
+        <div class="grid grid_12">
+            <div class="nicdark_archive1 nicdark_bg_grey nicdark_radius nicdark_shadow">
+                <div class="nicdark_textevidence nicdark_bg_orange nicdark_radius_top">
+                    <h4 class="white nicdark_margin20">Jelentkezz be!</h4>
+                    <i class="icon-mail nicdark_iconbg right medium orange"></i>
+                </div>
+                <div class="nicdark_margin20">
+                    <form method="post" data-request="login_form::onLogin">
+                        <input class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle" type="text" value="" placeholder="*Email"
+                        name="username"
+                        >
+                        <div class="nicdark_space20"></div>
+                        <input class="nicdark_bg_grey2 nicdark_radius password-input nicdark_shadow grey small subtitle" type="password" name="password" value="" placeholder="*Jelszó">
+
+                        <div class="nicdark_space20"></div>
+        
+                        <input class="nicdark_btn nicdark_bg_orange medium nicdark_shadow nicdark_radius white" type="submit" value="Küldd!">
+                    </form>
+
+                </div>
+            </div>      
+        </div>
+
+        <a href="{{'password-restore'|page}}" class="white nicdark_btn nicdark_bg_blue medium nicdark_radius nicdark_shadow nicdark_press">Elfelejtett jelszó</a>
+
+        <div class="nicdark_space50"></div>
+
+    </div>
+    <!--end nicdark_container-->
+            
+</section>

@@ -1,0 +1,151 @@
+title = "Fizetés visszaigazolása SimplePay utalással"
+url = "/fizetes-visszaigazolasa"
+layout = "guest"
+meta_title = "Fizetés visszaigazolása SimplePay utalással"
+meta_description = ""
+is_hidden = 0
+
+==
+
+use Otto\Personfinder\Models\Subject;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
+use October\Rain\Exception\ApplicationException;
+use October\Rain\Support\Facades\Flash;
+use RainLab\User\Facades\Auth;
+
+function onStart(){
+
+ 	require_once("plugins/otto/personfinder/assets/src/simplepayfinish.php");
+
+
+
+
+
+}
+==
+
+
+
+
+
+
+
+
+<section class="nicdark_section" id="home-introduction" style="margin-top:160px !important">
+
+    <!--start nicdark_container-->
+    <div class="nicdark_container nicdark_clearfix">
+
+
+        <div class="nicdark_space50"></div>
+
+
+        <div class="grid grid_12">
+            <h1 class="subtitle greydark">Fizetési vissza igazolás</h1>
+            <div class="nicdark_space20"></div>
+            <h3 class="subtitle grey"></h3>
+            <div class="nicdark_space20"></div>
+            <div class="nicdark_divider center big"><span class="nicdark_bg_yellow nicdark_radius"></span></div>
+            <div class="nicdark_space10"></div>
+        </div>
+
+
+        <p>
+          SimplePay
+       			
+       	<br>
+
+        </p>
+
+        <div class="nicdark_space50"></div>
+
+
+
+            <div class="nicdark_textevidence nicdark_bg_grey nicdark_shadow nicdark_radius left overflow_scroll">  
+   
+            </div>
+
+
+
+    </div>
+    <!--end nicdark_container-->
+            
+</section>
+
+
+<div class="container response-container">
+
+    <div>
+
+    {% if result.e == "SUCCESS" %}
+
+	    <div class="nicdark_progressbar nicdark_bg_grey nicdark_radius nicdark_shadow flash-messages">
+	        <h5 class="nicdark_progressbar_title nicdark_bg_green nicdark_bg_greendark_hover nicdark_radius nicdark_shadow fade-left animate3 animated fadeInLeft" style="width:100%">
+	            <span class="white nicdark_size_big">Sikeres fizetés! Össszeg: {{price}} Ft</span>
+	        </h5>
+	    </div>
+
+	    <div class="nicdark_progressbar nicdark_bg_grey nicdark_radius nicdark_shadow flash-messages">
+	        <h5 class="nicdark_progressbar_title nicdark_bg_green nicdark_bg_greendark_hover nicdark_radius nicdark_shadow fade-left animate3 animated fadeInLeft" style="width:100%">
+	            <span class="white nicdark_size_big">SimplePay tranzakció azonosító: {{result.t}}.</span>
+	        </h5>
+	    </div>
+
+	    {% if pay_type == "register" %}
+
+	    <div class="nicdark_progressbar nicdark_bg_grey nicdark_radius nicdark_shadow flash-messages">
+	        <h5 class="nicdark_progressbar_title nicdark_bg_green nicdark_bg_greendark_hover nicdark_radius nicdark_shadow fade-left animate3 animated fadeInLeft" style="width:100%">
+	            <span class="white nicdark_size_big">Sikeresen regisztráltál alkalmazásunkba! A profilod innentől látható mindenki számára, ellenőrizd, hogy megfelelő-e.</span>
+	        </h5>
+	    </div>
+
+  		
+  		{% elseif pay_type == "extra_kiemeles" %}
+
+	    <div class="nicdark_progressbar nicdark_bg_grey nicdark_radius nicdark_shadow flash-messages">
+	        <h5 class="nicdark_progressbar_title nicdark_bg_green nicdark_bg_greendark_hover nicdark_radius nicdark_shadow fade-left animate3 animated fadeInLeft" style="width:100%">
+	            <span class="white nicdark_size_big">
+	            	Sikeresen előfizetted az extra kiemelést! 1 hónapig extrán kiemelt helyeken fog megjelenni a felhasználói profilod. 
+	            </span>
+	        </h5>
+	    </div>
+
+		{% elseif pay_type == "alap_kiemeles" %}
+
+	    <div class="nicdark_progressbar nicdark_bg_grey nicdark_radius nicdark_shadow flash-messages">
+	        <h5 class="nicdark_progressbar_title nicdark_bg_green nicdark_bg_greendark_hover nicdark_radius nicdark_shadow fade-left animate3 animated fadeInLeft" style="width:100%">
+	            <span class="white nicdark_size_big">
+	            	Sikeresen előfizetted az alap kiemelést! 1 hónapig kiemelt helyen fog megjelenni a felhasználói profilod a {{subject.name}} tantárgyból. 
+	            </span>
+	        </h5>
+	    </div>
+
+  		{% endif %}
+
+    {% else %}
+
+	    <div class="nicdark_progressbar nicdark_bg_grey nicdark_radius nicdark_shadow flash-messages">
+	        <h5 class="nicdark_progressbar_title nicdark_bg_green nicdark_bg_greendark_hover nicdark_radius nicdark_shadow fade-left animate3 animated fadeInLeft" style="width:100%">
+	            <span class="white nicdark_size_big">
+Sikertelen tranzakció.
+            SimplePay tranzakció azonosító: {{result.t}}.
+            Kérjük, ellenőrizze a tranzakció során megadott adatok helyességét. Amennyiben minden adatot helyesen adott meg, a visszautasítás okának kivizsgálása kapcsán kérjük, szíveskedjen kapcsolatba lépni kártyakibocsátó bankjával. <br>
+
+
+            Össszeg, amely nem került kifizetésre: {{all_data.price}}
+	            </span>
+	        </h5>
+	    </div>
+
+
+
+        
+
+    {% endif %}
+       
+    </div>
+           
+</div><!-- /.modal-content -->
+
+

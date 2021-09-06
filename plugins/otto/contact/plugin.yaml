@@ -1,0 +1,16 @@
+plugin:
+    name: 'otto.contact::lang.plugin.name'
+    description: 'otto.contact::lang.plugin.description'
+    author: Otto
+    icon: oc-icon-adjust
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Kapcsolatfelvétel
+        url: otto/contact/contact
+        icon: icon-envelope
+        sideMenu:
+            side-menu-item:
+                label: 'Statikus rész'
+                url: otto/contact/contactstatic
+                icon: icon-sort-alpha-asc

@@ -1,0 +1,4 @@
+title: Article
+modelClass: Otto\Article\Models\Article
+toolbar:
+    buttons: reorder_toolbar

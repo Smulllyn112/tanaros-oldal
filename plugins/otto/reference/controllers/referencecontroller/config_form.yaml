@@ -1,0 +1,10 @@
+name: ReferenceController
+form: $/otto/reference/models/reference/fields.yaml
+modelClass: Otto\Reference\Models\Reference
+defaultRedirect: otto/reference/referencecontroller
+create:
+    redirect: 'otto/reference/referencecontroller/update/:id'
+    redirectClose: otto/reference/referencecontroller
+update:
+    redirect: otto/reference/referencecontroller
+    redirectClose: otto/reference/referencecontroller

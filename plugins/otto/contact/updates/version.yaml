@@ -1,0 +1,20 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table otto_contact_'
+    - builder_table_create_otto_contact_.php
+1.0.3:
+    - 'Updated table otto_contact_'
+    - builder_table_update_otto_contact_.php
+1.0.4:
+    - 'Created table otto_contact_static'
+    - builder_table_create_otto_contact_static.php
+1.0.5:
+    - 'Created table otto_contact_take_offer_'
+    - builder_table_create_otto_contact_take_offer_.php
+1.0.6:
+    - 'Updated table otto_contact_'
+    - builder_table_update_otto_contact__2.php
+1.0.7:
+    - 'Updated table otto_contact_'
+    - builder_table_update_otto_contact__3.php

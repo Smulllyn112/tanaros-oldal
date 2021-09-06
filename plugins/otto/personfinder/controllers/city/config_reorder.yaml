@@ -1,0 +1,4 @@
+title: City
+modelClass: Otto\Personfinder\Models\City
+toolbar:
+    buttons: reorder_toolbar

@@ -1,0 +1,12 @@
+list: $/otto/servicepage/models/servicepage/columns.yaml
+modelClass: Otto\Servicepage\Models\ServicePage
+title: ServicePage
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'otto/servicepage/servicepage/update/:id'

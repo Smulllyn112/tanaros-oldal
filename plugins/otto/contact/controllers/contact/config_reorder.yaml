@@ -1,0 +1,4 @@
+title: Contact
+modelClass: Otto\Contact\Models\Contact
+toolbar:
+    buttons: reorder_toolbar

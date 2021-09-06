@@ -1,0 +1,6 @@
+<?php if($record->gallery_images): ?>
+
+	<?php foreach($record->gallery_images as $image): ?>
+  		<img src="<?= $image->getThumb(50,50,'crop')?> ">
+  	<?php endforeach ?>
+<?php endif ?>

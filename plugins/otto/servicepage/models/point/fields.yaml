@@ -1,0 +1,40 @@
+fields:
+    title:
+        label: Cím
+        span: left
+        type: text
+    fat_title:
+        label: 'Szekció bevezetés kiemelt vastagsággal'
+        span: right
+        type: text
+    description:
+        label: 'Felső felírás'
+        span: auto
+        type: text
+    sub_description:
+        label: 'Alsó leírás'
+        span: auto
+        type: text
+    image:
+        label: Kép
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: fileupload
+    sort_number:
+        label: 'Sorbarendezési szám'
+        span: full
+        attributes:
+            min: '1'
+            max: '1000'
+        type: number
+    service_pages:
+        label: 'Szervíz oldalak'
+        nameFrom: title
+        descriptionFrom: description
+        span: full
+        type: relation
+

@@ -1,0 +1,100 @@
+title = "Blog részlet"
+url = "/:slug"
+layout = "guest"
+meta_title = "Bálint Kinga gyógytornász blogja"
+meta_description = "Olvass a legkorszerűbb gyógykezelése technikákról annak érdekében, hogy megtudd, mit alkalmaznak a profik!"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[builderDetails]
+modelClass = "Otto\Article\Models\Article"
+identifierValue = "{{ :slug }}"
+modelKeyColumn = "slug"
+displayColumn = "title"
+notFoundMessage = "Nem található az elem."
+==
+use Otto\Article\Models\Article;
+use Otto\Article\Models\Category;
+function onStart(){
+	$this['categories'] = Category::orderBy('sort_number','desc')->orderBy('id','desc')->get();
+
+    $this['article'] = Article::where('slug',\Request::segment(1))->where('is_published',1)->firstOrFail();
+    $this->page->meta_description = $this['article']->meta_description;
+    $this->page->meta_title = $this['article']->meta_title;
+
+    if(isset($this['article']->cover_image) && !is_null($this['article']->cover_image)){
+        $this->page->og_title = $this['article']->cover_image->path;
+    }
+    
+	
+}
+==
+
+
+    <section>
+      <div class="container mt-30 mb-30 pt-30 pb-30">
+        <div class="row">
+          <div class="col-md-9">
+            <div class="blog-posts">
+              <div class="col-md-12">
+                <div class="row list-dashed">
+        
+                  <article class="post clearfix mb-30 pb-30">
+                    <div class="entry-header">
+                      <div class="post-thumb thumb"> 
+                        {% if article.cover_image %}
+                            <a href="{{ 'single-slug'|page({ slug: article.slug }) }}">    
+                                <img src="{{ article.cover_image.thumb(840,360,{}) }}" alt="{{article.title}}" class="img-responsive img-fullwidth">
+                            </a>
+                        {% endif %} 
+                      </div>
+                    </div>
+                    <div class="entry-content border-1px p-20 pr-10">
+                      <div class="entry-meta media mt-0 no-bg no-border">
+                        <div class="entry-date media-left text-center flip bg-theme-colored pt-5 pr-15 pb-5 pl-15">
+                          <ul>
+                            <li class="font-16 text-white font-weight-600">{{article.creation_day}}</li>
+                            <li class="font-12 text-white text-uppercase">{{article.creation_month}}</li>
+                          </ul>
+                        </div>
+                        <div class="media-body pl-15">
+                          <div class="event-content pull-left flip">
+                            <h4 class="entry-title text-white text-uppercase m-0 mt-5"><a href="{{ 'single-slug'|page({ slug: article.slug }) }}">{{article.title}}</a></h4>
+                        
+                          </div>
+                        </div>
+                      </div>
+                      <p class="mt-10">
+                           {{article.description|raw}}
+                      </p>
+            
+                      <div class="clearfix"></div>
+                    </div>
+                  </article>
+
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="sidebar sidebar-right mt-sm-30">
+              <div class="widget">
+                <h5 class="widget-title line-bottom">Kategóriák</h5>
+                <ul class="list-divider list-border list check">
+                    {% for category in categories %}
+                  <li><a href="{{'blog-category-show'|page({slug: category.slug})}}">{{category.name}}</a></li>
+                    {% endfor %}
+                
+                </ul>
+              </div>
+           
+ 
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> 

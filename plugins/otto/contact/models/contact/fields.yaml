@@ -1,0 +1,23 @@
+fields:
+    name:
+        label: Név
+        span: full
+        type: text
+    email:
+        label: Email
+        span: full
+        required: 1
+        type: text
+    subject:
+        label: Tárgy
+        span: full
+        type: text
+    message:
+        label: Üzenet
+        size: large
+        span: full
+        type: richeditor
+    phone:
+        label: Telefonszám
+        span: full
+        type: text

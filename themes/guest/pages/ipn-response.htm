@@ -1,0 +1,63 @@
+title = "IPN megerősítés"
+url = "/ipn-megerosites"
+layout = "default"
+is_hidden = 0
+
+[searchResults]
+resultsPerPage = 10
+showProviderBadge = 1
+noResultsMessage = "Your search returned no results."
+visitPageMessage = "Visit page"
+==
+function onStart(){
+  
+
+    header('Content-Type: text/html; charset=utf-8');
+
+    //Optional error riporting
+    error_reporting(E_ALL);
+    ini_set('display_errors', '1');
+
+    //Import config data
+    require_once 'plugins/otto/personfinder/assets/src/config.php';
+
+
+    require_once 'plugins/otto/personfinder/assets/src/SimplePayV21.php';
+
+    $json = file_get_contents('php://input');
+
+    $trx = new SimplePayIpn;
+
+    $trx->addConfig($config);
+
+    //check signature and confirm IPN
+    //-----------------------------------------------------------------------------------------
+    if ($trx->isIpnSignatureCheck($json)) {
+        /**
+         * Generates all response
+         * Puts signature into header
+         * Print response body
+         *
+         * Use this OR getIpnConfirmContent
+         */
+        $trx->runIpnConfirm();
+
+        /**
+         * Generates all response
+         * Gets signature and response body
+         *
+         * You must set signeature in header and you must print response body!
+         *
+         * Use this OR runIpnConfirm()
+         */
+        //$confirm = $trx->getIpnConfirmContent();
+
+    }
+
+    //no need to print further information
+    exit;
+
+
+}
+
+==

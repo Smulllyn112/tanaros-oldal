@@ -1,0 +1,18 @@
+plugin:
+    name: 'otto.gallery::lang.plugin.name'
+    description: 'otto.gallery::lang.plugin.description'
+    author: Otto
+    icon: oc-icon-image
+    homepage: ''
+permissions:
+    only_admin:
+        tab: 'Only Admin'
+        label: 'Only Admin'
+navigation:
+    main-menu-item:
+        label: Képgaléria
+        url: otto/gallery/gallery
+        icon: icon-image
+        permissions:
+            - only_admin
+

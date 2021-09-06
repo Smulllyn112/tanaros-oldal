@@ -1,0 +1,16 @@
+columns:
+    name:
+        label: Név
+        type: text
+        searchable: true
+        sortable: true
+    email:
+        label: Email
+        type: text
+        searchable: true
+        sortable: true
+    created_at:
+        label: 'Küldési Dátum'
+        type: time
+        searchable: true
+        sortable: true

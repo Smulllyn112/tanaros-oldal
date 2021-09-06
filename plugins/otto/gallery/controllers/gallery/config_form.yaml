@@ -1,0 +1,10 @@
+name: Gallery
+form: $/otto/gallery/models/gallery/fields.yaml
+modelClass: Otto\Gallery\Models\Gallery
+defaultRedirect: otto/gallery/gallery
+create:
+    redirect: 'otto/gallery/gallery/update/:id'
+    redirectClose: otto/gallery/gallery
+update:
+    redirect: otto/gallery/gallery
+    redirectClose: otto/gallery/gallery

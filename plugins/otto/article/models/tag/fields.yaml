@@ -1,0 +1,23 @@
+fields:
+    name:
+        label: Név
+        span: full
+        type: text
+    sort_number:
+        label: 'Sorbarendezési szám'
+        span: full
+        attributes:
+            min: '1'
+            max: '1000'
+        type: number
+    description:
+        label: Leírás
+        size: large
+        span: full
+        type: richeditor
+    articles:
+        label: Cikkek
+        nameFrom: title
+        descriptionFrom: description
+        span: full
+        type: relation

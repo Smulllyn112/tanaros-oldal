@@ -1,0 +1,4 @@
+title: CategoryController
+modelClass: Otto\Reference\Models\Category
+toolbar:
+    buttons: reorder_toolbar

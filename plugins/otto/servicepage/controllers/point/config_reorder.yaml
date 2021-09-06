@@ -1,0 +1,4 @@
+title: Point
+modelClass: Otto\Servicepage\Models\Point
+toolbar:
+    buttons: reorder_toolbar

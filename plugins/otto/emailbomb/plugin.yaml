@@ -1,0 +1,6 @@
+plugin:
+    name: 'otto.emailbomb::lang.plugin.name'
+    description: 'otto.emailbomb::lang.plugin.description'
+    author: Otto
+    icon: oc-icon-envelope
+    homepage: ''

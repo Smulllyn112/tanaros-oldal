@@ -1,0 +1,393 @@
+title = "Tanár adatlap"
+url = "/tanar/:slug"
+layout = "guest"
+meta_title = "Legiválóbb tanáraink közül"
+meta_description = "Olvasd el tanár adatlapjaink közül is a legkiválóbbak adatlapjait!"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+[contact_teacher]
+==
+use Rainlab\User\Models\User;
+function onStart(){
+	$this['teacher'] = User::where("slug",\Request::segment(2))->where('is_published',1)->firstOrFail();
+
+    $this->page->meta_description = strip_tags($this['teacher']->excerpt);
+    $this->page->meta_title = $this['teacher']->name . " tanárunk - ProfiMagántanár.hu";
+
+    if(isset($this['teacher']->avatar) && !is_null($this['teacher']->avatar)){
+        $this->page->og_image = $this['teacher']->avatar->path;
+    }
+    
+	if($this['teacher']->extran_kiemelt_until > now()){
+		$this["is_extra_featured"] = 1; 
+	}
+
+	if($this['teacher']->alap_kiemelt_until > now()){
+		$this["is_featured"] = 1; 
+	}
+
+	$this["first_letter"] = substr($this['teacher']->description, 0, 1);
+
+	$this["remaining_desc"] = substr($this['teacher']->description, 1);
+
+  	$this["featured_teachers"] = User::where("is_published",1)->where("extran_kiemelt_until",">",now())->where("id","!=",$this['teacher']->id)->inRandomOrder()->get();
+}
+==
+
+<div style="height:120px"></div>
+
+
+<!--start section-->
+<section class="nicdark_section">
+
+    <!--start nicdark_container-->
+    <div class="nicdark_container nicdark_clearfix">
+
+        <div class="nicdark_space50"></div>
+
+        <div class="grid grid_8">
+            <img class="nicdark_radius nicdark_opacity" style="float:left;width:100%;" alt="{{teacher.name}}"
+            {% if teacher.avatar %}
+                src="{{teacher.avatar.thumb(600,600,{}) }}"
+             {% else %}
+                src="{{'assets/own/images/alap_avatar.png'|theme}}"
+             {% endif %}
+             >
+
+            <div class="nicdark_space20"></div>
+
+            {% if is_featured or is_extra_featured %}
+            <div class="nicdark_textevidence nicdark_bg_orange nicdark_radius nicdark_shadow">
+                <div class="nicdark_size_big">
+                    <p class="white">
+					{% if is_extra_featured %}
+						Extrán kiemelt tanárunk
+					{% else %}
+						Kiemelt tanárunk
+					{% endif %}
+
+					 <span class="nicdark_margin010"></span></p>
+                </div>
+                <i class="icon-info-outline nicdark_iconbg right medium orange"></i>
+            </div>
+            {% endif %}
+
+            <div class="nicdark_space50"></div>
+
+            <h1 class="subtitle greydark">{{teacher.name}}</h1>
+            <div class="nicdark_space20"></div>
+            <div class="nicdark_divider left small"><span class="nicdark_bg_yellow nicdark_radius"></span></div>
+            <div class="nicdark_space20"></div>
+
+            <p><span class="white nicdark_dropcap nicdark_bg_yellow nicdark_radius nicdark_shadow">{{first_letter}}</span>
+
+            	{{remaining_desc|raw}}
+
+            </p>
+
+            <div class="nicdark_space50"></div>
+
+        <div class="grid grid_6">
+            <!--start table-->
+            <div class="nicdark_textevidence nicdark_bg_grey nicdark_shadow nicdark_radius left overflow_scroll">  
+                <table class="nicdark_table extrabig nicdark_bg_blue nicdark_radius ">
+                    <thead class="nicdark_border_blue">
+                        <tr>
+                            <td><h4 class="white">Jellemzők</h4></td>
+                            <td class="nicdark_width_percentage1"></td>
+                        </tr>
+                    </thead>
+                    <tbody class="nicdark_bg_grey nicdark_border_grey">
+
+                        <tr>
+                            <td><p>Online tanít</p></td>
+                            <td><a href="#" class="nicdark_btn_icon 
+
+								{% if teacher.is_online_teaching %}
+                            	nicdark_bg_green
+                            	{% else %}
+                            	nicdark_bg_red
+                            	{% endif %}
+
+                            small nicdark_radius_circle white">
+                            	{% if teacher.is_online_teaching %}
+                            		<i class="icon-ok-outline"></i>
+                            	{% else %}
+                            		<i class="icon-cancel-outline"></i>
+                            	{% endif %}
+
+                            </a></td>
+                        </tr>
+                        <tr>
+                            <td><p>Házhoz megy</p></td>
+                            <td><a href="#" class="nicdark_btn_icon 
+								{% if teacher.is_going_to_house %}
+                            	nicdark_bg_green
+                            	{% else %}
+                            	nicdark_bg_red
+                            	{% endif %}
+                            small nicdark_radius_circle white">
+                            	{% if teacher.is_going_to_house %}
+                            		<i class="icon-ok-outline"></i>
+                            	{% else %}
+                            		<i class="icon-cancel-outline"></i>
+                            	{% endif %}
+
+                            </a></td>
+                        </tr>
+                        <tr>
+                            <td><p>Csoportosan is tanít</p></td>
+                            <td>
+                                {% if not teacher.group_teaching %}
+                                <a href="#" class="nicdark_btn_icon 
+                            	
+                            	nicdark_bg_red
+                            	
+                            small nicdark_radius_circle white">
+                      
+                            		<i class="icon-cancel-outline"></i>
+                          
+
+                            </a>
+                            {% else %}
+                                {{teacher.group_teaching}}
+                            {% endif %}
+                        </td>
+                        </tr>
+
+
+                        <tr>
+                            <td><p>Óradíj</p></td>
+                            <td>
+                            	<p>
+                            		{% if teacher.hour_price %}
+
+                            		{{teacher.hour_price}}
+
+                            		{% else %}
+                            			-
+                            		{% endif %}
+                            	</p>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><p>Telefonszám</p></td>
+                            <td>
+                            	<p>
+                            		{% if teacher.phone %}
+
+                            		<a href="tel:{{teacher.phone}}">
+                            		{{teacher.phone}}	
+                            		</a>
+                       
+
+                            		{% else %}
+                            			-
+                            		{% endif %}
+                            	</p>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td><p>Email</p></td>
+                            <td>
+                            	<p>
+                            		{% if teacher.email %}
+
+                            		<a href="mailto:{{teacher.email}}">
+                            		{{teacher.email}}	
+                            		</a>
+                       
+
+                            		{% else %}
+                            			-
+                            		{% endif %}
+                            	</p>
+                            </td>
+                        </tr>
+
+                        {% if teacher.graduate %}
+                        <tr>
+                            <td><p>Végzettség</p></td>
+                            <td>
+                            	<p>
+                
+
+                            		<p>
+                            			{{teacher.graduate}}
+                            		</p>
+                       
+
+                            
+                            	</p>
+                            </td>
+                        </tr>
+                        {% endif %}
+
+                        {% if teacher.business_hours %}
+                        <tr>
+                            <td><p>Ekkor tart órákat</p></td>
+                            <td>
+                            	<p>
+                
+
+                            		<p>
+                            			{{teacher.business_hours}}
+                            		</p>
+                       
+
+                            
+                            	</p>
+                            </td>
+                        </tr>
+                        {% endif %}
+
+                        {% if teacher.group_teaching %}
+                        <tr>
+                            <td><p>Csoportos órák</p></td>
+                            <td>
+                            	<p>
+                
+
+                            		<p>
+                            			{{teacher.group_teaching}}
+                            		</p>
+                       
+
+                            
+                            	</p>
+                            </td>
+                        </tr>
+                        {% endif %}
+
+
+
+                        {% if teacher.personal_website %}
+                        <tr>
+                            <td><p>Személyes weboldal</p></td>
+                            <td>
+                            	<p>
+                
+
+                            		<p>
+                            			{{teacher.personal_website}}
+                            		</p>
+                       
+
+                            
+                            	</p>
+                            </td>
+                        </tr>
+                        {% endif %}
+
+                        
+
+                       
+                    </tbody>
+                </table>
+            </div>
+            <!--end table-->
+        </div>
+
+
+            <div class="nicdark_space50"></div>
+
+
+            <div class="grid grid_12 nicdark_masonry_item">
+
+                <div class="nicdark_archive1 nicdark_bg_grey nicdark_radius nicdark_shadow">
+                    <div class="nicdark_textevidence nicdark_bg_red nicdark_radius_top">
+                        <h4 class="white nicdark_margin20">Üzenetküldés</h4>
+                        <i class="icon-mail-alt nicdark_iconbg right medium red"></i>
+                    </div>
+                    <div class="nicdark_margin20">
+                    <form method="POST" data-request="contact_teacher::onSend">
+                        <input class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle" type="text" name="name" value="" required placeholder="*Név">
+                        <div class="nicdark_space20"></div>
+
+                        <input class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle" type="text" name="email" value="" required placeholder="*Email">
+                        <div class="nicdark_space20"></div>
+
+                        <textarea class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle" name="message" required placeholder="*Üzenet" rows=10></textarea>
+                        <div class="nicdark_space20"></div>
+                        <!--<input class="nicdark_btn nicdark_bg_red medium nicdark_shadow nicdark_radius white" type="submit" value="SEND">-->
+
+                        <button type="submit" class=" nicdark_btn nicdark_bg_red medium nicdark_shadow nicdark_radius white nicdark_press contact-btn">Küldés</button>
+                      </form>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+
+
+        <!--sidebar-->
+        <div class="grid grid_4">
+            <div class="nicdark_space20"></div>
+    	
+            <div class="nicdark_archive1 nicdark_bg_grey nicdark_radius nicdark_shadow">
+                <div class="nicdark_textevidence nicdark_bg_orange nicdark_radius_top">
+                    <h4 class="white nicdark_margin20">Tantárgyak</h4>
+                    <i class="icon-tags-1 nicdark_iconbg right medium orange"></i>
+                </div>
+                <div class="nicdark_margin10">
+                	{% for subject in teacher.subjects %}
+
+                    	<a href="#" class="nicdark_btn nicdark_bg_grey2 small nicdark_shadow nicdark_radius grey subtitle nicdark_margin10">{{subject.name}}</a>
+                	
+                    {% endfor %}
+                    
+                    
+
+                </div>
+            </div>
+
+            <div class="nicdark_space20"></div>
+
+            <div class="nicdark_archive1 nicdark_bg_grey nicdark_radius nicdark_shadow">
+                <div class="nicdark_textevidence nicdark_bg_violet nicdark_radius_top">
+                    <h4 class="white nicdark_margin20">Helyileg hol?
+                    {% if teacher.is_online_teaching %}
+                     (Online is tanít)
+                     {% endif %}
+                 	</h4>
+                    
+                    
+                    <i class="icon-doc-1 nicdark_iconbg right medium violet"></i>
+                </div>
+
+				<div class="nicdark_margin10">
+					{% if teacher.is_online_teaching %}
+                   		<a href="#" class="nicdark_btn nicdark_bg_grey2 small nicdark_shadow nicdark_radius grey subtitle nicdark_margin10">Online</a>
+					{% endif %}
+                	{% for city in teacher.cities %}
+
+                    	<a href="#" class="nicdark_btn nicdark_bg_grey2 small nicdark_shadow nicdark_radius grey subtitle nicdark_margin10">{{city.name}}</a>
+                	
+                    {% endfor %}
+                    
+                    
+
+                </div>
+
+            </div>
+
+
+            <div class="nicdark_space20"></div>
+
+        </div>
+        <!--sidebar-->
+
+        <div class="nicdark_space50"></div>
+
+{% partial "teacher-grid" title="Extrán kiemelt tanáraink" teachers=featured_teachers color_arr=color_arr is_extra_featured=1 %}
+        
+
+    </div>
+    <!--end nicdark_container-->
+            
+</section>
+<!--end section-->

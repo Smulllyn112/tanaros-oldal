@@ -1,0 +1,57 @@
+fields:
+    title:
+        label: Cím
+        span: full
+        required: 1
+        type: text
+    description:
+        label: Leírás
+        size: huge
+        span: full
+        type: richeditor
+    sort_number:
+        label: 'Sorbarendezési szám'
+        span: full
+        attributes:
+            min: '1'
+            max: '1000'
+        type: number
+    url:
+        label: Link
+        span: full
+        type: text
+    image:
+        label: Kép
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: full
+        type: fileupload
+    categories:
+        label: Kategóriák
+        nameFrom: title
+        descriptionFrom: description
+        span: full
+        type: relation
+    points:
+        label: Attribútumok
+        prompt: 'Add new item'
+        span: full
+        type: repeater
+        form:
+            fields:
+                name:
+                    label: 'Attribútum neve'
+                    span: auto
+                    type: text
+    type:
+        label: Típus
+        options:
+            website: Weboldal
+            webshop: Webáruház
+        showSearch: true
+        span: auto
+        required: 0
+        type: dropdown

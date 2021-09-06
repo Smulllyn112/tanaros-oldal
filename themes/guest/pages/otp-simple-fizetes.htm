@@ -1,0 +1,170 @@
+title = "Foglalás Simple Pay utalással"
+url = "/fizetes"
+layout = "guest"
+meta_title = "Fizetés - Profimagantanar.hu"
+meta_description = "Fizess még ma itt nálunk, a ProfiMagantanar.hu-nál"
+is_hidden = 0
+
+==
+
+use Auth;
+use Carbon\Carbon;
+use Otto\Personfinder\Models\Subject;
+use Otto\Personfinder\Models\SimplePay;
+function onStart(){
+
+   $this["user"] = Auth::getUser();
+
+   //dd(json_decode($this["user"]->simplepay_session));
+
+   $this["simplepay_session"] = json_decode($this["user"]->simplepay_session);
+
+   if(isset($this["simplepay_session"]->subject_id)){
+        $this["subject"] = Subject::find($this["simplepay_session"]->subject_id);
+    }
+
+   //dd($this["simplepay_session"]);
+
+   /*json_encode([
+   		"until" => Carbon::now()->addMonths(6)->format('Y-m-d'),
+   		"price" => 3900,
+   		"type" => "register"
+   ]);*/
+
+   require_once("plugins/otto/personfinder/assets/src/simplepaystart.php");
+
+   
+
+}
+==
+
+
+<div style="height:150px"></div>
+
+<section class="nicdark_section fizetesi-oldal">
+
+    <!--start nicdark_container-->
+    <div class="nicdark_container nicdark_clearfix">
+
+        <div class="nicdark_space10"></div>
+
+        <div class="grid grid_12">
+            <div class="nicdark_archive1 nicdark_bg_grey nicdark_radius nicdark_shadow">
+                <div class="nicdark_textevidence nicdark_bg_orange nicdark_radius_top">
+                    <h4 class="white nicdark_margin20">Fizetési tranzakció megkezdése - számlázási adatok</h4>
+                    <i class="icon-mail nicdark_iconbg right medium orange"></i>
+                </div>
+                <div class="nicdark_margin20">
+
+        <a href="http://simplepartner.hu/PaymentService/Fizetesi_tajekoztato.pdf" target="_blank" style="display:block;margin-bottom:20px;">     <img style="width:197px !important" width="197" height="27" src="{{'assets/own/images/simplepay.png'|theme}}" title=" SimplePay - Online bankkártyás fi zetés" alt=" SimplePay vásárlói tájékoztató">  
+        </a> 
+
+                    <h3>Tétel:</h3>
+                    {% if simplepay_session.type == "register" %}
+                    <br>
+                    	<p>
+                    		Regisztráció a ProfiMagántanár applikációba {{simplepay_session.active_until}} ideig 
+                    	</p>
+                    	<br>
+                    {% elseif simplepay_session.type == "extra_kiemeles" %}
+                    <br>
+                        <p>
+                            Extra kiemelés a ProfiMagántanár applikációban {{simplepay_session.active_until}} ideig 
+                        </p>
+                        <br>
+
+                    {% elseif simplepay_session.type == "alap_kiemeles" %}
+
+                    <br>
+                        <p>
+                            Alap kiemelés a ProfiMagántanár applikációban {{simplepay_session.active_until}} ideig {{subject.name}} tantárgyból 
+                        </p>
+                        <br>
+
+                    {% endif %}
+                    
+
+                    <h3>Összeg:</h3>
+
+                    <br>
+                    <p>
+                    {{simplepay_session.price}} Ft
+         			</p>
+                    <br>
+
+                    <p>*Ország</p>
+                    <div class="nicdark_space5"></div>
+                    <input class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle" type="text"
+
+                    {% if user %}
+                    value="{{user.billing_country}}" 
+                    {% endif %}
+
+                    size="200" name="billing_country" required disabled placeholder="Kötelező megadni..."
+                    >
+
+                    <div class="nicdark_space20"></div>
+                    
+
+                    <p>*Város</p>
+                    <div class="nicdark_space5"></div>
+                    <input class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle" type="text"
+                    disabled
+                    {% if user %}
+                    value="{{user.billing_city}}" 
+                    {% endif %}
+
+                    size="200" name="billing_city" required placeholder="Kötelező megadni..."
+                    >
+
+                    <div class="nicdark_space20"></div>
+
+
+
+
+                    <p>*Zip kód</p>
+                    <div class="nicdark_space5"></div>
+                    <input class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle" type="text"
+                    disabled
+                    {% if user %}
+                    value="{{user.billing_zip}}" 
+                    {% endif %}
+
+                    size="200" name="billing_zip" required placeholder="Kötelező megadni..."
+                    >
+
+                    <div class="nicdark_space20"></div>
+
+
+
+                    <p>*Utca</p>
+                    <div class="nicdark_space5"></div>
+                    <input class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle" type="text"
+                    disabled
+                    {% if user %}
+                    value="{{user.billing_street}}" 
+                    {% endif %}
+
+                    size="200" name="billing_street" required placeholder="Kötelező megadni..."
+                    >
+
+                    <div class="nicdark_space20"></div>
+
+
+        				<!--
+                        <input class="nicdark_btn nicdark_bg_orange medium nicdark_shadow nicdark_radius white" type="submit" value="Fizetés!">
+                    -->
+                    {{simple_pay_form|raw}}
+    
+
+                </div>
+            </div>      
+        </div>
+
+
+        <div class="nicdark_space50"></div>
+
+    </div>
+    <!--end nicdark_container-->
+            
+</section>

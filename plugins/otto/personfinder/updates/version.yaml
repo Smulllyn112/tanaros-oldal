@@ -1,0 +1,17 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table otto_personfinder_city'
+    - builder_table_create_otto_personfinder_city.php
+1.0.3:
+    - 'Created table otto_personfinder_subject'
+    - builder_table_create_otto_personfinder_subject.php
+1.0.4:
+    - 'Created table otto_personfinder_city_to_user'
+    - builder_table_create_otto_personfinder_city_to_user.php
+1.0.5:
+    - 'Created table otto_personfinder_subject_to_user'
+    - builder_table_create_otto_personfinder_subject_to_user.php
+1.0.6:
+    - 'Updated table otto_personfinder_subject_to_user'
+    - builder_table_update_otto_personfinder_subject_to_user.php

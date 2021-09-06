@@ -1,0 +1,36 @@
+fields:
+    title:
+        label: Cím
+        span: full
+        required: 1
+        type: text
+    description:
+        label: Leírás
+        size: ''
+        span: full
+        type: richeditor
+    sort_number:
+        label: 'Sorbarendezési szám'
+        span: full
+        attributes:
+            min: '1'
+            max: '1000'
+        type: number
+    cover_image:
+        label: Borítókép
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: full
+        type: fileupload
+    gallery_images:
+        label: Képgaléria
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: full
+        type: fileupload

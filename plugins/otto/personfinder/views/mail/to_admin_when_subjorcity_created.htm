@@ -1,0 +1,19 @@
+<p>
+	Kedves {{name}}!
+</p>
+
+{% if msg %}
+<p>
+	{{msg|raw}}
+</p>
+{% endif %}
+
+{% if new_item %}
+<p>
+	Az új elem neve: {{new_item}}. Hamarosan jóvá lesz hagyva!
+</p>
+{% endif %}
+
+<p>
+	{{regards}}
+</p>

@@ -1,0 +1,235 @@
+title = "Magántanár Keresése"
+url = "/magantanar-kereses"
+layout = "guest"
+meta_title = "Magántanárok keresése - ProfiMagántanár.hu"
+meta_description = "Keress magántanárt még ma, és tanulj minél hamarabb!"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+==
+use Otto\Article\Models\Article;
+use Rainlab\User\Models\User;
+use Otto\Personfinder\Models\Subject;
+use Otto\Personfinder\Models\City;
+function onStart(){
+    //dd(Request::get('targy'),Request::get('varos'));
+    $this["current_subject"] = Subject::where("name",Request::get('targy'))->first();
+
+    $this["current_city"] = City::where("name",Request::get('varos'))->first();
+
+    //dd($this["current_subject"],$this["current_city"]);
+
+    /*if($this["current_subject"]){
+      $this["featured_teachers"] =        User::whereHas('subject', function($q){
+          $q->where('id', '=', '1');
+      })->inRandomOrder()->get();
+    }*/
+
+    $query = User::where('is_published',1)->inRandomOrder();
+
+    if($this["current_subject"]){
+      $subjId = $this["current_subject"]->id;
+      $query = $query->whereHas('subjects', function($q) use($subjId){
+          $q->where('id', '=', $subjId);
+      });
+    }
+
+    if($this["current_city"]){
+      $cityId = $this["current_city"]->id;
+      $query = $query->whereHas('cities', function($q) use($cityId){
+          $q->where('id', '=', $cityId)->orWhere("is_online_teaching",1);
+      });
+    }
+
+    $all_teachers = $query->get();
+
+
+    $this["featured_teachers"] = collect();
+    $this["simple_teachers"] = collect();
+
+    foreach($all_teachers as $teacher){
+      if($teacher->alap_kiemelt_until > now() || $teacher->extran_kiemelt_until > now()){
+        $this["featured_teachers"][] = $teacher;
+      } else {
+        $this["simple_teachers"][] = $teacher;
+      }
+    }
+
+
+    //dd($this["teachers"]);
+    //dd($query);
+
+    $title = "";
+    if($this["current_subject"] and $this["current_city"]){
+      $subjName = $this['current_subject']->name; 
+      $subjCity = $this['current_city']->name; 
+      $title .= "$subjName tanáraink $subjCity városában";
+    } elseif($this["current_city"]){
+      $cityName = $this['current_city']->name;
+      $title .= " tanáraink $cityName városában";
+    }else{
+      $subjName = $this['current_subject']->name;
+      $title .= "$subjName tanáraink";
+    }
+
+
+    $this["simple_title"] = $title;
+    $this["featured_title"] = "kiemelt " . $title;
+
+    //dd($this["simple_title"],$this["featured_title"]);
+
+    //dd($this["featured_teachers"],$this["simple_teachers"]);
+
+    $this["cities"] = City::where("is_published",1)->orderBy("sort_number","desc")->get();
+
+    $this["subjects"] = Subject::where("is_published",1)->orderBy("sort_number","desc")->get();
+}
+==
+
+<section id="nicdark_parallax_title" class="nicdark_section nicdark_imgparallax nicdark_parallaxx_img8 search-page-top-section" style="
+    background: url({{'assets/own/images/fooldali-hatterkep_2.jpg'|theme}});
+    background-size: cover;
+    background-position: 60% 70%;
+    ">
+
+    <div class="nicdark_filter greydark">
+
+        <!--start nicdark_container-->
+        <div class="nicdark_container nicdark_clearfix">
+
+            <div class="grid grid_12 overlay">
+
+              <div class="inner-cont">
+                <div class="nicdark_space100"></div>
+                <div class="nicdark_space100"></div>
+                <h1 class="white subtitle upper-first">
+                {% if current_subject and current_city %}
+                  {{current_subject.name}} magántanáraink
+                {% elseif current_city and not current_subject %}
+                  Magántanáraink {{current_city.name}} városában
+                {% elseif current_subject and not current_city %}
+                  {{current_subject.name}} magántanáraink
+                {% endif %}
+                </h1>
+                <div class="nicdark_space10"></div>
+
+                {% if current_subject and current_city %}
+                  {{current_subject.name}} magántanáraink
+                  <h3 class="subtitle white upper-first">{{current_city.name}} városában</h3>
+                  <div class="nicdark_space20"></div>
+                {% endif %}
+      
+                
+                <div class="nicdark_divider center big"><span class="nicdark_bg_white nicdark_radius"></span></div>
+                <div class="nicdark_space40"></div>
+                <div class="nicdark_space50"></div>
+
+              </div>
+     
+
+            </div>
+          </form>
+        </div>
+        <!--end nicdark_container-->
+
+    </div>
+     
+</section>
+
+
+<!--start section-->
+<section class="nicdark_section nicdark_bg_greydark">
+    
+    <!--start nicdark_container-->
+    <div class="nicdark_container nicdark_clearfix">
+        
+
+        <div class="grid grid_12">
+            
+            <!--start nicdark_tabs-->
+            <div class="nicdark_tab nicdark_margintop50_negative">
+                
+                <ul class="nicdark_tabslist greydark">
+                    <li><a title="Keress magántanárt!" href="#tabs-1" class="nicdark_tooltip nicdark_btn nicdark_bg_yellow medium 
+                      search-form-design-btn
+                      nicdark_radius_top white"><i class="icon-graduation-cap-1 nicdark_displaynone_iphoneland nicdark_displaynone_iphonepotr nicdark_marginright10"></i>KERESÉS</a></li>
+
+                    
+
+                </ul>
+
+                <div class="nicdark_tabs">
+                    
+                    <div class="nicdark_margin20" id="tabs-1">
+                      <form method="GET" action="{{'magantanar-kereses'|page}}" id="search-form">
+                        <div class="nicdark_focus nicdark_width_percentage25">
+    <input class="nicdark_bg_greydark2 nicdark_radius nicdark_shadow grey medium subtitle" type="text" placeholder="TANTÁRGY..." 
+    
+    {% if current_subject %}
+      value="{{current_subject.name}}" 
+    {% endif %} 
+
+    size="200"
+    name="targy" list="subjects"
+    >  
+
+  <datalist id="subjects">
+    {% for subject in subjects %}
+      <option value="{{subject.name}}">
+        {{subject.name}}
+      </option>
+    {% endfor %}
+  </datalist>
+
+                        </div>
+                        <div class="nicdark_focus nicdark_width_percentage25">
+                            <div class="nicdark_marginleft20 nicdark_disable_marginleft_iphoneland nicdark_disable_marginleft_iphonepotr">
+                            <input class="nicdark_bg_greydark2 nicdark_radius nicdark_shadow grey medium subtitle" type="text" placeholder="VÁROS..." 
+                            {% if current_city %}
+                            value="{{current_city.name}}" 
+                            {% endif %}
+
+                            size="200"
+                            name="varos" list="cities"
+                            >   
+
+  <datalist id="cities">
+    {% for city in cities %}
+      <option value="{{city.name}}">
+        {{city.name}}
+      </option>
+    {% endfor %}
+  </datalist>
+
+
+                            </div>
+                        </div>
+ 
+                        <div class="nicdark_focus nicdark_width_percentage25">
+                            <div class="nicdark_marginleft20 nicdark_disable_marginleft_iphoneland nicdark_disable_marginleft_iphonepotr">
+                                <input class="nicdark_btn fullwidth nicdark_bg_yellow medium nicdark_shadow nicdark_radius white nicdark_press" type="submit" value="KERESÉS"  >     
+                            </div>
+                        </div>    
+                    </div>
+                    
+                </div>
+                
+            </div>
+            <!--end nicdark_tabs-->   
+
+        </div>
+
+
+    </div>
+    <!--end nicdark_container-->
+
+</section>
+<!--end section-->
+
+
+  {% partial "teacher-grid" title=featured_title teachers=featured_teachers is_featured=1 top_grid=1 %}
+
+
+
+{% partial "teacher-grid" title=simple_title teachers=simple_teachers bottom_grid=1 %}

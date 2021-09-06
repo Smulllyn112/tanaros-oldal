@@ -1,0 +1,26 @@
+fields:
+    name:
+        label: Név
+        span: auto
+        type: text
+    sort_number:
+        label: 'Sorbarendezési szám'
+        span: auto
+        type: number
+    is_published:
+        label: 'Publikált-e?'
+        span: auto
+        type: switch
+    slug:
+        label: Slug
+        span: auto
+        preset:
+            field: name
+            type: slug
+        type: text
+    teachers:
+        label: Tanárok
+        nameFrom: name
+        descriptionFrom: description
+        span: auto
+        type: relation

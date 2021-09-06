@@ -1,0 +1,15 @@
+plugin:
+    name: 'otto.personfinder::lang.plugin.name'
+    description: 'otto.personfinder::lang.plugin.description'
+    author: Otto
+    icon: oc-icon-users
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Városok
+        url: otto/personfinder/city
+        icon: icon-bank
+    main-menu-item2:
+        label: Tárgy
+        url: otto/personfinder/subject
+        icon: icon-book

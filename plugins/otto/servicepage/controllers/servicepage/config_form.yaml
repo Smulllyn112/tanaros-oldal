@@ -1,0 +1,10 @@
+name: ServicePage
+form: $/otto/servicepage/models/servicepage/fields.yaml
+modelClass: Otto\Servicepage\Models\ServicePage
+defaultRedirect: otto/servicepage/servicepage
+create:
+    redirect: 'otto/servicepage/servicepage/update/:id'
+    redirectClose: otto/servicepage/servicepage
+update:
+    redirect: otto/servicepage/servicepage
+    redirectClose: otto/servicepage/servicepage

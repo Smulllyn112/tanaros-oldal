@@ -1,0 +1,4 @@
+title: ReferenceController
+modelClass: Otto\Reference\Models\Reference
+toolbar:
+    buttons: reorder_toolbar

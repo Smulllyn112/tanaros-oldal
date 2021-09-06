@@ -1,0 +1,90 @@
+fields:
+    title:
+        label: Cím
+        span: left
+        required: 1
+        type: text
+    slug:
+        label: Slug
+        span: right
+        required: 1
+        preset:
+            field: title
+            type: slug
+        type: text
+        comment: 'Ez jelenik meg az URL-ben amikor keresel.'
+    sort_number:
+        label: 'Sorbarendezési szám'
+        span: full
+        type: number
+    description:
+        label: Leírás
+        size: huge
+        span: full
+        type: richeditor
+    excerpt:
+        label: 'Rövid kivonat'
+        size: large
+        span: full
+        type: richeditor
+    cover_image:
+        label: Borítókép
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: full
+        type: fileupload
+    images:
+        label: Képek
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: full
+        type: fileupload
+    categories:
+        label: Kategóriák
+        nameFrom: name
+        descriptionFrom: description
+        span: full
+        type: relation
+    tags:
+        label: Tag-ek
+        nameFrom: name
+        descriptionFrom: description
+        span: full
+        type: relation
+    is_featured:
+        label: 'Kiemelt legyen?'
+        options:
+            - 'Nem kiemelt'
+            - Kiemelt
+        showSearch: true
+        span: full
+        type: dropdown
+    created_at:
+        label: 'Publikálási dátum'
+        mode: datetime
+        span: auto
+        type: datepicker
+    meta_title:
+        label: 'Meta cím'
+        span: left
+        type: text
+    meta_description:
+        label: 'Meta leírás'
+        span: right
+        type: text
+    is_published:
+        label: 'Publikált legyen?'
+        options:
+            - 'nem publikált'
+            - publikált
+        showSearch: true
+        span: auto
+        default: '1'
+        required: 1
+        type: dropdown

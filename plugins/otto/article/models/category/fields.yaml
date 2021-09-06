@@ -1,0 +1,30 @@
+fields:
+    name:
+        label: Név
+        span: full
+        required: 1
+        type: text
+    sort_number:
+        label: 'Sorbarendezési szám'
+        span: full
+        type: number
+    description:
+        label: Leírás
+        size: large
+        span: full
+        type: richeditor
+    articles:
+        label: Cikkek
+        nameFrom: title
+        descriptionFrom: description
+        span: full
+        type: relation
+    meta_title:
+        label: 'Meta cím'
+        span: auto
+        type: text
+    meta_description:
+        label: 'Meta leírás'
+        size: ''
+        span: auto
+        type: textarea

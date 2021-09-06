@@ -1,0 +1,278 @@
+title = "Kiemelés kérése"
+url = "/kiemeles-kerese"
+layout = "guest"
+meta_title = "Kiemelés kérése - Profimagántanár.hu"
+meta_description = ""
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[siteSearchInclude]
+
+[register_form]
+[contactform]
+showPhone = 1
+showEmail = 1
+showSubject = 1
+showName = 1
+showMessage = 1
+phonePlaceholder = "..."
+emailPlaceholder = "..."
+subjectPlaceholder = "..."
+namePlaceholder = "..."
+messagePlaceholder = "..."
+phoneLabel = "Az Ön telefonszáma:"
+emailLabel = "Az Ön e-mail címe:"
+subjectLabel = "Üzenet tárgya:"
+nameLabel = "Az Ön neve:"
+messageLabel = "Üzenet:"
+showLabels = 1
+showCaptcha = 1
+areElementsBorderless = 0
+isButtonFullwidth = 0
+buttonBackground = "base"
+buttonColor = "base"
+marginTop = 20
+marginBottom = 20
+==
+<?php
+function onStart(){
+	use Otto\Personfinder\Models\City;
+    use Otto\Personfinder\Models\Subject;
+    use Auth;
+
+    $user = Auth::getUser();
+
+    $this["egyhonapos"] = City::$egyhonaposKiemeles;
+
+    $this["extrakiemeles"] = City::$extraKiemelesEgyHonapra;
+}
+?>
+==
+
+<div style="height:100px;">
+    
+</div>
+
+<section class="nicdark_section" id="home-introduction">
+
+    <!--start nicdark_container-->
+    <div class="nicdark_container nicdark_clearfix">
+
+
+        <div class="nicdark_space50"></div>
+
+
+        <div class="grid grid_12">
+            <h1 class="subtitle greydark">Miért érdemes kiemelést használni?</h1>
+            <div class="nicdark_space20"></div>
+            <h3 class="subtitle grey">Szerezz diákokat akár napok alatt - a megtérülés töredkéért</h3>
+            <div class="nicdark_space20"></div>
+            <div class="nicdark_divider center big"><span class="nicdark_bg_yellow nicdark_radius"></span></div>
+            <div class="nicdark_space10"></div>
+        </div>
+
+
+        <p>
+          A kiemelés arra való, hogy <strong>bizonyos tárgyakból, vagy akár az összes tárgyból, a komplett weboldalon kiemelt helyeket </strong>szerezz magadnak. Azzal, hogy többször jelensz meg a diákok előtt, netán kedvezőbb helyen, sokkal könnyebben szerezhetsz diákot!
+
+          <br><br>
+
+          Nálunk két különböző kiemelési lehetőség van. Az egyik opció az "alap kiemelés". Be kell fizetned egy összeget a bankkártyáddal, és cserébe azonnal az adott tárgy kiemelt boxába kerülsz. Az "extra kiemelés" ennél sokkal többet takar: ugyanis az <strong>összes tárgyadból kiemelést kapsz egy hónapra</strong>, és ráadásul a főoldalon, vagy az adatlap oldalak alján is megjelensz majd.
+
+          <br><br>
+          Megéri a kiemelés? <strong>Ha csupán egyetlen diákot szerzel</strong>, már minden bizonnyal - hiszen egy diák akár több tízezer, vagy százezer forintot is nálad hagyhat!
+
+        </p>
+
+
+        <div class="nicdark_space50"></div>
+
+    </div>
+    <!--end nicdark_container-->
+            
+</section>
+
+
+
+
+
+
+<section class="nicdark_section price-section">
+
+    <!--start nicdark_container-->
+    <div class="nicdark_container nicdark_clearfix">
+
+
+        <div class="nicdark_space50"></div>
+
+
+        <div class="grid grid_12 prices-introduction">
+            <h1 class="subtitle greydark">Kiemelési csomagjaink</h1>
+            <div class="nicdark_space20"></div>
+            <h3 class="subtitle grey">Szerezz diákokat napokon belül!</h3>
+            <div class="nicdark_space20"></div>
+            <div class="nicdark_divider center big"><span class="nicdark_bg_blue nicdark_radius"></span></div>
+            <div class="nicdark_space10"></div>
+        </div>
+
+        <div class="grid grid_3">
+        </div>
+
+        <div class="grid grid_3">
+                    
+            <div class="nicdark_archive1 center nicdark_bg_blue nicdark_shadow nicdark_radius">
+                
+                
+                <div class="nicdark_textevidence nicdark_bg_greydark nicdark_radius_top">
+                    <h4 class="white nicdark_margin20">Alap kiemelés</h4>
+                </div>
+
+
+                <div style="background:url(img/prices/img1.jpg); background-size:cover;" class="nicdark_archive1">
+                    <div class="nicdark_filter blue">
+
+                        <div class="nicdark_space40"></div>
+                        
+                        <h3 class="white subtitle">{{egyhonapos}}</h3>
+                        <div class="nicdark_space20"></div>
+                        <div class="nicdark_divider small"><span class="nicdark_bg_white nicdark_radius"></span></div>
+                        <div class="nicdark_space20"></div>
+                        <h4 class="white subtitle">1 hónapra</h4>
+
+                        <div class="nicdark_space40"></div>
+
+                    </div>
+                </div>
+
+                <div class="nicdark_textevidence nicdark_bg_grey">
+                    <div class="nicdark_margin20">
+                        <ul class="nicdark_list border">
+                            <li class="nicdark_border_grey">
+                                <p><span class="good">✔</span> Egy tetszőleges tárgyból előre helyezés</p>
+                                <div class="nicdark_space10"></div>
+                            </li>
+
+                            <li class="nicdark_border_grey">
+                                <p><span class="wrong">✖</span> Összes tárgyból előre helyezés</p>
+                                <div class="nicdark_space10"></div>
+                            </li>
+
+                            <li class="nicdark_border_grey">
+                                <p><span class="wrong">✖</span> Főoldali kiemelés</p>
+                                <div class="nicdark_space10"></div>
+                            </li>
+                            <li class="nicdark_border_grey">
+                                <p><span class="wrong">✖</span> Személyes adatlapok alatti megjelenés</p>
+                                <div class="nicdark_space10"></div>
+                            </li>
+                            <li class="nicdark_border_grey">
+                                <div class="nicdark_space10"></div>
+                                <p><span class="good">✔</span> Kiemelt keret</p>
+                                <div class="nicdark_space10"></div>
+                            </li>
+                            <li class="nicdark_border_grey">
+                                <div class="nicdark_space10"></div>
+                                <p><span class="good">✔</span> Kiemelt adatlap</p>
+                                <div class="nicdark_space10"></div>
+                            </li>
+                            <li class="nicdark_border_grey">
+                                <div class="nicdark_space10"></div>
+                                <p><span class="good">✔</span> Megtérülés már az első diákkal</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <a href="{{'kiemeles-alap-index'|page}}" class="white nicdark_btn nicdark_bg_blue medium nicdark_radius_bottom">VÁLASZT</a>
+
+            </div>
+        
+        </div>
+
+
+        <div class="grid grid_3">
+                    
+            <div class="nicdark_archive1 center nicdark_bg_red nicdark_shadow nicdark_radius">
+                
+                
+                <div class="nicdark_textevidence nicdark_bg_greydark nicdark_radius_top">
+                    <h4 class="white nicdark_margin20">EXTRA KIEMELÉS</h4>
+                </div>
+
+
+                <div style="background:url(img/prices/img4.jpg); background-size:cover;" class="nicdark_archive1">
+                    <div class="nicdark_filter red">
+
+                        <div class="nicdark_space40"></div>
+                        
+                        <h3 class="white subtitle">{{extrakiemeles}} Ft</h3>
+                        <div class="nicdark_space20"></div>
+                        <div class="nicdark_divider small"><span class="nicdark_bg_white nicdark_radius"></span></div>
+                        <div class="nicdark_space20"></div>
+                        <h4 class="white subtitle">1 hónapra</h4>
+
+                        <div class="nicdark_space40"></div>
+
+                    </div>
+                </div>
+
+                <div class="nicdark_textevidence nicdark_bg_grey">
+                    <div class="nicdark_margin20">
+                        <ul class="nicdark_list border">
+                            <li class="nicdark_border_grey">
+                            
+                                <div class="nicdark_space10"></div>
+                                <div class="nicdark_space10"></div>
+                                <div class="nicdark_space10"></div>
+                                <div class="nicdark_space10"></div>
+                                <div class="nicdark_space10"></div>
+                            </li>
+                            <li class="nicdark_border_grey">
+                                <p><span class="good">✔</span> Összes tárgyból előre helyezés</p>
+                                <div class="nicdark_space10"></div>
+                            </li>
+                            <li class="nicdark_border_grey">
+                                <div class="nicdark_space10"></div>
+                                <p><span class="good">✔</span> Főoldali kiemelés</p>
+                                <div class="nicdark_space10"></div>
+                            </li>
+                            <li class="nicdark_border_grey">
+                                <div class="nicdark_space10"></div>
+                                <p><span class="good">✔</span> Személyes adatlapok alatti megjelenés</p>
+                                <div class="nicdark_space10"></div>
+                            </li>
+                            <li class="nicdark_border_grey">
+                                <div class="nicdark_space10"></div>
+                                <p><span class="good">✔</span> Kiemelt keret</p>
+                            </li>
+
+                            <li class="nicdark_border_grey">
+                                <div class="nicdark_space10"></div>
+                                <p><span class="good">✔</span> Kiemelt adatlap</p>
+                            </li>
+                            <li class="nicdark_border_grey">
+                                <div class="nicdark_space10"></div>
+                                <p><span class="good">✔</span> Megtérülés már az első diákkal</p>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+
+                <a href="/extra-kiemeles" class="white nicdark_btn nicdark_bg_red medium nicdark_radius_bottom">VÁLASZT</a>
+
+            </div>
+        
+        </div>
+
+        <div class="grid grid_3">
+        </div>
+
+        <div class="nicdark_space50"></div>
+
+    </div>
+    <!--end nicdark_container-->
+            
+</section>

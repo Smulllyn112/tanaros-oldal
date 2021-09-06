@@ -1,0 +1,342 @@
+[cookieConsent]
+message = "A weboldal cookie-kat használ annak érdekében, hogy a lehető legjobb felhasználói élményt tudja nyújtani."
+dismiss = "Elfogadom"
+learnMore = "More info"
+link = "http://www.yourwebpage.com/cookies"
+theme = "light-bottom"
+==
+<?php
+function onStart(){
+	use Otto\Article\Models\Article;
+	//$this['service_pages_shared'] = ServicePage::where('type','szolgaltatas')->orderBy('sort_number','desc')->orderBy('id','desc')->get();
+
+    $this["latest_articles"] = Article::where("is_published",1)->take(3)->get();
+
+	$this['full_url'] = \Request::fullUrl();
+
+    $this['admin_phone'] = env('ADMIN_PHONE');
+    $this['admin_email'] = env('ADMIN_EMAIL');
+    $this['admin_location'] = env('ADMIN_LOCATION');
+
+
+  
+
+
+}
+?>
+==
+<!DOCTYPE html>
+<html>
+	<head>
+
+
+
+
+		<meta charset="utf-8">
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">	
+		<meta name="language" content="Hungary">
+		<meta http-equiv="content-language" content="hu">
+
+		<title>{{ this.page.meta_title }}</title>	
+
+		<meta name="title" content="{{ this.page.meta_title }}">
+	    <meta name="description" content="{{ this.page.meta_description }}">
+  		<meta name="author" content="webrolling">
+
+	    <link rel=”canonical” href=”{{full_url}}” />
+
+	    <meta name="description" content="{{ this.page.meta_description }}">
+		<meta property="og:title" content="{{ this.page.meta_title }}" />
+		<meta property="og:description" content="{{ this.page.meta_description }}" />
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="{{ this.page.meta_title }}" />
+		{% if this.page.og_title %}
+		<meta property="og:image" content="{{this.page.og_title}}" />
+		{% else %}
+		<meta property="og:image" content="{{'assets/static-image/keszthelyi_kozep.PNG'|theme}}" />
+		{% endif %}
+		<meta property="og:url" content="{{full_url}}" />
+		<meta property="og:locale" content="hu_HU" />
+		<meta property="DC.publisher" content="WebRolling" />
+		<meta property="DC.title" content="{{this.page.meta_title}}" />
+		<meta property="DC.description" content="{{this.page.meta_description}}" />
+		<meta property="DC.type" content="Text" />
+		<meta property="DC.format" content="text/html" />
+		<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+		<meta name="DC.coverage" content="Hungary" />
+		<meta name="DC.description" content="{{ this.page.meta_description }}" />
+		<meta name="DC.identifier" content="http://www.webrolling.hu" />
+		<meta name="DC.publisher" content="WebRolling" />
+		<meta name="DC.title" content="Weboldal készítés - WebRolling " />
+		<meta name="DC.type" content="Text" />
+		<meta name="robots" content="index,follow">
+
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:description" content="{{this.page.meta_description}}" />
+		<meta name="twitter:title" content="{{ this.page.meta_title }}" />
+
+
+        <link href="{{'assets/theme/images/favicon.png'|theme}}" rel="shortcut icon" type="image/png">
+
+
+        <!-- Stylesheet -->
+        <link href="{{'assets/theme/css/bootstrap.min.css'|theme}}" rel="stylesheet" type="text/css">
+        <link href="{{'assets/theme/css/jquery-ui.min.css'|theme}}" rel="stylesheet" type="text/css">
+        <link href="{{'assets/theme/css/animate.css'|theme}}" rel="stylesheet" type="text/css">
+        <link href="{{'assets/theme/css/css-plugin-collections.css'|theme}}" rel="stylesheet"/>
+        <!-- CSS | menuzord megamenu skins -->
+        <link id="menuzord-menu-skins" href="{{'assets/theme/css/menuzord-skins/menuzord-rounded-boxed.css'|theme}}" rel="stylesheet"/>
+        <!-- CSS | Main style file -->
+        <link href="{{'assets/theme/css/style-main.css'|theme}}" rel="stylesheet" type="text/css">
+        <!-- CSS | Preloader Styles -->
+      
+        <!-- CSS | Custom Margin Padding Collection -->
+        <link href="{{'assets/theme/css/custom-bootstrap-margin-padding.css'|theme}}" rel="stylesheet" type="text/css">
+        <!-- CSS | Responsive media queries -->
+        <link href="{{'assets/theme/css/responsive.css'|theme}}" rel="stylesheet" type="text/css">
+        <!-- CSS | For Dark Layout -->
+        <link href="{{'assets/theme/css/style-main.css'|theme}}" rel="stylesheet" type="text/css">
+        <!-- CSS | Style css. This is the file where you can place your own custom css code. Just uncomment it and use it. -->
+        <!-- <link href="css/style.css" rel="stylesheet" type="text/css"> -->
+
+        <!-- Revolution Slider 5.x CSS settings 
+        <link  href="{{'assets/theme/js/revolution-slider/css/settings.css'|theme}}" rel="stylesheet" type="text/css"/>
+        <link  href="{{'assets/theme/js/revolution-slider/css/layers.css'|theme}}" rel="stylesheet" type="text/css"/>
+        <link  href="{{'assets/theme/js/revolution-slider/css/navigation.css'|theme}}" rel="stylesheet" type="text/css"/>
+        -->
+
+        <!-- CSS | Theme Color -->
+        <link href="{{'assets/theme/css/colors/theme-skin-color-set-1.css'|theme}}" rel="stylesheet" type="text/css">
+
+        <!-- external javascripts -->
+        <script src="{{'assets/theme/js/jquery-2.2.4.min.js'|theme}}"></script>
+        <script src="{{'assets/theme/js/jquery-ui.min.js'|theme}}"></script>
+        <script src="{{'assets/theme/js/bootstrap.min.js'|theme}}"></script>
+        <!-- JS | jquery plugin collection for this theme -->
+        <script src="{{'assets/theme/js/jquery-plugin-collection.js'|theme}}"></script>
+
+        <!-- Revolution Slider 5.x SCRIPTS -->
+        <script src="{{'assets/theme/js/revolution-slider/js/jquery.themepunch.tools.min.js'|theme}}"></script>
+        
+        <!-- 
+        <script src="{{'assets/theme/js/revolution-slider/js/jquery.themepunch.revolution.min.js'|theme}}"></script>
+        -->
+
+        <link href="{{'assets/own/own_3.css'|theme}}" rel="stylesheet"> 
+
+		
+		{% styles %}
+	
+
+	</head>
+<body class="dark">
+<div id="wrapper" class="clearfix">
+  <!-- preloader -->
+
+
+
+  <!-- Header -->
+  <header id="header" class="header">
+    <div class="header-top bg-theme-color-2 sm-text-center p-0">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="widget no-border m-0">
+              
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="widget m-0 pull-right sm-pull-none sm-text-center">
+              <ul class="list-inline pull-right">
+         
+              </ul>
+            </div>
+            <div class="widget no-border m-0 mr-15 pull-right flip sm-pull-none sm-text-center">
+              <ul class="styled-icons icon-circled icon-sm pull-right flip sm-pull-none sm-text-center mt-sm-15">
+                <li><a href="#"><i class="fa fa-envelope text-white"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="header-middle p-0 bg-lightest xs-text-center">
+      <div class="container pt-0 pb-0">
+        <div class="row">
+          <div class="col-xs-12 col-sm-4 col-md-5">
+            <div class="widget no-border m-0">
+              <a class="menuzord-brand pull-left flip xs-pull-center mb-15" href="javascript:void(0)"><img src="{{'assets/theme/images/logo-wide-white.png'|theme}}" alt="Logó"></a>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4">
+            <div class="widget no-border pull-right sm-pull-none sm-text-center mt-10 mb-10 m-0">
+              <ul class="list-inline">
+           
+              </ul>
+            </div>
+          </div>  
+          <div class="col-xs-12 col-sm-4 col-md-3">
+            <div class="widget no-border pull-right sm-pull-none sm-text-center mt-10 mb-10 m-0">
+              <ul class="list-inline">
+     
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="header-nav">
+      <div class="header-nav-wrapper navbar-scrolltofixed bg-theme-colored border-bottom-theme-color-2-1px">
+        <div class="container">
+          <nav id="menuzord" class="menuzord bg-theme-colored pull-left flip menuzord-responsive">
+            <ul class="menuzord-menu">
+              <li
+                {% if this.page.id =='home' %}
+                  class="active"
+                {% endif %}
+               >
+                <a href="{{'home'|page}}">Főoldal</a>
+              </li>
+              <li
+                {% if this.page.id =='about' %}
+                  class="active"
+                {% endif %}
+              >
+                <a href="{{'about'|page}}">Rólunk</a>
+              </li>
+              <li
+               {% if this.page.id =='blog-index' %}
+                  class="active"
+                {% endif %}
+              >
+                <a href="{{'blog-index'|page}}">Blog</a>
+              </li>
+              <li
+                {% if this.page.id =='contact' %}
+                  class="active"
+                {% endif %}
+              >
+                <a href="{{'contact'|page}}">Kapcsolat</a>
+              </li>
+
+            </ul>
+            <ul class="pull-right flip hidden-sm hidden-xs">
+              <li>
+                <!-- Modal: Book Now Starts -->
+                <a class="btn btn-colored btn-flat bg-theme-color-2 text-white font-14 bs-modal-ajax-load mt-0 p-25 pr-15 pl-15" data-toggle="modal" data-target="#BSParentModal" href="#">Beiratkozom!</a>
+                <!-- Modal: Book Now End -->
+              </li>
+            </ul>
+            <div id="top-search-bar" class="collapse">
+
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Start main-content -->
+    <div class="main-content"> 
+
+		{% page %}
+
+	</div>
+
+
+
+
+  <footer id="footer" class="footer divider layer-overlay overlay-dark-9" data-bg-img="http://placehold.it/1920x1280">
+    <div class="container">
+      <div class="row border-bottom">
+        <div class="col-sm-6 col-md-3">
+          <div class="widget dark">
+            <img class="mt-5 mb-20" alt="Logó footer" src="{{'assets/theme/images/logo-white-footer.png'|theme}}">
+            <p>A MatekDzsungel kifejezetten általános iskolások számára kifejelszett online oktatási platform. Az összes olyan témakört megtalálod online tanfolyamainkon, melyek az általános iskolás tananyag részét képezik. </p>
+            <ul class="list-inline mt-5">
+              <li class="m-0 pl-10 pr-10"> <i class="fa fa-envelope-o text-theme-color-2 mr-5"></i> <a class="text-gray" href="{{admin_email_html}}">{{admin_email}}</a> </li>
+              <li class="m-0 pl-10 pr-10"> <i class="fa fa-globe text-theme-color-2 mr-5"></i> <a class="text-gray" href="#">https://profifelkeszito.net</a> </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <div class="widget dark">
+            <h4 class="widget-title">Oldalaink közül</h4>
+            <ul class="list angle-double-right list-border">
+              <li><a href="{{'home'|page}}">Főoldal</a></li>
+              <li><a href="{{'about'|page}}">Rólunk</a></li>
+              <li><a href="{{'contact'|page}}">Kapcsolat</a></li>           
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <div class="widget dark">
+            <h4 class="widget-title">Legutóbbi bejegyzéseink közül</h4>
+            <ul class="list angle-double-right list-border">
+              <li><a href="{{'home'|page}}">Főoldal</a></li>
+              <li><a href="{{'about'|page}}">Rólunk</a></li>
+              <li><a href="{{'contact'|page}}">Kapcsolat</a></li>           
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom bg-black-333">
+      <div class="container pt-20 pb-20">
+        <div class="row">
+          <div class="col-md-6">
+            <p class="font-11 text-black-777 m-0">Copyright &copy;2020. Minden jog fenntartva!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+        <!--================End Footer Area =================--> 
+        
+
+
+
+{% component "cookieConsent" %}
+
+
+
+
+
+
+<!-- Footer Scripts -->
+<!-- JS | Custom script for all pages -->
+<script src="{{'assets/theme/js/custom.js'|theme}}"></script>
+
+<!-- SLIDER REVOLUTION 5.0 EXTENSIONS  
+      (Load Extensions only on Local File Systems ! 
+       The following part can be removed on Server for On Demand Loading) 
+<script type="text/javascript" src="{{'assets/theme/js/revolution-slider/js/extensions/revolution.extension.actions.min.js'|theme}}"></script>
+<script type="text/javascript" src="{{'assets/theme/js/revolution-slider/js/extensions/revolution.extension.carousel.min.js'|theme}}"></script>
+<script type="text/javascript" src="{{'assets/theme/js/revolution-slider/js/extensions/revolution.extension.kenburn.min.js'|theme}}"></script>
+<script type="text/javascript" src="{{'assets/theme/js/revolution-slider/js/extensions/revolution.extension.layeranimation.min.js'|theme}}"></script>
+<script type="text/javascript" src="{{'assets/theme/js/revolution-slider/js/extensions/revolution.extension.migration.min.js'|theme}}"></script>
+<script type="text/javascript" src="{{'assets/theme/js/revolution-slider/js/extensions/revolution.extension.navigation.min.js'|theme}}"></script>
+<script type="text/javascript" src="{{'assets/theme/js/revolution-slider/js/extensions/revolution.extension.parallax.min.js'|theme}}"></script>
+<script type="text/javascript" src="{{'assets/theme/js/revolution-slider/js/extensions/revolution.extension.slideanims.min.js'|theme}}"></script>
+<script type="text/javascript" src="{{'assets/theme/js/revolution-slider/js/extensions/revolution.extension.video.min.js'|theme}}"></script>
+-->
+
+
+
+		{% scripts %}
+
+
+
+
+
+        {% framework extras %}
+        
+	</body>
+</html>

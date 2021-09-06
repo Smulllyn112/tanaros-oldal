@@ -1,0 +1,32 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table otto_servicepage_'
+    - builder_table_create_otto_servicepage_.php
+1.0.3:
+    - 'Created table otto_servicepage_points'
+    - builder_table_create_otto_servicepage_points.php
+1.0.4:
+    - 'Created table otto_servicepage_servicepage_points'
+    - builder_table_create_otto_servicepage_servicepage_points.php
+1.0.5:
+    - 'Updated table otto_servicepage_points'
+    - builder_table_update_otto_servicepage_points.php
+1.0.6:
+    - 'Updated table otto_servicepage_servicepage_points'
+    - builder_table_update_otto_servicepage_servicepage_points.php
+1.0.7:
+    - 'Updated table otto_servicepage_'
+    - builder_table_update_otto_servicepage_.php
+1.0.8:
+    - 'Updated table otto_servicepage_'
+    - builder_table_update_otto_servicepage__2.php
+1.0.9:
+    - 'Updated table otto_servicepage_'
+    - builder_table_update_otto_servicepage__3.php
+1.0.10:
+    - 'Updated table otto_servicepage_points'
+    - builder_table_update_otto_servicepage_points_2.php
+1.0.11:
+    - 'Updated table otto_servicepage_'
+    - builder_table_update_otto_servicepage__4.php

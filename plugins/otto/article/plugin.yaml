@@ -1,0 +1,20 @@
+plugin:
+    name: 'otto.article::lang.plugin.name'
+    description: 'otto.article::lang.plugin.description'
+    author: Otto
+    icon: oc-icon-newspaper-o
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Blog
+        url: otto/article/article
+        icon: icon-newspaper-o
+        sideMenu:
+            side-menu-item:
+                label: Tagek
+                url: otto/article/tag
+                icon: icon-sliders
+            side-menu-item2:
+                label: Kategórik
+                url: otto/article/category
+                icon: icon-sitemap

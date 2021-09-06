@@ -1,0 +1,50 @@
+
+
+<ul class="nav nav-pills
+  active-bg-{{gallery_config.active_tab_bg}}
+  inactive-color-{{gallery_config.tab_color}}
+ mb-3" id="pills-tab" role="tablist">
+{% for gallery in galleries %}
+  <li class="nav-item">
+    <a class="nav-link
+    {% if gallery_config.cornered_tabs %}
+      cornered
+    {% endif %}
+
+    {% if loop.index == 1 %} 
+      active" 
+    {% endif %}
+      id="pills-{{gallery.id}}-tab" data-toggle="pill" href="#pills-{{gallery.id}}" role="tab" aria-controls="pills-{{gallery.id}}" 
+    {% if loop.index == 1 %}
+    aria-selected="true"
+    {% else %}
+      aria-selected="false"
+    {% endif %}
+
+
+
+    >{{gallery.title}}</a>
+  </li>
+{% endfor %}
+</ul>
+
+<div class="tab-content" id="pills-tabContent">
+  {% for gallery in galleries %}
+    <div class="tab-pane fade
+    {% if loop.index == 1 %}
+      show active
+    {% endif %}
+    {% if gallery_config.cornered_tabs %}
+      cornered
+    {% endif %}
+     " id="pills-{{gallery.id}}" role="tabpanel" aria-labelledby="pills-{{gallery.id}}-tab">
+       {% partial 'gallery::partials/base' gallery_config=gallery_config gallery=gallery %}
+    </div>
+  {% endfor %}
+
+
+</div>
+
+{% for gallery in galleries %}
+  {{gallery.title}}
+{% endfor %}

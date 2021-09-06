@@ -1,0 +1,12 @@
+list: $/otto/gallery/models/gallery/columns.yaml
+modelClass: Otto\Gallery\Models\Gallery
+title: Gallery
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'otto/gallery/gallery/update/:id'

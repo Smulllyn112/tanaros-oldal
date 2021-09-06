@@ -1,0 +1,4 @@
+title: Tag
+modelClass: Otto\Article\Models\Tag
+toolbar:
+    buttons: reorder_toolbar
