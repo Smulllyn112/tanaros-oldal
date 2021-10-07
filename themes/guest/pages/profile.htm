@@ -159,7 +159,7 @@ function onStart(){
                     {% if user %}
                         <p>Jelszó módosítása</p>
                     {% else %}
-                        <p>*Jelszómódosítás megerősítése</p>
+                        <p>*Jelszó ismétlése</p>
                     {% endif %}
 
                     
@@ -544,7 +544,7 @@ function onStart(){
             <p>A fizetés egyszerű Online Kártyás fizetéssel történik, OTP SimplePay segítségével.</p>
             <br>
 
-            {% if not user.is_published %}
+            {% if not user or not user.is_published %}
             <a class="nicdark_btn nicdark_bg_orange medium nicdark_shadow nicdark_radius white nicdark_press alert-btn" href="#">Profil jóváhagyásra vár</a>
             {% endif %}
 

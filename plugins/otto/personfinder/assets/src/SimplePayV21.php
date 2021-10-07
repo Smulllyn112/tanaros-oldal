@@ -1057,6 +1057,11 @@ trait Views
     <a href="/adattovabbitasi-nyilatkozat" target="_blank">Tudomásul veszem az adattovábbítási nyilatkozatot </a>
 </div>
 
+<div style="margin-bottom:10px;" class="ismetlodo-box">
+    <input type="checkbox" name="accepted2" required>
+    <a href="/adattovabbitasi-nyilatkozat-ismetlodo" target="_blank">Tudomásul veszem az adattovábbítási nyilatkozatot ismétlődő fizetésről </a>
+</div>
+
             ';
             $this->returnData['form'] .= $this->formSubmitElement($this->formDetails['name'], $this->formDetails['element'], $this->formDetails['elementText']);
             $this->returnData['form'] .= '</form>';

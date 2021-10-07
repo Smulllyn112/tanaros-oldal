@@ -38,8 +38,11 @@ $config = [
 
 
     //HUF SAJATOm
-    'HUF_MERCHANT' => SimplePay::simpleHufMerchant(),            //merchant account ID (HUF)
-    'HUF_SECRET_KEY' => SimplePay::simpleHufSecret(),             //secret key for account ID (HUF)        
+    // 'HUF_MERCHANT' => SimplePay::simpleHufMerchant(),            //merchant account ID (HUF)
+    // 'HUF_SECRET_KEY' => SimplePay::simpleHufSecret(),             //secret key for account ID (HUF)        
+    
+    'HUF_MERCHANT' => 'OMS52217401',            //merchant account ID (HUF)
+    'HUF_SECRET_KEY' => '8AB0D7AgH1AbLt41p32aDu17PgagP3D5',             //secret key for account ID (HUF)   
 
     //EUR
     'EUR_MERCHANT' => "",            //merchant account ID (EUR)
@@ -49,8 +52,8 @@ $config = [
     'USD_MERCHANT' => "",            //merchant account ID (USD)
     'USD_SECRET_KEY' => "",          //secret key for account ID (USD)
 
-    'SANDBOX' => SimplePay::isSandboxMode(),
-    //'SANDBOX' => false,
+    // 'SANDBOX' => SimplePay::isSandboxMode(),
+    'SANDBOX' => true,
 
     //common return URL
     //'URL' => 'http://' . $_SERVER['HTTP_HOST'] . '/back.php', //SAJATOm

@@ -184,3 +184,11 @@ ul.footer-pages li a{
     border: 1px solid #e0b84e  !important;
     color: #e0b84e  !important;
 }
+
+.ismetlodo-box{
+	display:none;
+}
+
+.ismetlodo-fizetesi-oldal .ismetlodo-box{
+	display:block;	
+}
