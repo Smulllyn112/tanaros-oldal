@@ -15,3 +15,12 @@
 1.0.6:
     - 'Updated table otto_personfinder_subject_to_user'
     - builder_table_update_otto_personfinder_subject_to_user.php
+1.0.7:
+    - 'Created table otto_personfinder_subscriptions'
+    - builder_table_create_otto_personfinder_subscriptions.php
+1.0.8:
+    - 'Created table otto_personfinder_subscription_transactions'
+    - builder_table_create_otto_personfinder_subscription_transactions.php
+1.0.9:
+    - 'Created table otto_personfinder_subscription_tokens'
+    - builder_table_create_otto_personfinder_subscription_tokens.php

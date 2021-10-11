@@ -86,7 +86,12 @@ class Plugin extends PluginBase
             	'table' => 'otto_personfinder_city_to_user',
             ];
 
-            $model->attachMany["images"] = ["System\Models\File"];      
+            $model->attachMany["images"] = ["System\Models\File"];    
+
+            $model->hasMany["subscriptions"] = [
+                "Otto\Personfinder\Models\Subscription",
+                "table" => "otto_personfinder_subscriptions",        
+            ];   
           
         });
 

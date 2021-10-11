@@ -1,10 +1,6 @@
 <?php 
 
-
-
 use Otto\Personfinder\Models\Subject;
-
-
 
 error_reporting(E_ALL);
 
@@ -117,11 +113,6 @@ if ($this['result']["e"] === "SUCCESS") {
 				$subject->pivot->alap_kiemelt_until = $simplepay_session->active_until; 
 
 				$subject->pivot->save();
-
-
-
-				//dd($subject,$this["user"],$simplepay_session->active_until);
-
 			}
 
 		}
@@ -133,18 +124,8 @@ if ($this['result']["e"] === "SUCCESS") {
 	}
 
 
-
-
-
 	$this["user"]->simplepay_session = null;
 
-	
-
-	//$this["user"]->save();
-
-	
-
-	// AZ ÚJ SZÁMLÁZÁS! CSAK MINTA ADATOK SZEREPELNEK BENNE!
 
     //dd("haha");
 
@@ -179,13 +160,7 @@ if ($this['result']["e"] === "SUCCESS") {
 
     ];
 
-    
-
     $result = $billingo->createPartner($partner);
-
-    //dd($result);
-
-    
 
     //$itemUnitPrice = 1000;
     $itemUnitPrice = $this["price"];
