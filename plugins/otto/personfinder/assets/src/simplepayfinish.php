@@ -1,15 +1,18 @@
-<?php 
+<?php
 
+use Carbon\Carbon;
 use Otto\Personfinder\Models\Subject;
+use Otto\Personfinder\Models\Subscription;
+use Otto\Personfinder\Models\SubscriptionTransaction;
 
 error_reporting(E_ALL);
 
 ini_set('display_errors', '1');
 
-// PARAMÉTEREK A SZÁMLA KIÁLLÍTÁSÁHOZ. 
+// PARAMÉTEREK A SZÁMLA KIÁLLÍTÁSÁHOZ.
 /*
 * Név => $this["user"]->name
-* Email => $this["user"]->email 
+* Email => $this["user"]->email
 * Ár => $this["simplepay_session"]->price
 * Számla üzenet => $this["invoice_message"]
 * country_code => "HU"
@@ -19,228 +22,153 @@ ini_set('display_errors', '1');
 */
 
 //Import config data
-
 require_once 'plugins/otto/personfinder/assets/src/config.php';
 
 
-
 //Import SimplePayment class
-
 require_once 'plugins/otto/personfinder/assets/src/SimplePayV21.php';
 
-
-
 $trx = new SimplePayBack;
-
-
-
 $trx->addConfig($config);
 
-
-
-$this["user"] = Auth::getUser();
-
-
+$this["user"] = $user = Auth::getUser();
 
 //result
-
 //-----------------------------------------------------------------------------------------
-
 $this['result'] = array();
 
 if (isset($_REQUEST['r']) && isset($_REQUEST['s'])) {
-
     if ($trx->isBackSignatureCheck($_REQUEST['r'], $_REQUEST['s'])) {
-
         $this['result'] = $trx->getRawNotification();
-
     }
-
 }
 
-
-
 //dd($this['result']);
-
-//dd($this['result']);
-
-if ($this['result']["e"] === "SUCCESS") {
-
-	$simplepay_session = json_decode($this["user"]->simplepay_session);
-
+if (array_get($this['result'], "e") === "SUCCESS" or array_get($this['result'], "e") === "FINISHED") {
+    $simplepay_session = json_decode($this["user"]->simplepay_session);
     //dd($simplepay_session);
-
-	$this["pay_type"] = $simplepay_session->type;
-
-	$this["price"] = $simplepay_session->price;
+    $this["pay_type"] = $simplepay_session->type;
+    $this["price"] = $simplepay_session->price;
 
    //dd("haha");
 
-	if($this["pay_type"] == "register"){
+    if ($this["pay_type"] == "register") {
+        $transaction = SubscriptionTransaction::where('reference', $this['result']['o'])->first();
+        $transaction->simplepay_id = $this['result']['t'];
+        $transaction->simplepay_status = $this['result']['e'];
+        $transaction->save();
 
-		$this["user"]->active_until = $simplepay_session->active_until;
+        /**
+         * @var Subscription $subscription
+         *
+         */
+        $subscription = $transaction->subscription;
 
-        $this["user"]->card_id = $this['result']['t'];
+        $subscription->recurring_cycles_completed = $subscription->recurring_cycles_completed + 1;
+        $subscription->recurring_cycles_remaining = $subscription->recurring_cycles_remaining - 1;
+        $subscription->recurring_last_payment_date = Carbon::now();
+        $subscription->recurring_next_billing_date = Carbon::now()->modify('+'.$subscription->recurring_frequency_interval." ".$subscription->recurring_frequency);
+        $subscription->save();
 
-		$this["user"]->save();
+        $this["user"]->active_until = $simplepay_session->active_until;
+        $this["user"]->save();
+        $this["invoice_message"] = "Sikeres előfizetés a ". env("APP_NAME") . "alkalmazásban!";
+    } elseif ($this["pay_type"] == "extra_kiemeles") {
+        $this["user"]->extran_kiemelt_until = $simplepay_session->active_until;
+        $this["user"]->save();
+        $this["invoice_message"] = "Sikeres extra kiemelés előfiezés a ". env("APP_NAME") . "alkalmazásban!";
+    }elseif ($this["pay_type"] == "alap_kiemeles") {
+        $this["user"]->alap_kiemelt_until = $simplepay_session->active_until;
+        $this["user"]->save();
+        $this["subject"] = Subject::find($simplepay_session->subject_id);
 
+        foreach ($this["user"]->subjects as $subject) {
+            if ($subject->id == $this["subject"]->id) {
+                $subject->pivot->alap_kiemelt_until = $simplepay_session->active_until;
 
+                $subject->pivot->save();
+            }
+        }
 
-		$this["invoice_message"] = "Sikeres előfizetés a ". env("APP_NAME") . "alkalmazásban!";
+        $this["invoice_message"] = "Sikeres extra kiemelés előfiezés a ". env("APP_NAME") . "alkalmazásban!";
+    }
 
-	} elseif($this["pay_type"] == "extra_kiemeles"){
+    $this["user"]->simplepay_session = null;
+    //$this["user"]->save();
 
-		$this["user"]->extran_kiemelt_until = $simplepay_session->active_until;
-
-		$this["user"]->save();
-
-
-
-		$this["invoice_message"] = "Sikeres extra kiemelés előfiezés a ". env("APP_NAME") . "alkalmazásban!";
-
-	}elseif($this["pay_type"] == "alap_kiemeles"){
-
-		$this["user"]->alap_kiemelt_until = $simplepay_session->active_until;
-
-		$this["user"]->save();
-
-		$this["subject"] = Subject::find($simplepay_session->subject_id);
-
-		foreach($this["user"]->subjects as $subject) {
-
-			if($subject->id == $this["subject"]->id){
-
-				$subject->pivot->alap_kiemelt_until = $simplepay_session->active_until; 
-
-				$subject->pivot->save();
-			}
-
-		}
-
-
-
-		$this["invoice_message"] = "Sikeres extra kiemelés előfiezés a ". env("APP_NAME") . "alkalmazásban!";
-
-	}
-
-
-	$this["user"]->simplepay_session = null;
-
-
+    // AZ ÚJ SZÁMLÁZÁS! CSAK MINTA ADATOK SZEREPELNEK BENNE!
     //dd("haha");
 
     $billingo = new \Otto\Personfinder\Classes\BillingoAPI;
 
-        
-
     $partner = [
 
         'name' => $this["user"]->name,
-
         'address' => [
-
             'country_code' => 'HU',
-
             'post_code'=> $this["user"]->billing_zip,
-
             'city' => $this["user"]->billing_city,
-
             'address' => $this["user"]->billing_street
-
         ],
-
         'emails' => [
-
-            //'ide mi kerüljön? '
             $this["user"]->email
         ],
-
-        // ez mi legyen?
-        'taxcode' => '123456789'
+        // ezt be kell kérni ha nincsen, ez az asószám gondolom
+        //'taxcode' => '123456789'
 
     ];
 
     $result = $billingo->createPartner($partner);
 
+    dd($result);
+
+    //dd($result);
     //$itemUnitPrice = 1000;
     $itemUnitPrice = $this["price"];
-
-    //$unit = 'hónap';
     $unit = 'hónap';
 
     //$quantity = 1;
     $quantity = 1;
 
-    //dd();
-
     $invoice = [
-
         'partner_id' => $result['id'],
-
         'type' => 'invoice', // díjbekérő: proforma
-
         'fulfillment_date' => date('Y-m-d'),
-
         'due_date' => date('Y-m-d'),
-
         'paid_date' => date('Y-m-d'), // csak bankkártya esetén
-
         'payment_method' => 'bankcard', // bankcard vagy wire_transfer
-
         'language' => 'hu',
-
         'currency' => 'HUF',
-
         'electronic' => true,
-
         'paid' => true, // bankkártya esetén az IPN-nél ez true
-
         'items' => [
-
             [
-
                 'name' => 'Tétel neve',
-
                 'unit_price' => $itemUnitPrice,
-
                 'unit' => $unit,
-
                 'unit_price_type' => 'net', // gross
-
                 'vat' => '0%',
                 //'vat' => '27%',
-
                 'quantity' => $quantity,
-
-                //'comment' => 'Komment'
-
                 'comment' => $this["invoice_message"]
-
             ]
-
         ],
-
         'settings' => [
-
             'without_financial_fulfillment' => true, // csak bankkártyásnál igaz
-
         ]
-
     ];
 
-    
-
     $invoice = $billingo->createDocument($invoice);
+    dd($invoice);
 
-	
 
     // A RÉGIT KIKOMMENTELTÜK! AZ ÚJBAN CSAK PÉLDA ADATOK SZEREPELNEK!!!
 
-    
 
-    
 
-    //az invoice elkészítése 
+
+
+    //az invoice elkészítése
 
     /* require_once("plugins/otto/personfinder/assets/billingo/create_invoice.php");
 
@@ -283,14 +211,4 @@ if ($this['result']["e"] === "SUCCESS") {
         var_dump($e->getMessage());
 
     } */
-
 }
-
-
-
-
-
-
-
-
-

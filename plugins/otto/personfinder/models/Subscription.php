@@ -8,13 +8,12 @@ use Model;
 class Subscription extends Model
 {
     use \October\Rain\Database\Traits\Validation;
-    
+
     /*
      * Disable timestamps by default.
      * Remove this line if timestamps are defined in the database table.
      */
     public $timestamps = false;
-
 
     /**
      * @var string The database table used by the model.
@@ -31,20 +30,20 @@ class Subscription extends Model
         "users" => [
             "Rainlab\User\Models\User",
             "table" => "users",
-            "key" => "user_id",        
+            "key" => "user_id",
         ]
     ];
 
     public $hasMany  = [
-        "subscription_transactions" => [
+        "transactions" => [
             "Otto\Personfinder\Models\SubscriptionTransaction",
             "table" => "otto_personfinder_subscription_transactions",
-            "key" => "subscription_id" 
+            "key" => "subscription_id"
         ],
-        "subscription_tokens" => [
+        "tokens" => [
             "Otto\Personfinder\Models\SubscriptionToken",
             "table" => "otto_personfinder_subscription_tokens",
-            "key" => "subscription_id" 
-        ]         
-    ];   
+            "key" => "subscription_id"
+        ]
+    ];
 }
