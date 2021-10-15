@@ -28,6 +28,8 @@ use Otto\Personfinder\Models\SimplePay;
  * @link      http://simplepartner.hu/online_fizetesi_szolgaltatas.html
  */
 
+//itt be kell állítani, hogy console esetében mi legyen a host
+if (!isset($_SERVER['HTTP_HOST'])) $_SERVER['HTTP_HOST'] = 'tanaros-oldal.d2c';
 
 $config = [
     //HUF
@@ -39,10 +41,10 @@ $config = [
 
     //HUF SAJATOm
     // 'HUF_MERCHANT' => SimplePay::simpleHufMerchant(),            //merchant account ID (HUF)
-    // 'HUF_SECRET_KEY' => SimplePay::simpleHufSecret(),             //secret key for account ID (HUF)        
-    
+    // 'HUF_SECRET_KEY' => SimplePay::simpleHufSecret(),             //secret key for account ID (HUF)
+
     'HUF_MERCHANT' => 'OMS52217401',            //merchant account ID (HUF)
-    'HUF_SECRET_KEY' => '8AB0D7AgH1AbLt41p32aDu17PgagP3D5',             //secret key for account ID (HUF)   
+    'HUF_SECRET_KEY' => '8AB0D7AgH1AbLt41p32aDu17PgagP3D5',             //secret key for account ID (HUF)
 
     //EUR
     'EUR_MERCHANT' => "",            //merchant account ID (EUR)
@@ -78,3 +80,5 @@ $config = [
     //3DS
     'AUTOCHALLENGE' => true,                      //in case of unsuccessful payment with registered card run automatic challange
 ];
+
+return $config;

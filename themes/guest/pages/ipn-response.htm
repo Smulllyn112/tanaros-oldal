@@ -9,8 +9,13 @@ showProviderBadge = 1
 noResultsMessage = "Your search returned no results."
 visitPageMessage = "Visit page"
 ==
-function onStart(){
-  
+<?php
+
+use Otto\Personfinder\Models\SubscriptionToken;
+use Otto\Personfinder\Models\SubscriptionTransaction;
+
+function onStart()
+{
 
     header('Content-Type: text/html; charset=utf-8');
 
@@ -20,14 +25,10 @@ function onStart(){
 
     //Import config data
     require_once 'plugins/otto/personfinder/assets/src/config.php';
-
-
     require_once 'plugins/otto/personfinder/assets/src/SimplePayV21.php';
-
     $json = file_get_contents('php://input');
 
     $trx = new SimplePayIpn;
-
     $trx->addConfig($config);
 
     //check signature and confirm IPN
@@ -40,6 +41,38 @@ function onStart(){
          *
          * Use this OR getIpnConfirmContent
          */
+
+        $data = json_decode($json, true);
+
+        //Metjün hogy vol ipn check
+        $transaction = SubscriptionTransaction::where('reference', $data['orderRef'])->first();
+        $transaction->simplepay_checked_ipn = 1;
+        $transaction->simplepay_status = $data['status'];
+
+        /**
+         * Ha nem volt sikeres akkor kiütjük az előfizetést, itt ezt kelelne amjd figyened...
+         */
+        if ($data['status'] != 'FINISHED' and $data['status'] != 'SUCCESS') {
+            $subscription = $transaction->subscription;
+
+            $subscription->status_id = 3;
+            $subscription->save();
+
+            /**
+             * Ha rossz akkor a hozzá tratotó tokent töröjük, elvileg csak a jó a tranzakciókhoz használódnak el...
+             */
+            $token = SubscriptionToken::query()
+                ->where('simplepay_transaction_id', $data['transactionId'])
+                ->first();
+
+            if ($token) {
+                $token->simplepay_transaction_id = null;
+                $token->save();
+            }
+        }
+
+        $transaction->save();
+
         $trx->runIpnConfirm();
 
         /**
@@ -51,13 +84,10 @@ function onStart(){
          * Use this OR runIpnConfirm()
          */
         //$confirm = $trx->getIpnConfirmContent();
-
     }
 
     //no need to print further information
     exit;
-
-
 }
-
+?>
 ==

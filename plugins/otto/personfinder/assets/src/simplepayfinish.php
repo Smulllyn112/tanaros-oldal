@@ -64,6 +64,7 @@ if (array_get($this['result'], "e") === "SUCCESS" or array_get($this['result'], 
          */
         $subscription = $transaction->subscription;
 
+        $subscription->status_id = 2;
         $subscription->recurring_cycles_completed = $subscription->recurring_cycles_completed + 1;
         $subscription->recurring_cycles_remaining = $subscription->recurring_cycles_remaining - 1;
         $subscription->recurring_last_payment_date = Carbon::now();
@@ -100,7 +101,6 @@ if (array_get($this['result'], "e") === "SUCCESS" or array_get($this['result'], 
     //dd("haha");
 
     $billingo = new \Otto\Personfinder\Classes\BillingoAPI;
-
     $partner = [
 
         'name' => $this["user"]->name,
@@ -119,8 +119,6 @@ if (array_get($this['result'], "e") === "SUCCESS" or array_get($this['result'], 
     ];
 
     $result = $billingo->createPartner($partner);
-
-    dd($result);
 
     //dd($result);
     //$itemUnitPrice = 1000;
@@ -159,9 +157,11 @@ if (array_get($this['result'], "e") === "SUCCESS" or array_get($this['result'], 
     ];
 
     $invoice = $billingo->createDocument($invoice);
-    dd($invoice);
 
-
+    if (isset($transaction)) {
+        $transaction->invoice = $invoice['invoice_number'];
+        $transaction->save();
+    }
     // A RÉGIT KIKOMMENTELTÜK! AZ ÚJBAN CSAK PÉLDA ADATOK SZEREPELNEK!!!
 
 
