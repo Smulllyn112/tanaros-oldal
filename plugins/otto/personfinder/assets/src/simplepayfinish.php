@@ -112,7 +112,7 @@ if (array_get($this['result'], "e") === "SUCCESS" or array_get($this['result'], 
     } elseif ($this["pay_type"] == "extra_kiemeles") {
         $this["user"]->extran_kiemelt_until = $simplepay_session->active_until;
         $this["user"]->save();
-        $this["invoice_message"] = "Sikeres extra kiemelés előfiezés a ". env("APP_NAME") . "alkalmazásban!";
+        $this["invoice_message"] = "Sikeres extra kiemelés előfiezés a ". env("APP_NAME") . "alkalmazásban " . $simplepay_session->active_until. " ideig";
 
         // email az extra kiemelésről
         $vars = [
