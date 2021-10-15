@@ -335,9 +335,9 @@ function onStart(){
                 </div>
                 <div class="nicdark_margin10">
                 	{% for subject in teacher.subjects %}
-
+                        {% if subject.is_published %}
                     	<a href="#" class="nicdark_btn nicdark_bg_grey2 small nicdark_shadow nicdark_radius grey subtitle nicdark_margin10">{{subject.name}}</a>
-                	
+                	   {% endif %}
                     {% endfor %}
                     
                     
@@ -364,9 +364,10 @@ function onStart(){
                    		<a href="#" class="nicdark_btn nicdark_bg_grey2 small nicdark_shadow nicdark_radius grey subtitle nicdark_margin10">Online</a>
 					{% endif %}
                 	{% for city in teacher.cities %}
-
+                        {% if city.is_published %}
                     	<a href="#" class="nicdark_btn nicdark_bg_grey2 small nicdark_shadow nicdark_radius grey subtitle nicdark_margin10">{{city.name}}</a>
-                	
+                        
+                	   {% endif %}
                     {% endfor %}
                     
                     

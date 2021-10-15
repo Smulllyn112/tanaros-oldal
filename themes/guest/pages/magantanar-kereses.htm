@@ -64,10 +64,10 @@ function onStart(){
     if($this["current_subject"] and $this["current_city"]){
       $subjName = $this['current_subject']->name; 
       $subjCity = $this['current_city']->name; 
-      $title .= "$subjName tanáraink $subjCity városában";
+      $title .= "$subjName magántanárok $subjCity városában";
     } elseif($this["current_city"]){
       $cityName = $this['current_city']->name;
-      $title .= " tanáraink $cityName városában";
+      $title .= " magántanárok $cityName városában";
     }else{
       $subjName = $this['current_subject']->name;
       $title .= "$subjName tanáraink";
@@ -75,6 +75,7 @@ function onStart(){
 
 
     $this["simple_title"] = $title;
+    $this->page->meta_title = $title;
     $this["featured_title"] = "kiemelt " . $title;
 
     //dd($this["simple_title"],$this["featured_title"]);
@@ -105,11 +106,11 @@ function onStart(){
                 <div class="nicdark_space100"></div>
                 <h1 class="white subtitle upper-first">
                 {% if current_subject and current_city %}
-                  {{current_subject.name}} magántanáraink
+                  {{current_subject.name}} magántanárok
                 {% elseif current_city and not current_subject %}
-                  Magántanáraink {{current_city.name}} városában
+                  Magántanárok {{current_city.name}} városában
                 {% elseif current_subject and not current_city %}
-                  {{current_subject.name}} magántanáraink
+                  {{current_subject.name}} magántanárok
                 {% endif %}
                 </h1>
                 <div class="nicdark_space10"></div>

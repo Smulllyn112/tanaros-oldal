@@ -1,5 +1,5 @@
 <p>
-	Kedves {{name}}!
+	Új elem: {{name}}!
 </p>
 
 {% if msg %}
@@ -11,6 +11,12 @@
 {% if new_item %}
 <p>
 	Az új elem neve: {{new_item}}. Hamarosan jóvá lesz hagyva!
+</p>
+{% endif %}
+
+{% if item_url %}
+<p>
+	Az új elem jóváhagyása: <a href="{{item_url}}">Kattints ide!</a>
 </p>
 {% endif %}
 

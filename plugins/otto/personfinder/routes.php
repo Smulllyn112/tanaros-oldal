@@ -554,7 +554,7 @@ function generateSingleItemFromArray($arr){
 
 Route::get("/3htrzr424242",function(){
 
-		$sentences = [
+	/*	$sentences = [
 
 			[
 
@@ -1064,17 +1064,18 @@ Route::get("/3htrzr424242",function(){
 
 		1
 
-	];
+	];*/
 
 
 
-	User::truncate();
+	//User::truncate();
 
+	//$users = User::all();
 
+	foreach($users as $user){
+	//for($i=0;$i<15;$i++){
 
-	for($i=0;$i<15;$i++){
-
-		$email = generateSingleStringFromMultiArray($emails);
+		/*$email = generateSingleStringFromMultiArray($emails);
 
 
 
@@ -1144,7 +1145,7 @@ Route::get("/3htrzr424242",function(){
 
 
 
-		$is_published = generateSingleItemFromArray($isPublishedArr);
+		$is_published = generateSingleItemFromArray($isPublishedArr);*/
 
 
 
@@ -1160,11 +1161,11 @@ Route::get("/3htrzr424242",function(){
 
 	
 
-		$password = Hash::make('petipali');
+		//$password = Hash::make('petipali');
 
 
 
-		$user = new User();
+		/*$user = new User();
 
 
 
@@ -1212,7 +1213,7 @@ Route::get("/3htrzr424242",function(){
 
 		    'extran_kiemelt_until' => $extran_kiemelt_until
 
-		]);
+		]);*/
 
 
 
@@ -1220,15 +1221,15 @@ Route::get("/3htrzr424242",function(){
 
 
 
-		addCoverImageToUser($user);
+		//addCoverImageToUser($user);
 
 
 
-		$subjects = Subject::inRandomOrder()->limit(3)->get();
+		//$subjects = Subject::inRandomOrder()->limit(3)->get();
 
 
 
-		$cities = City::inRandomOrder()->limit(2)->get();
+		//$cities = City::inRandomOrder()->limit(2)->get();
 
 
 
@@ -1236,11 +1237,11 @@ Route::get("/3htrzr424242",function(){
 
 
 
-		$user->cities()->syncWithoutDetaching($cities);
+		//$user->cities()->syncWithoutDetaching($cities);
 
 
 
-		foreach($subjects as $subject){
+		/*foreach($subjects as $subject){
 
 			$num = rand(1,10);
 
@@ -1256,7 +1257,7 @@ Route::get("/3htrzr424242",function(){
 
 			}
 
-		}
+		}*/
 
 
 
@@ -1275,27 +1276,7 @@ Route::get("/3htrzr424242",function(){
 function addCoverImageToUser($user){
 
 	$images = [
-
-		"img_1.jpg",
-
-		"img_2.jpg",
-
-		"img_3.jpg",
-
-		"img_4.jpg",
-
-		"img_5.jpg",
-
-		"img_6.jpg",
-
-		"img_7.jpg",
-
-		"img_8.jpg",
-
-		"img_9.jpg",
-
 		"alap_avatar.png"
-
 	]; 
 
 

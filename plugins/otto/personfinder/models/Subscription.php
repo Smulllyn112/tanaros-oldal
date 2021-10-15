@@ -46,4 +46,17 @@ class Subscription extends Model
             "key" => "subscription_id"
         ]
     ];
+
+    public static function boot(){
+        /*self::deleted(function($model){
+            //$model->transactions->destroy();
+            foreach($model->transactions as $transaction){
+                $transaction->destroy();
+            }
+
+            foreach($model->tokens as $token){
+                $token->destroy();
+            }
+        });*/
+    }
 }

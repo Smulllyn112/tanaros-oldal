@@ -95,6 +95,13 @@ class Plugin extends PluginBase
           
         });
 
+        UserModel::deleted(function($model){
+            //$model->subscriptions->destroy();
+            /*foreach($model->subscriptions as $subscription){
+                $subscription->destroy();
+            }*/
+        });
+
 		UserModel::updating(function($model){
 			if($model->isDirty('is_published') and $model->is_published == 0){
 				$vars = [
@@ -157,6 +164,11 @@ class Plugin extends PluginBase
     				"type" => "text",
     				"tab" => "Egyéni"
     			],
+                "slug" => [
+                    "label" => "Slug",
+                    "type" => "text",
+                    "tab" => "Egyéni"
+                ],
     			"graduate" => [
     				"label" => "Diploma, végzettség",
     				"type" => "textarea",

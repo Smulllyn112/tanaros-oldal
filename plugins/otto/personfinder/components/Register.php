@@ -196,7 +196,7 @@ class Register extends ComponentBase
 
 		    'name' => post("name"),
 
-		    'slug' => str_slug(post("name")),
+		    'slug' => str_slug(post("name").rand(1,1000)),
 
 		    'email' => post("email"),
 
@@ -298,7 +298,7 @@ class Register extends ComponentBase
 
 		}
 
-
+		$user->subjects()->where("is_published",1)->detach();
 
 		$user->subjects()->syncWithoutDetaching(post("subjects"));
 
@@ -318,13 +318,32 @@ class Register extends ComponentBase
 
 			$subject->save();
 
-
-
 			$user->subjects()->syncWithoutDetaching($subject);
 
+	        $vars = [
+
+	            "item_url" => env("APP_URL"). "/backend/otto/personfinder/subject/update/". $subject->id,
+
+	            "app_name" => env("APP_NAME"),
+
+	            "regards" => env("APP_REGARDS"),
+
+	            "name" => $subject->name,
+
+	            "email" => $subject->email,
+
+	            "subject" => "Új város / tantárgy"
+	        ];
+
+	        Mail::send('otto.personfinder::mail.to_admin_when_subjorcity_created', $vars, function($message) use($vars){
+
+	            $message->to(env("ADMIN_EMAIL"));
+
+	            $message->subject('Új város/tárgy a  '. env("APP_NAME")." alkalmazásban!" );
+	        });
 		}
 
-
+		$user->cities()->where("is_published",1)->detach();
 
 		$user->cities()->syncWithoutDetaching(post("cities"));
 
@@ -344,63 +363,31 @@ class Register extends ComponentBase
 
 			$city->save();
 
-
-
 			$user->cities()->syncWithoutDetaching($city);
 
+	        $vars = [
+
+	            "item_url" => env("APP_URL"). "/backend/otto/personfinder/city/update/". $city->id,
+
+	            "app_name" => env("APP_NAME"),
+
+	            "regards" => env("APP_REGARDS"),
+
+	            "name" => $city->name,
+
+	            "email" => $city->email,
+
+	            "subject" => "Új város / tantárgy"
+	        ];
+
+	        Mail::send('otto.personfinder::mail.to_admin_when_subjorcity_created', $vars, function($message) use($vars){
+
+	            $message->to(env("ADMIN_EMAIL"));
+
+	            $message->subject('Új város/tárgy a  '. env("APP_NAME")." alkalmazásban!" );
+	        });
+
 		}
-
-
-
-		$vars = [
-
-			"client_url" => env("APP_URL"). "/backend/rainlab/user/users/preview/$user->id",
-
-			"app_name" => env("APP_NAME"),
-
-			"regards" => env("APP_REGARDS"),
-
-			"new_subject" => post("new_subject"),
-
-			"new_city" => post("new_city"),
-
-			"name" => post("name"),
-
-			"email" => post("email"),
-
-			"subject" => "Sikeres regisztráció"
-
-		];
-
-
-
-		/*Mail::send('otto.personfinder::mail.to_admin', $vars, function($message) {
-
-		    $message->to(env('ADMIN_EMAIL', "Új regisztráció: ".env('APP_NAME')));
-
-		    $message->subject("Új regisztráció: ".env('APP_NAME'));
-
-		});
-
-
-
-		Mail::send('otto.personfinder::mail.to_sender', $vars, function($message) use($vars){
-
-		    $message->to($vars["email"]);
-
-		    $message->subject('Köszönjük regisztrációd!');
-
-
-
-		    $message->attach("themes/guest/assets/own/ebook6942342346876534534/ebook.pdf");
-
-		});*/
-
-
-
-		// amennyiben redirectoltatni akarunk.
-
-
 
 		Flash::success("A regisztrációd első része sikeres volt! A fizetés után lesz a profilod aktiválható!");
 
@@ -503,13 +490,9 @@ class Register extends ComponentBase
 
 			$user->avatar()->add($file);
 
-
-
-			$user->subjects()->where("is_published",1)->detach();
-
 		}
 
-
+		$user->subjects()->where("is_published",1)->detach();
 
 		$user->subjects()->syncWithoutDetaching(post("subjects"));
 
@@ -531,14 +514,14 @@ class Register extends ComponentBase
 
 			$subject->save();
 
-
+			$user->subjects()->where("is_published",1)->detach();
 
 			$user->subjects()->syncWithoutDetaching($subject);
 
 
 
 			$vars = [
-
+				"item_url" => env("APP_URL"). "/backend/otto/personfinder/subject/update/". $subject->id,
 				"msg" => "Új elem lett lett létrehozva alkalmazásunkban!",
 
 				"email" => $user->email,
@@ -593,7 +576,7 @@ class Register extends ComponentBase
 
 			$city->save();
 
-
+			$user->cities()->where("is_published",1)->detach();
 
 			$user->cities()->syncWithoutDetaching($city);
 
@@ -602,7 +585,7 @@ class Register extends ComponentBase
 
 
 			$vars = [
-
+				"item_url" => env("APP_URL"). "/backend/otto/personfinder/city/update/". $city->id,
 				"msg" => "Új elem lett lett létrehozva alkalmazásunkban!",
 
 				"email" => $user->email,
