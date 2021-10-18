@@ -39,6 +39,7 @@ marginBottom = 20
 function onStart(){
 	use Otto\Personfinder\Models\City;
     use Otto\Personfinder\Models\Subject;
+    use Rainlab\User\Facades\Auth;
 
     $this["cities"] = City::getItemsList();
     $this["subjects"] = Subject::getItemsList();
@@ -46,6 +47,21 @@ function onStart(){
     $this["packages"] = City::$subscriptionPackages;
 
     //dd($this["cities"],$this["subjects"]);
+
+
+    $newArr = [];
+    if(Auth::check()){
+        foreach(Auth::getUser()->subjects as $subject){
+            if($subject->is_published = 1 and$subject->pivot->alap_kiemelt_until > now()){
+                array_push($newArr, $subject->id);
+            } else {
+
+            }
+        }
+    }
+
+    //dd($newArr);
+    $this["kiem_subjs"] = $newArr;
 }
 ?>
 ==
@@ -329,10 +345,20 @@ function onStart(){
                     <input type="checkbox" name="subjects[]" value="{{subject.id}}"
 
                     {% if user.subjects.contains(subject.id) %}
-                        checked 
+                        checked
+                        {% if subject.id in kiem_subjs  %}
+                            disabled
+                        {% endif %} 
+                        
                     {% endif %} 
 
-                    > {{subject.name}} <br>
+                    > {{subject.name}}
+             
+
+                        {% if subject.id in kiem_subjs  %}
+                            (kiemelt tantárgyad jelenleg)
+                        {% endif %}
+                     <br>
                     {% endfor %}
 
                     <br>
@@ -475,7 +501,7 @@ function onStart(){
                         <tr>
                             <td><p>Előfizetés 
                                 <strong>
-                                    {{element.duration}} hónapra 
+                                    {{element.duration}} havonta 
                                 </strong> {% if not user %}(Bármikor lemondható) {% endif %} - {{element.price}} Ft
                             </p></td>
                             <td>
