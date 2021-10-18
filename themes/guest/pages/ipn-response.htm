@@ -17,7 +17,7 @@ use Otto\Personfinder\Models\SubscriptionTransaction;
 function onStart()
 {
 
-    //header('Content-Type: text/html; charset=utf-8');
+    header('Content-Type: text/html; charset=utf-8');
 
     //Optional error riporting
     error_reporting(E_ALL);
@@ -33,7 +33,7 @@ function onStart()
 
     //check signature and confirm IPN
     //-----------------------------------------------------------------------------------------
-    //if ($trx->isIpnSignatureCheck($json)) {
+    if ($trx->isIpnSignatureCheck($json)) {
         /**
          * Generates all response
          * Puts signature into header
@@ -52,28 +52,28 @@ function onStart()
                 /**
                 * Ha nem volt sikeres akkor kiütjük az előfizetést, itt ezt kelelne amjd figyened...
                 */
-                if ($data['status'] != 'FINISHED' and $data['status'] != 'SUCCESS') {
-                    $subscription = $transaction->subscription;
+            if ($data['status'] != 'FINISHED' and $data['status'] != 'SUCCESS') {
+                $subscription = $transaction->subscription;
 
-                    $subscription->status_id = 3;
-                    $subscription->save();
+                $subscription->status_id = 3;
+                $subscription->save();
 
-                    /**
-                    * Ha rossz akkor a hozzá tratotó tokent töröjük, elvileg csak a jó a tranzakciókhoz használódnak el...
-                    */
-                    $token = SubscriptionToken::query()
-                        ->where('simplepay_transaction_id', $data['transactionId'])
-                        ->first();
+                /**
+                * Ha rossz akkor a hozzá tratotó tokent töröjük, elvileg csak a jó a tranzakciókhoz használódnak el...
+                */
+                $token = SubscriptionToken::query()
+                    ->where('simplepay_transaction_id', $data['transactionId'])
+                    ->first();
 
-                    if ($token) {
-                        $token->simplepay_transaction_id = null;
-                        $token->save();
-                    }
+                if ($token) {
+                    $token->simplepay_transaction_id = null;
+                    $token->save();
                 }
             }
+        }
 
             $transaction->save();
-        }
+    }
 
 
         $trx->runIpnConfirm();
