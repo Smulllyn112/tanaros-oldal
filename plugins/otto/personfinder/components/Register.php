@@ -492,9 +492,37 @@ class Register extends ComponentBase
 
 		}
 
-		$user->subjects()->where("is_published",1)->detach();
+		//$user->subjects()->where("is_published",1)->detach();
 
-		$user->subjects()->syncWithoutDetaching(post("subjects"));
+		$currentSubjects = $user->subjects()->get();
+
+		/*foreach($currentSubjects as $currSubj){
+			if ($currSubj->pivot->alap_kiemelt_until > now()) {
+				// semmi ne történjen
+            } else {
+                $user->detach($currSubj);
+            }
+            amiknek is_published van, de NEM kiemeltek. 
+		}*/
+
+		$kiemelt_subjects_jelenleg = [];
+
+		foreach($user->subjects as $subject){
+			if($subject->is_published = 1 and$subject->pivot->alap_kiemelt_until > now()){
+				$kiemelt_subjects_jelenleg[] = $subject->id;
+				//$kiemelt_subjects_jelenleg[] = $subject;
+			} else {
+				$user->subjects()->detach($subject);
+			}
+		}
+
+		$notKiemeltPost = array_filter(post("subjects"),function($el) use($kiemelt_subjects_jelenleg){
+			return !in_array($el,$kiemelt_subjects_jelenleg);
+		});
+
+		//dd($kiemelt_subjects_jelenleg,$notKiemeltPost);
+
+		$user->subjects()->syncWithoutDetaching(($notKiemeltPost));
 
 
 

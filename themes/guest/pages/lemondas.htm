@@ -27,260 +27,69 @@ function onStart() {
 }
 ?>
 ==
-<div style="height:150px"></div>
 
 
-
-<section class="nicdark_section fizetesi-oldal">
-
-
+<section class="nicdark_section" id="home-introduction" style="margin-top:160px !important">
 
     <!--start nicdark_container-->
-
     <div class="nicdark_container nicdark_clearfix">
-
-
-
-        <div class="nicdark_space10"></div>
-
-
-
-        <div class="grid grid_12">
-
-            <div class="nicdark_archive1 nicdark_bg_grey nicdark_radius nicdark_shadow">
-
-                <div class="nicdark_textevidence nicdark_bg_orange nicdark_radius_top">
-
-                    <h4 class="white nicdark_margin20">Fizetési tranzakció megkezdése - számlázási adatok</h4>
-
-                    <i class="icon-mail nicdark_iconbg right medium orange"></i>
-
-                </div>
-
-                <div class="nicdark_margin20">
-
-
-
-        <a href="http://simplepartner.hu/PaymentService/Fizetesi_tajekoztato.pdf" target="_blank" style="display:block;margin-bottom:20px;">     <img style="width:197px !important" width="197" height="27" src="{{'assets/own/images/simplepay.png'|theme}}" title=" SimplePay - Online bankkártyás fi zetés" alt=" SimplePay vásárlói tájékoztató">
-
-        </a>
-
-
-
-                    <h3>Tétel:</h3>
-
-                    {% if simplepay_session.type == "register" %}
-
-                    <br>
-
-                    	<p>
-
-                    		Regisztráció a ProfiMagántanár applikációba {{simplepay_session.active_until}} ideig
-
-                    	</p>
-
-                    	<br>
-
-                    {% elseif simplepay_session.type == "extra_kiemeles" %}
-
-                    <br>
-
-                        <p>
-
-                            Extra kiemelés a ProfiMagántanár applikációban {{simplepay_session.active_until}} ideig
-
-                        </p>
-
-                        <br>
-
-
-
-                    {% elseif simplepay_session.type == "alap_kiemeles" %}
-
-
-
-                    <br>
-
-                        <p>
-
-                            Alap kiemelés a ProfiMagántanár applikációban {{simplepay_session.active_until}} ideig {{subject.name}} tantárgyból
-
-                        </p>
-
-                        <br>
-
-
-
-                    {% endif %}
-
-
-
-
-
-                    <h3>Összeg:</h3>
-
-
-
-                    <br>
-
-                    <p>
-
-                    {{simplepay_session.price}} Ft
-
-         			</p>
-
-                    <br>
-
-
-
-                    <p>*Ország</p>
-
-                    <div class="nicdark_space5"></div>
-
-                    <input class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle" type="text"
-
-
-
-                    {% if user %}
-
-                    value="{{user.billing_country}}"
-
-                    {% endif %}
-
-
-
-                    size="200" name="billing_country" required disabled placeholder="Kötelező megadni..."
-
-                    >
-
-
-
-                    <div class="nicdark_space20"></div>
-
-
-
-
-
-                    <p>*Város</p>
-
-                    <div class="nicdark_space5"></div>
-
-                    <input class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle" type="text"
-
-                    disabled
-
-                    {% if user %}
-
-                    value="{{user.billing_city}}"
-
-                    {% endif %}
-
-
-
-                    size="200" name="billing_city" required placeholder="Kötelező megadni..."
-
-                    >
-
-
-
-                    <div class="nicdark_space20"></div>
-
-
-
-
-
-
-
-
-
-                    <p>*Zip kód</p>
-
-                    <div class="nicdark_space5"></div>
-
-                    <input class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle" type="text"
-
-                    disabled
-
-                    {% if user %}
-
-                    value="{{user.billing_zip}}"
-
-                    {% endif %}
-
-
-
-                    size="200" name="billing_zip" required placeholder="Kötelező megadni..."
-
-                    >
-
-
-
-                    <div class="nicdark_space20"></div>
-
-
-
-
-
-
-
-                    <p>*Utca</p>
-
-                    <div class="nicdark_space5"></div>
-
-                    <input class="nicdark_bg_grey2 nicdark_radius nicdark_shadow grey small subtitle" type="text"
-
-                    disabled
-
-                    {% if user %}
-
-                    value="{{user.billing_street}}"
-
-                    {% endif %}
-
-
-
-                    size="200" name="billing_street" required placeholder="Kötelező megadni..."
-
-                    >
-
-
-
-                    <div class="nicdark_space20"></div>
-
-
-
-
-
-        				<!--
-
-                        <input class="nicdark_btn nicdark_bg_orange medium nicdark_shadow nicdark_radius white" type="submit" value="Fizetés!">
-
-                    -->
-
-                    {{simple_pay_form|raw}}
-
-
-
-
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-
 
 
         <div class="nicdark_space50"></div>
 
 
+        <div class="grid grid_12">
+            <h1 class="subtitle greydark">Fizetés lemondása</h1>
+            <div class="nicdark_space20"></div>
+            <h3 class="subtitle grey"></h3>
+            <div class="nicdark_space20"></div>
+            <div class="nicdark_divider center big"><span class="nicdark_bg_yellow nicdark_radius"></span></div>
+            <div class="nicdark_space10"></div>
+        </div>
+
+
+        <p>
+          SimplePay
+                
+        <br>
+
+        </p>
+
+        <div class="nicdark_space50"></div>
+
+
+
+            <div class="nicdark_textevidence nicdark_bg_grey nicdark_shadow nicdark_radius left overflow_scroll">  
+   
+            </div>
+
+
 
     </div>
-
     <!--end nicdark_container-->
-
-
-
+            
 </section>
+
+
+<div class="container response-container">
+
+    <div>
+
+        <div class="nicdark_progressbar nicdark_bg_grey nicdark_radius nicdark_shadow flash-messages">
+            <h5 class="nicdark_progressbar_title nicdark_bg_green nicdark_bg_greendark_hover nicdark_radius nicdark_shadow fade-left animate3 animated fadeInLeft" style="width:100%">
+                <span class="white nicdark_size_big">Sikeres lemondás!</span>
+            </h5>
+        </div>
+
+
+
+        <div class="nicdark_progressbar nicdark_bg_grey nicdark_radius nicdark_shadow flash-messages">
+            <h5 class="nicdark_progressbar_title nicdark_bg_green nicdark_bg_greendark_hover nicdark_radius nicdark_shadow fade-left animate3 animated fadeInLeft" style="width:100%">
+                <span class="white nicdark_size_big">Sikeresen lemondtad az előfizetést!</span>
+            </h5>
+        </div>
+ 
+       
+    </div>
+           
+</div><!-- /.modal-content -->

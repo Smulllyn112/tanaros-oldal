@@ -48,14 +48,23 @@ function onStart(){
     $this["featured_teachers"] = collect();
     $this["simple_teachers"] = collect();
 
-    foreach($all_teachers as $teacher){
-      if($teacher->alap_kiemelt_until > now() || $teacher->extran_kiemelt_until > now()){
-        $this["featured_teachers"][] = $teacher;
-      } else {
-        $this["simple_teachers"][] = $teacher;
+    if($this["current_subject"]){
+      foreach($all_teachers as $teacher){
+        if($teacher->extran_kiemelt_until > now() || $teacher->subjects->where("id",$this["current_subject"]->id)->first()->pivot->alap_kiemelt_until > now()){
+          $this["featured_teachers"][] = $teacher;
+        } else {
+          $this["simple_teachers"][] = $teacher;
+        }
+      }
+    } else{
+      foreach($all_teachers as $teacher){
+        if($teacher->extran_kiemelt_until > now()){
+          $this["featured_teachers"][] = $teacher;
+        } else {
+          $this["simple_teachers"][] = $teacher;
+        }
       }
     }
-
 
     //dd($this["teachers"]);
     //dd($query);

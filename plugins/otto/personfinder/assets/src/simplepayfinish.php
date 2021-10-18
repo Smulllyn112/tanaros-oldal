@@ -75,7 +75,7 @@ if (array_get($this['result'], "e") === "SUCCESS" or array_get($this['result'], 
 
         $this["user"]->active_until = $simplepay_session->active_until;
         $this["user"]->save();
-        $this["invoice_message"] = "Sikeres előfizetés a ". env("APP_NAME") . "alkalmazásban!";
+        $this["invoice_message"] = "Sikeres előfizetés a ". env("APP_NAME") . "alkalmazásban " . $simplepay_session->active_until . " ideig!";
 
         // email küldés adminnak, hogy lássuk hogy regisztrált hozzánk, és a felhasználónak is.
 
@@ -234,7 +234,7 @@ if (array_get($this['result'], "e") === "SUCCESS" or array_get($this['result'], 
         ]
     ];
 
-    dd("megvagyunk!");
+    //dd("megvagyunk!");
 
     $invoice = $billingo->createDocument($invoice);
 
