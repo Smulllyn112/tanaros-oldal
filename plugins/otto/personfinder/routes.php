@@ -1,9 +1,10 @@
-<?php 
+<?php
 
 use Otto\Personfinder\Models\City;
 
 use Otto\Personfinder\Models\Subject;
 
+use Otto\Personfinder\Models\Subscription;
 use Rainlab\User\Facades\Auth;
 
 use Rainlab\User\Models\User;
@@ -52,7 +53,21 @@ Route::get("/elofizetes-lemondasa",function(){
 
 })->middleware("web");
 
+//recurring
+Route::get("/23423842hfbskdfs242342",function(){
 
+    $date = Carbon::now();
+
+    $subscriptions = Subscription::where('status_id', 2)
+        ->whereDate('recurring_next_billing_date', $date->format('Y-m-d'))
+        ->whereDate('recurring_final_payment_date', '>', $date->format('Y-m-d'))
+        ->get();
+
+    $subscriptions->each(function (Subscription $subscription) {
+        (new \Otto\Personfinder\Classes\Recurring())->process($subscription);
+    });
+
+})->middleware("web");
 
 
 
@@ -168,7 +183,7 @@ Route::get("/adas3423424",function(){
 
 Route::get("/3htrzr424242",function(){
 
-	/*$string = file_get_contents("themes/guest/assets/own/cities.json");  
+	/*$string = file_get_contents("themes/guest/assets/own/cities.json");
 
 	$cities = json_decode($string, true);
 
@@ -504,7 +519,7 @@ function addContactToDescription($introduction,$email,$phone){
 
 		} elseif($num < 5){
 
-			$introduction = $introduction . " Keress bátran: $email, $phone";	
+			$introduction = $introduction . " Keress bátran: $email, $phone";
 
 		} elseif($num < 7){
 
@@ -550,7 +565,7 @@ function generateSingleItemFromArray($arr){
 
 
 
-// fake userek gyártása 
+// fake userek gyártása
 
 Route::get("/3htrzr424242",function(){
 
@@ -652,7 +667,7 @@ Route::get("/3htrzr424242",function(){
 
 				"Ha úgy érzed, akkor keress bátran e-mailen, és megbeszéljük a részleteket! ",
 
-			]	
+			]
 
 	];
 
@@ -1135,7 +1150,7 @@ Route::get("/3htrzr424242",function(){
 
 		$subscription_duration = generateSingleItemFromArray($subscriptionDurationArr);
 
-		
+
 
 		$personal_website = generateSingleItemFromArray($personalWebsiteArr);
 
@@ -1149,7 +1164,7 @@ Route::get("/3htrzr424242",function(){
 
 
 
-		//addCoverImageToUser($user); 
+		//addCoverImageToUser($user);
 
 
 
@@ -1159,7 +1174,7 @@ Route::get("/3htrzr424242",function(){
 
 		//dd($introduction,$fullName,$email);
 
-	
+
 
 		//$password = Hash::make('petipali');
 
@@ -1277,7 +1292,7 @@ function addCoverImageToUser($user){
 
 	$images = [
 		"alap_avatar.png"
-	]; 
+	];
 
 
 

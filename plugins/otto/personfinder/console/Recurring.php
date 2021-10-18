@@ -29,8 +29,6 @@ class Recurring extends Command
     {
         $subscriptions = $this->getSubscription(Carbon::now());
 
-        dd($subscriptions);
-
         $subscriptions->each(function (Subscription $subscription) {
             (new \Otto\Personfinder\Classes\Recurring())->process($subscription);
         });

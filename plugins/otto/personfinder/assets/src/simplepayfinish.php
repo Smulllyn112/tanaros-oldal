@@ -69,14 +69,15 @@ if (array_get($this['result'], "e") === "SUCCESS" or array_get($this['result'], 
         $subscription->recurring_cycles_completed = $subscription->recurring_cycles_completed + 1;
         $subscription->recurring_cycles_remaining = $subscription->recurring_cycles_remaining - 1;
         $subscription->recurring_last_payment_date = Carbon::now();
-        $subscription->recurring_next_billing_date = Carbon::now()->modify('+'.$subscription->recurring_frequency_interval." ".$subscription->recurring_frequency);
+        //$subscription->recurring_next_billing_date = Carbon::now()->modify('+'.$subscription->recurring_frequency_interval." ".$subscription->recurring_frequency);
+        $subscription->recurring_next_billing_date = Carbon::now()->modify('+ 1 day');
         $subscription->save();
 
         $this["user"]->active_until = $simplepay_session->active_until;
         $this["user"]->save();
         $this["invoice_message"] = "Sikeres előfizetés a ". env("APP_NAME") . "alkalmazásban!";
 
-        // email küldés adminnak, hogy lássuk hogy regisztrált hozzánk, és a felhasználónak is. 
+        // email küldés adminnak, hogy lássuk hogy regisztrált hozzánk, és a felhasználónak is.
 
         $vars = [
 

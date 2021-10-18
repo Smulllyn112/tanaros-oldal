@@ -1,6 +1,6 @@
 title = "IPN megerősítés"
 url = "/ipn-megerosites"
-layout = "default"
+layout = "guest"
 is_hidden = 0
 
 [searchResults]
@@ -17,7 +17,7 @@ use Otto\Personfinder\Models\SubscriptionTransaction;
 function onStart()
 {
 
-    header('Content-Type: text/html; charset=utf-8');
+    //header('Content-Type: text/html; charset=utf-8');
 
     //Optional error riporting
     error_reporting(E_ALL);
@@ -33,7 +33,7 @@ function onStart()
 
     //check signature and confirm IPN
     //-----------------------------------------------------------------------------------------
-    if ($trx->isIpnSignatureCheck($json)) {
+    //if ($trx->isIpnSignatureCheck($json)) {
         /**
          * Generates all response
          * Puts signature into header
@@ -44,34 +44,37 @@ function onStart()
 
         $data = json_decode($json, true);
 
-        //Metjün hogy vol ipn check
         $transaction = SubscriptionTransaction::where('reference', $data['orderRef'])->first();
-        $transaction->simplepay_checked_ipn = 1;
-        $transaction->simplepay_status = $data['status'];
+        if ($transaction) {
+                $transaction->simplepay_checked_ipn = 1;
+                $transaction->simplepay_status = $data['status'];
 
-        /**
-         * Ha nem volt sikeres akkor kiütjük az előfizetést, itt ezt kelelne amjd figyened...
-         */
-        if ($data['status'] != 'FINISHED' and $data['status'] != 'SUCCESS') {
-            $subscription = $transaction->subscription;
+                /**
+                * Ha nem volt sikeres akkor kiütjük az előfizetést, itt ezt kelelne amjd figyened...
+                */
+                if ($data['status'] != 'FINISHED' and $data['status'] != 'SUCCESS') {
+                    $subscription = $transaction->subscription;
 
-            $subscription->status_id = 3;
-            $subscription->save();
+                    $subscription->status_id = 3;
+                    $subscription->save();
 
-            /**
-             * Ha rossz akkor a hozzá tratotó tokent töröjük, elvileg csak a jó a tranzakciókhoz használódnak el...
-             */
-            $token = SubscriptionToken::query()
-                ->where('simplepay_transaction_id', $data['transactionId'])
-                ->first();
+                    /**
+                    * Ha rossz akkor a hozzá tratotó tokent töröjük, elvileg csak a jó a tranzakciókhoz használódnak el...
+                    */
+                    $token = SubscriptionToken::query()
+                        ->where('simplepay_transaction_id', $data['transactionId'])
+                        ->first();
 
-            if ($token) {
-                $token->simplepay_transaction_id = null;
-                $token->save();
+                    if ($token) {
+                        $token->simplepay_transaction_id = null;
+                        $token->save();
+                    }
+                }
             }
+
+            $transaction->save();
         }
 
-        $transaction->save();
 
         $trx->runIpnConfirm();
 
@@ -84,7 +87,7 @@ function onStart()
          * Use this OR runIpnConfirm()
          */
         //$confirm = $trx->getIpnConfirmContent();
-    }
+    //}
 
     //no need to print further information
     exit;
