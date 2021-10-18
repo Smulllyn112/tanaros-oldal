@@ -237,6 +237,10 @@ if (array_get($this['result'], "e") === "SUCCESS" or array_get($this['result'], 
     //dd("megvagyunk!");
 
     $invoice = $billingo->createDocument($invoice);
+    $billingo->sendDocument($invoice['id'], [
+        $this["user"]->email
+    ]);
+
 
     // levélben küldött számla URL
     /*$invoice_url = createInvoice([

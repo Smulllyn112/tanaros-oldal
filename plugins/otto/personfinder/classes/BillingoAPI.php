@@ -111,4 +111,11 @@ class BillingoAPI
 
         return $this->runPostRequest('documents', $invoice);
     }
+
+    public function sendDocument($id, $emails = [])
+    {
+        return $this->runPostRequest('/documents/'.$id.'/send', [
+            "emails" => $emails
+        ]);
+    }
 }

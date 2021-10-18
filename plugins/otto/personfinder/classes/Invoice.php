@@ -54,6 +54,10 @@ class Invoice
 
         $transaction->invoice = $invoice['invoice_number'];
         $transaction->save();
+
+        $this->billingo->sendDocument($invoice['id'], [
+            $user->email
+        ]);
     }
 
     protected function createPartner(Subscription $subscription, User $user)
