@@ -24,7 +24,7 @@ class Recurring
         /**
          * @var SubscriptionToken $token
          */
-        $token = $subscription->tokens()->whereIsNull('simplepay_transaction_id')->first();
+        $token = $subscription->tokens()->whereNull('simplepay_transaction_id')->first();
         if (!$token) {
             $subscription->status_id = 3;
             $subscription->recurring_state = 'NOT_ENOUGH_TOKEN';
