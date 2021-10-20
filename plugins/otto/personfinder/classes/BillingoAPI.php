@@ -43,10 +43,9 @@ class BillingoAPI
 
         curl_close($ch);
 
+
         return json_decode($result, true);
     }
-
-
 
     private function runGetRequest($endpoint, $params = [])
     {
@@ -114,7 +113,7 @@ class BillingoAPI
 
     public function sendDocument($id, $emails = [])
     {
-        return $this->runPostRequest('/documents/'.$id.'/send', [
+        return $this->runPostRequest('documents/'.$id.'/send', [
             "emails" => $emails
         ]);
     }
