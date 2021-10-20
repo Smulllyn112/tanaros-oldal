@@ -43,8 +43,8 @@ class Recurring
         $transaction->save();
 
         $trx = new \SimplePayDorecurring;
-        $trx->addConfig($this->$config);
-        $trx->addConfigData('merchantAccount', $_REQUEST['merchant']);
+        $trx->addConfig($this->config);
+        $trx->addConfigData('merchantAccount', $this->config['HUF_MERCHANT']);
 
         $trx->addData('token', $token->simplepay_token);
 
@@ -65,8 +65,8 @@ class Recurring
 
         $subscription->recurring_cycles_remaining = $subscription->recurring_cycles_remaining - 1;
         $subscription->recurring_cycles_completed = $subscription->recurring_cycles_completed + 1;
-        $subscription->simplepay_recurring_last_payment_date = Carbon::now();
-        $subscription->simplepay_recurring_next_billing_date = $this->calcPayDate(Carbon::now(), $subscription->recurring_frequency, $subscription->recurring_frequency_interval);
+        $subscription->recurring_last_payment_date = Carbon::now();
+        $subscription->recurring_next_billing_date = $this->calcPayDate(Carbon::now(), $subscription->recurring_frequency, $subscription->recurring_frequency_interval);
         $subscription->save();
 
         //Kiállítjuk a számlát -> itt be lehet állítani a kommentet is...
