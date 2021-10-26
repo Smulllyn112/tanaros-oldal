@@ -18,7 +18,7 @@ class Invoice
 
     public function create(Subscription $subscription, SubscriptionTransaction $transaction, $invoiceMessage = null)
     {
-        $user = $subscription->user;
+        $user = $subscription->users;
 
         $partner = $this->createPartner($subscription, $user);
 
@@ -37,12 +37,12 @@ class Invoice
                 [
                     'name' => 'Előfizetés',
                     'unit_price' => $subscription->amount,
-                    'unit' => 1,
+                    'unit' => 'hónap',
                     'unit_price_type' => 'net', // gross
                     'vat' => '0%',
                     //'vat' => '27%',
                     'quantity' => 1,
-                    'comment' => $invoiceMessage
+                    'comment' => ($invoiceMessage) ? $invoiceMessage : ''
                 ]
             ],
             'settings' => [
